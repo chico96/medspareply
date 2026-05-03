@@ -31,11 +31,18 @@ const toneOpeners: Record<ReplyTone, string> = {
   upbeat: "Thank you for the kind words",
 };
 
-const positiveClosers: Record<ReplyTone, string> = {
-  warm: "We loved caring for you and look forward to welcoming you back soon.",
-  polished: "We appreciate your trust and look forward to your next visit.",
-  clinical: "We appreciate your trust in our team and look forward to supporting your ongoing care.",
-  upbeat: "We are thrilled you enjoyed your visit and cannot wait to see you again.",
+const positiveClosersFive: Record<ReplyTone, string> = {
+  warm: "we look forward to welcoming you back soon.",
+  polished: "we look forward to your next visit.",
+  clinical: "we look forward to supporting your ongoing care.",
+  upbeat: "we cannot wait to see you again.",
+};
+
+const positiveClosersFour: Record<ReplyTone, string> = {
+  warm: "we will keep refining each visit so it feels even better next time.",
+  polished: "your notes will help us refine the next visit even further.",
+  clinical: "your notes will be reviewed as part of our ongoing quality work.",
+  upbeat: "we cannot wait to make your next visit even better.",
 };
 
 const neutralClosers: Record<ReplyTone, string> = {
@@ -74,11 +81,10 @@ function containsClinicalService(serviceType: string, reviewText: string): boole
 
 export function generateReviewReply(input: ReviewReplyInput): ReviewReplyOutput {
   const review = cleanText(input.reviewText);
-  const serviceType = cleanText(input.serviceType) || "your service";
+  const serviceType = cleanText(input.serviceType) || "your visit";
   const rating = clampRating(input.rating);
   const tone = input.tone in toneOpeners ? input.tone : "polished";
   const teamMember = review ? extractTeamMember(review) : null;
-  const teamPhrase = teamMember ? `${teamMember} and our team appreciate` : "Our team appreciates";
   const safetyNotes = [
     "Do not mention protected health details or treatment outcomes beyond what the guest shared publicly.",
     "Keep claims modest; avoid guaranteeing medical or cosmetic results.",
@@ -92,7 +98,7 @@ export function generateReviewReply(input: ReviewReplyInput): ReviewReplyOutput 
 
   if (rating <= 2) {
     return {
-      publicReply: `${negativeOpeners[tone]}. We appreciate you bringing this to our attention after your ${serviceType} visit. Please contact our practice manager directly so we can listen, review the details, and follow up offline with care.`,
+      publicReply: `${negativeOpeners[tone]} during your ${serviceType} visit. Please contact our practice manager directly so we can listen, look into the details, and follow up with care.`,
       privateFollowUp: `Call the guest within one business day, document the timeline, and have a manager or licensed provider review any clinical concerns before responding further.`,
       safetyNotes,
     };
@@ -100,24 +106,27 @@ export function generateReviewReply(input: ReviewReplyInput): ReviewReplyOutput 
 
   if (rating === 3) {
     return {
-      publicReply: `${toneOpeners[tone]}. We appreciate your feedback about your ${serviceType} experience and will share it with our team. ${neutralClosers[tone]}`,
+      publicReply: `${toneOpeners[tone]} about your ${serviceType} visit. We will share your notes with the team. ${neutralClosers[tone]}`,
       privateFollowUp: `Ask the front desk to send a short check-in, identify one operational improvement, and invite the guest to discuss specifics privately.`,
       safetyNotes,
     };
   }
 
-  const fallbackDetail =
-    rating === 4
-      ? "you took time to leave a thoughtful rating"
-      : "your visit felt memorable";
-  const detail = review ? review.replace(/[.!?]+$/, "") : fallbackDetail;
+  const teamPhrase = teamMember
+    ? `${teamMember} and the team appreciated`
+    : "Our team appreciated";
+
+  if (rating === 5) {
+    return {
+      publicReply: `${toneOpeners[tone]} after your ${serviceType} visit. ${teamPhrase} caring for you — ${positiveClosersFive[tone]}`,
+      privateFollowUp: `Flag this guest for a rebooking thank-you, ask permission before resharing their words, and invite them to mention their favorite service in future reviews.`,
+      safetyNotes,
+    };
+  }
 
   return {
-    publicReply: `${toneOpeners[tone]} after your ${serviceType} visit. ${teamPhrase} your feedback: “${detail}.” ${positiveClosers[tone]}`,
-    privateFollowUp:
-      rating === 5
-        ? `Flag this guest for a rebooking thank-you, ask permission before resharing their words, and invite them to mention their favorite service in future reviews.`
-        : `Ask the front desk to thank the guest, note any improvement cues, and make the next ${serviceType} visit feel even more personal.`,
+    publicReply: `${toneOpeners[tone]} about your ${serviceType} visit. ${teamPhrase} the chance to host you — ${positiveClosersFour[tone]}`,
+    privateFollowUp: `Ask the front desk to thank the guest, note any improvement cues, and make the next ${serviceType} visit feel even more personal.`,
     safetyNotes,
   };
 }

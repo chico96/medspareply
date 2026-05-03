@@ -13,11 +13,11 @@ export function SiteHeader({ homepageAnchors = false }: SiteHeaderProps) {
         <span aria-hidden="true">✦</span> MedSpaReply
       </Link>
       <div className={styles.navLinks}>
-        <Link href={homepageAnchors ? "#generator" : "/#generator"}>Generator</Link>
+        <Link href={homepageAnchors ? "#generator" : "/#generator"}>Free generator</Link>
+        <Link href={homepageAnchors ? "#toolkit" : "/#toolkit"}>$49 toolkit</Link>
         <Link href="/review-response-examples">Examples</Link>
         <Link href="/negative-review-response">Negative reviews</Link>
         <Link href="/local-seo-checklist">Local SEO</Link>
-        <Link href={homepageAnchors ? "#waitlist" : "/#waitlist"}>Pilot</Link>
       </div>
     </nav>
   );

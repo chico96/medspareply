@@ -1,18 +1,28 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { generateReviewReply, services, tones, type ReplyTone, type ReviewReplyInput } from "@/lib/replyGenerator";
+import {
+  generateReviewReply,
+  services,
+  tones,
+  type ReplyTone,
+  type ReviewReplyInput,
+} from "@/lib/replyGenerator";
 import styles from "./page.module.css";
 
 const exampleInput: ReviewReplyInput = {
   reviewText:
-    "Loved my Hydrafacial with Mia. The spa felt calm and my skin looked so refreshed before my event.",
+    "Loved my Hydrafacial with Mia. The spa felt calm and my skin looked refreshed before my event.",
   rating: 5,
   serviceType: "Hydrafacial",
   tone: "warm",
 };
 
-export function FreeGenerator() {
+type FreeGeneratorProps = {
+  toolkitHref?: string;
+};
+
+export function FreeGenerator({ toolkitHref }: FreeGeneratorProps = {}) {
   const [reviewText, setReviewText] = useState(exampleInput.reviewText);
   const [rating, setRating] = useState(exampleInput.rating);
   const [serviceType, setServiceType] = useState(exampleInput.serviceType);
@@ -43,15 +53,19 @@ export function FreeGenerator() {
 
   return (
     <section className={styles.generator} id="generator" aria-labelledby="generator-title">
-      <div className={styles.sectionEyebrow}>Free local generator</div>
       <div className={styles.generatorHeader}>
         <div>
-          <h2 id="generator-title">Turn a med-spa review into a polished reply in seconds.</h2>
+          <div className={styles.sectionEyebrow}>Free generator · runs in your browser</div>
+          <h2 id="generator-title">
+            Try it: turn a med-spa review into a polished, HIPAA-aware reply.
+          </h2>
           <p>
-            Deterministic and private by design: no API calls, no keys, no review data leaving the browser.
+            No login, no API key, no review text leaving your device. The generator covers
+            the basics — the $49 toolkit gives your team 120 polished templates plus the SOPs
+            that make replying take 20 minutes a week.
           </p>
         </div>
-        <span className={styles.localBadge}>Local-only MVP</span>
+        <span className={styles.localBadge}>Local-only · private</span>
       </div>
 
       <div className={styles.generatorGrid}>
@@ -75,7 +89,10 @@ export function FreeGenerator() {
           <div className={styles.fieldGrid}>
             <label>
               Rating
-              <select value={rating} onChange={(event) => setRating(Number(event.target.value))}>
+              <select
+                value={rating}
+                onChange={(event) => setRating(Number(event.target.value))}
+              >
                 {[5, 4, 3, 2, 1].map((value) => (
                   <option key={value} value={value}>
                     {value} stars
@@ -86,7 +103,10 @@ export function FreeGenerator() {
 
             <label>
               Service
-              <select value={serviceType} onChange={(event) => setServiceType(event.target.value)}>
+              <select
+                value={serviceType}
+                onChange={(event) => setServiceType(event.target.value)}
+              >
                 {services.map((service) => (
                   <option key={service} value={service}>
                     {service}
@@ -97,7 +117,10 @@ export function FreeGenerator() {
 
             <label>
               Tone
-              <select value={tone} onChange={(event) => setTone(event.target.value as ReplyTone)}>
+              <select
+                value={tone}
+                onChange={(event) => setTone(event.target.value as ReplyTone)}
+              >
                 {tones.map((toneOption) => (
                   <option key={toneOption} value={toneOption}>
                     {toneOption[0].toUpperCase() + toneOption.slice(1)}
@@ -109,9 +132,14 @@ export function FreeGenerator() {
 
           <div className={styles.generatorActions}>
             <button type="submit">Generate reply</button>
-            <button type="button" onClick={resetExample}>Reset example</button>
+            <button type="button" onClick={resetExample}>
+              Reset example
+            </button>
           </div>
-          <small className={styles.privacyNote}>Runs locally in your browser. Paste, generate, copy, and leave.</small>
+          <small className={styles.privacyNote}>
+            Runs locally in your browser. Paste, generate, copy, and leave — review text is
+            never sent anywhere.
+          </small>
         </form>
 
         <div className={styles.outputPanel} aria-live="polite">
@@ -126,8 +154,11 @@ export function FreeGenerator() {
           </div>
           <div className={styles.outputCard}>
             <div className={styles.outputHeader}>
-              <span>Private follow-up</span>
-              <button type="button" onClick={() => copyText("follow-up", reply.privateFollowUp)}>
+              <span>Private follow-up checklist</span>
+              <button
+                type="button"
+                onClick={() => copyText("follow-up", reply.privateFollowUp)}
+              >
                 {copied === "follow-up" ? "Copied" : "Copy"}
               </button>
             </div>
@@ -135,8 +166,11 @@ export function FreeGenerator() {
           </div>
           <div className={styles.outputCard}>
             <div className={styles.outputHeader}>
-              <span>Safety notes</span>
-              <button type="button" onClick={() => copyText("notes", reply.safetyNotes.join("\n"))}>
+              <span>HIPAA-aware safety reminders</span>
+              <button
+                type="button"
+                onClick={() => copyText("notes", reply.safetyNotes.join("\n"))}
+              >
                 {copied === "notes" ? "Copied" : "Copy"}
               </button>
             </div>
@@ -145,8 +179,26 @@ export function FreeGenerator() {
                 <li key={note}>{note}</li>
               ))}
             </ul>
+            <small>Wording reminders only — not legal or medical advice.</small>
           </div>
         </div>
+      </div>
+
+      <div className={styles.generatorUpsell}>
+        <div>
+          <span className={styles.upsellEyebrow}>When the free generator is not enough</span>
+          <strong>
+            Get 120 polished templates, negative-review scripts, and the front-desk SOP for $49.
+          </strong>
+          <p>
+            The generator handles a single reply at a time. The launch toolkit gives your team
+            ready-to-paste wording for every star rating, treatment, and escalation — plus
+            Google Business Profile prompts and a 90-day content calendar.
+          </p>
+        </div>
+        <a className={styles.upsellCta} href={toolkitHref ?? "#toolkit"}>
+          Get the $49 toolkit
+        </a>
       </div>
     </section>
   );

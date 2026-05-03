@@ -1,21 +1,26 @@
 import Link from "next/link";
-import { faqItems, contentExamples, toolkitFeatures } from "@/lib/marketing";
+import {
+  audiences,
+  beforeAfter,
+  contentExamples,
+  faqItems,
+  guarantee,
+  toolkitDeliverables,
+  trustBullets,
+} from "@/lib/marketing";
 import { FreeGenerator } from "./FreeGenerator";
 import { SiteFooter } from "./_components/SiteFooter";
 import { SiteHeader } from "./_components/SiteHeader";
 import styles from "./page.module.css";
 
-const included = [
-  "Review reply generator with service-aware safety notes",
-  "Copy blocks for Google, Yelp, and RealSelf-style public responses",
-  "Local SEO prompts for treatment pages, city pages, and GBP posts",
-  "Escalation language for low ratings, clinical concerns, and refunds",
-];
+const TOOLKIT_MAILTO =
+  "mailto:hello@denzellrei.com?subject=MedSpaReply%20%2449%20launch%20toolkit&body=Hi%20Denzell%2C%20I%27d%20like%20to%20buy%20the%20%2449%20MedSpaReply%20launch%20toolkit.%20My%20clinic%3A%20%5Bclinic%20name%5D%20in%20%5Bcity%5D.";
 
-const steps = [
-  "Paste the review and select rating, service, and tone.",
-  "Use the public reply and private follow-up checklist.",
-  "Upgrade to the toolkit when your team needs repeatable SOPs and content.",
+const heroQuickFacts = [
+  { label: "Templates", value: "120" },
+  { label: "Service categories", value: "6" },
+  { label: "Refund window", value: "7 days" },
+  { label: "Launch price", value: "$49" },
 ];
 
 const resources = [
@@ -24,7 +29,7 @@ const resources = [
     eyebrow: "Examples",
     title: "Med spa review response examples (5★ to 1★)",
     blurb:
-      "Example public replies for Hydrafacial, Injectables, Laser, Peels, and membership visits across every star rating.",
+      "Public reply patterns for Hydrafacial, injectables, laser, peels, and membership visits at every star rating.",
   },
   {
     href: "/negative-review-response",
@@ -49,44 +54,137 @@ export default function Home() {
 
       <section className={styles.hero} id="top">
         <div className={styles.heroCopy}>
-          <div className={styles.pill}>Early pilot · review replies + local SEO for med spas</div>
-          <h1>Premium reputation marketing for aesthetic clinics that move fast.</h1>
+          <div className={styles.pill}>
+            Launch toolkit · review replies + local SEO for med spas
+          </div>
+          <h1>
+            Med-spa review replies your front desk can copy, customize, and post safely.
+          </h1>
           <p>
-            MedSpaReply helps owners, managers, and front-desk teams answer reviews, protect trust,
-            and turn everyday guest feedback into local search content—without exposing private data.
+            Use the free browser-based generator for quick, HIPAA-aware replies. Upgrade to
+            the <strong>$49 launch toolkit</strong> for 120 service-specific templates,
+            negative-review scripts, a safety checklist, and Google Business Profile prompts —
+            instant-ready, refundable for 7 days.
           </p>
           <div className={styles.ctas}>
-            <a className={styles.primaryCta} href="#generator">Try the free generator</a>
-            <a className={styles.secondaryCta} href="#toolkit">See the $49 toolkit</a>
+            <a className={styles.primaryCta} href={TOOLKIT_MAILTO}>
+              Get the $49 toolkit
+            </a>
+            <a className={styles.secondaryCta} href="#generator">
+              Try the free generator
+            </a>
           </div>
-          <div className={styles.metrics} aria-label="Product highlights">
-            <span><strong>0</strong> external APIs</span>
-            <span><strong>3</strong> reply outputs</span>
-            <span><strong>$49</strong> launch toolkit</span>
-          </div>
+          <ul className={styles.trustList} aria-label="Why med spas trust MedSpaReply">
+            {trustBullets.map((bullet) => (
+              <li key={bullet}>
+                <span aria-hidden="true">✓</span>
+                {bullet}
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className={styles.heroCard}>
-          <div className={styles.cardHeader}>Today&apos;s response queue</div>
-          <div className={styles.reviewBubble}>“Loved my laser results, but check-in was confusing.”</div>
-          <div className={styles.replyPreview}>
-            <span>Suggested reply</span>
-            <p>
-              Thank you for trusting us with your laser visit. We&apos;re glad you shared both the win and
-              the check-in note—our team will review it so your next visit feels even smoother.
-            </p>
+        <aside className={styles.heroCard} aria-label="Sample reply">
+          <div className={styles.cardHeader}>Sample · 5★ Hydrafacial</div>
+          <div className={styles.reviewBubble}>
+            “Loved my Hydrafacial with Mia. The spa felt calm and my skin looked refreshed
+            before my event.”
           </div>
+          <div className={styles.replyPreview}>
+            <span>Public reply (toolkit-quality)</span>
+            <p>
+              Thank you for trusting us with your visit. Mia and the team appreciated caring
+              for you — we look forward to welcoming you back soon.
+            </p>
+            <div className={styles.heroFacts}>
+              {heroQuickFacts.map((fact) => (
+                <div key={fact.label}>
+                  <strong>{fact.value}</strong>
+                  <span>{fact.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <FreeGenerator toolkitHref={TOOLKIT_MAILTO} />
+
+      <section className={styles.beforeAfter} aria-labelledby="before-after-title">
+        <div className={styles.sectionEyebrow}>Before / after</div>
+        <h2 id="before-after-title">A reply your guests will actually believe.</h2>
+        <p className={styles.beforeAfterIntro}>
+          Generic emoji-stuffed replies feel like spam. Toolkit-quality replies sound like a
+          calm, well-run clinic — without making outcome promises.
+        </p>
+        <div className={styles.beforeAfterGrid}>
+          <article className={styles.beforeCard}>
+            <span>Before</span>
+            <p className={styles.beforeAfterReview}>“{beforeAfter.reviewText}”</p>
+            <div className={styles.beforeAfterReply}>
+              <strong>Typical reply</strong>
+              <p>{beforeAfter.before}</p>
+            </div>
+          </article>
+          <article className={styles.afterCard}>
+            <span>After</span>
+            <p className={styles.beforeAfterReview}>“{beforeAfter.reviewText}”</p>
+            <div className={styles.beforeAfterReply}>
+              <strong>Toolkit reply</strong>
+              <p>{beforeAfter.after}</p>
+            </div>
+          </article>
         </div>
       </section>
 
-      <FreeGenerator />
+      <section className={styles.offer} id="toolkit">
+        <div className={styles.offerHeading}>
+          <div className={styles.sectionEyebrow}>What you get for $49</div>
+          <h2>The MedSpa Review + Local SEO launch toolkit.</h2>
+          <p>
+            Six tangible deliverables your team can use the day they receive them — no
+            onboarding call, no SaaS subscription, no AI key required.
+          </p>
+        </div>
+        <div className={styles.offerLayout}>
+          <div className={styles.deliverableTable}>
+            {toolkitDeliverables.map((item) => (
+              <article key={item.title} className={styles.deliverableRow}>
+                <span className={styles.deliverableCategory}>{item.category}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  <p>{item.detail}</p>
+                </div>
+                <span className={styles.deliverableFormat}>{item.format}</span>
+              </article>
+            ))}
+          </div>
+          <aside className={styles.priceCard}>
+            <span>Launch price</span>
+            <strong>$49</strong>
+            <p>One-time. Instant Google Drive access. Free updates during launch.</p>
+            <a href={TOOLKIT_MAILTO}>Get the $49 toolkit</a>
+            <small>
+              Pilot checkout: opens your email so we can confirm and send your access link
+              within one business day.
+            </small>
+          </aside>
+        </div>
+        <div className={styles.guaranteeBar}>
+          <div>
+            <span className={styles.guaranteeBadge}>Risk reversal</span>
+            <strong>{guarantee.headline}</strong>
+          </div>
+          <p>{guarantee.detail}</p>
+        </div>
+      </section>
 
       <section className={styles.resources} id="resources">
         <div>
           <div className={styles.sectionEyebrow}>Free resources</div>
-          <h2>Playbooks the pilot clinics actually use.</h2>
+          <h2>Playbooks the launch clinics actually use.</h2>
           <p>
-            Three evergreen guides built from real review patterns we see across med spas. Skim
-            them solo, or pair each one with the generator above.
+            Three evergreen guides built from real review patterns we see across med spas.
+            Skim them solo, or pair each one with the generator above.
           </p>
         </div>
         <div className={styles.resourceGrid}>
@@ -101,87 +199,45 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.offer} id="toolkit">
+      <section className={styles.audience}>
         <div>
-          <div className={styles.sectionEyebrow}>Launch offer</div>
-          <h2>The $49 MedSpa Review + Local SEO Toolkit</h2>
-          <p>
-            A plug-and-play operating kit for teams that want premium reply quality before
-            investing in a full software subscription.
-          </p>
+          <div className={styles.sectionEyebrow}>Who it is for</div>
+          <h2>Built for the people who actually answer the reviews.</h2>
         </div>
-        <div className={styles.priceCard}>
-          <span>Founding price</span>
-          <strong>$49</strong>
-          <p>One-time pilot price, hand-delivered while we&apos;re onboarding the first clinics.</p>
-          <a href="#waitlist">Request early access</a>
+        <div className={styles.audienceGrid}>
+          {audiences.map((item) => (
+            <article key={item.title}>
+              <strong>{item.title}</strong>
+              <p>{item.detail}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className={styles.problemSolution}>
         <div className={styles.problemCard}>
           <span>Problem</span>
-          <h2>Every unanswered review is a missed local SEO signal.</h2>
+          <h2>Every unanswered review is a missed local SEO signal — and a quiet trust leak.</h2>
           <p>
-            Med spas juggle clinical nuance, privacy constraints, and high guest expectations. Generic
-            replies feel robotic, while delayed replies reduce trust and visibility.
+            Med spas juggle clinical nuance, privacy constraints, and high guest expectations.
+            Generic replies feel robotic, delayed replies erode trust, and one wrong word can
+            confirm protected health information you never meant to share.
           </p>
         </div>
         <div className={styles.solutionCard}>
           <span>Solution</span>
-          <h2>Fast replies with guardrails your team can actually use.</h2>
+          <h2>Fast replies with guardrails your team can actually use on a Tuesday.</h2>
           <p>
-            MedSpaReply combines service-aware templates, safety reminders, and content prompts so
-            reputation work becomes a weekly growth habit.
+            MedSpaReply gives you service-aware templates, HIPAA-aware wording reminders, and
+            local SEO prompts so reputation work becomes a 20-minute weekly habit — not a
+            weekend project for the owner.
           </p>
-        </div>
-      </section>
-
-      <section className={styles.splitSection}>
-        <div>
-          <div className={styles.sectionEyebrow}>How it works</div>
-          <h2>From review to revenue loop.</h2>
-        </div>
-        <ol className={styles.steps}>
-          {steps.map((step) => <li key={step}>{step}</li>)}
-        </ol>
-      </section>
-
-      <section className={styles.included}>
-        <div className={styles.sectionEyebrow}>What&apos;s included</div>
-        <h2>Built for aesthetic medicine workflows.</h2>
-        <div className={styles.featureGrid}>
-          {included.map((item) => <article key={item}>{item}</article>)}
-        </div>
-      </section>
-
-      <section className={styles.pricing} id="pricing">
-        <div>
-          <div className={styles.sectionEyebrow}>Pricing</div>
-          <h2>Start free. Upgrade when the system saves your team hours.</h2>
-        </div>
-        <div className={styles.pricingGrid}>
-          <article>
-            <span>Free</span>
-            <strong>$0</strong>
-            <p>Use the local review reply generator on this page.</p>
-          </article>
-          <article className={styles.highlightPlan}>
-            <span>Toolkit</span>
-            <strong>$49</strong>
-            <p>Templates, SOPs, and local SEO prompts for launch partners.</p>
-          </article>
-          <article>
-            <span>Future platform</span>
-            <strong>Waitlist</strong>
-            <p>Team seats, saved brand voice, and monthly content workflows.</p>
-          </article>
         </div>
       </section>
 
       <section className={styles.examples}>
         <div>
-          <div className={styles.sectionEyebrow}>SEO/content examples</div>
+          <div className={styles.sectionEyebrow}>Inside the local SEO prompts</div>
           <h2>Turn review insights into local search assets.</h2>
         </div>
         <div className={styles.exampleGrid}>
@@ -194,10 +250,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.toolkitList}>
-        <h2>Toolkit contents</h2>
-        <ul>
-          {toolkitFeatures.map((feature) => <li key={feature}>{feature}</li>)}
+      <section className={styles.safety}>
+        <div className={styles.sectionEyebrow}>Safety + compliance</div>
+        <h2>HIPAA-aware by design — but never legal advice.</h2>
+        <ul className={styles.safetyList}>
+          <li>
+            <strong>Reminders, not legal review.</strong> The toolkit flags wording that risks
+            confirming protected health information, but final compliance decisions still
+            belong with your provider and counsel.
+          </li>
+          <li>
+            <strong>No outcome promises.</strong> Templates avoid guaranteeing medical or
+            cosmetic results — even when the guest praises them in a 5-star review.
+          </li>
+          <li>
+            <strong>Private by default.</strong> The generator never sends review text off
+            your device. The toolkit lives in your own Google Drive.
+          </li>
+          <li>
+            <strong>Not medical advice.</strong> Clinical questions get routed to a licensed
+            provider via the included escalation script.
+          </li>
         </ul>
       </section>
 
@@ -214,23 +287,38 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.waitlist} id="waitlist">
+      <section className={styles.finalCta} id="waitlist">
         <div>
-          <div className={styles.sectionEyebrow}>Pilot · early access</div>
-          <h2>Help shape the med-spa reputation growth system.</h2>
+          <div className={styles.sectionEyebrow}>Get started</div>
+          <h2>Hand your front desk a system, not a vibe.</h2>
           <p>
-            We&apos;re onboarding the first pilot clinics now. Drop your details below or email{" "}
-            <a href="mailto:hello@denzellrei.com">hello@denzellrei.com</a> directly — every reply
-            goes to a human during the pilot.
+            $49 one-time. Instant-ready templates. 7-day refund. Email replies come from a
+            human at hello@denzellrei.com — usually within one business day.
           </p>
+          <div className={styles.ctas}>
+            <a className={styles.primaryCtaLight} href={TOOLKIT_MAILTO}>
+              Get the $49 toolkit
+            </a>
+            <a className={styles.secondaryCtaDark} href="#generator">
+              Try the free generator first
+            </a>
+          </div>
         </div>
-        <form className={styles.waitlistForm} action="mailto:hello@denzellrei.com" method="post" encType="text/plain">
+        <form
+          className={styles.waitlistForm}
+          action="mailto:hello@denzellrei.com"
+          method="post"
+          encType="text/plain"
+          aria-label="Ask a question before you buy"
+        >
+          <strong>Have a question first?</strong>
           <input aria-label="Name" name="name" placeholder="Your name" />
           <input aria-label="Clinic email" name="email" placeholder="Clinic email" type="email" />
           <input aria-label="Med spa city" name="city" placeholder="City / market" />
-          <button type="submit">Request early access</button>
+          <button type="submit">Send a question</button>
           <small>
-            Pilot phase: this opens your email client so you stay in control of what you send.
+            Opens your email client so you stay in control of what you send. No CRM,
+            no marketing automation.
           </small>
         </form>
       </section>

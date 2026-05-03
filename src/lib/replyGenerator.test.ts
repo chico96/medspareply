@@ -161,6 +161,36 @@ describe("generateReviewReply", () => {
       expect(result.safetyNotes).not.toContain(CLINICAL_NOTE);
     });
 
+    it("never echoes the guest's exact review text inside any positive public reply", () => {
+      const reviewText =
+        "My Hydrafacial with Mia made my skin look like glass and I have already booked again.";
+      for (const rating of [4, 5]) {
+        const result = generateReviewReply({
+          reviewText,
+          rating,
+          serviceType: "Hydrafacial",
+          tone: "warm" as const,
+        });
+        expect(result.publicReply, `rating ${rating}`).not.toContain(reviewText);
+        expect(result.publicReply, `rating ${rating}`).not.toContain(
+          "look like glass",
+        );
+      }
+    });
+
+    it("keeps positive public replies short, premium, and outcome-safe", () => {
+      const result = generateReviewReply({
+        reviewText: "Loved my Hydrafacial with Mia.",
+        rating: 5,
+        serviceType: "Hydrafacial",
+        tone: "warm" as const,
+      });
+      expect(result.publicReply.length).toBeLessThan(280);
+      expect(result.publicReply).not.toMatch(
+        /guarantee|cure|amazing results|life[- ]changing/i,
+      );
+    });
+
     it("always includes the baseline PHI and modest-claims notes regardless of rating", () => {
       for (const rating of [1, 2, 3, 4, 5]) {
         const result = generateReviewReply({

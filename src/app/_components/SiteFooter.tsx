@@ -8,8 +8,9 @@ export function SiteFooter() {
         <div className={styles.footerBrand}>
           <strong>MedSpaReply</strong>
           <p>
-            An early pilot for med-spa review replies and local SEO content. Built solo, shipped
-            often, and refined with input from owners and front-desk leads.
+            Premium review replies, HIPAA-aware safety wording, and local SEO prompts for
+            aesthetic clinics. Built from real med-spa review patterns — not generic
+            restaurant templates.
           </p>
         </div>
         <div className={styles.footerCols}>
@@ -25,8 +26,8 @@ export function SiteFooter() {
             <Link href="/local-seo-checklist">Med spa local SEO checklist</Link>
           </div>
           <div>
-            <span>Pilot</span>
-            <Link href="/#waitlist">Join the early-access list</Link>
+            <span>Get started</span>
+            <Link href="/#toolkit">Get the $49 launch toolkit</Link>
             <a href="mailto:hello@denzellrei.com">hello@denzellrei.com</a>
           </div>
         </div>
