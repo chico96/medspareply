@@ -14,7 +14,7 @@ const PRIMARY_CTA_LABEL = STRIPE_ENABLED
 const PRIMARY_CTA_TARGET = STRIPE_ENABLED ? "_blank" : undefined;
 const PRIMARY_CTA_REL = STRIPE_ENABLED ? "noopener noreferrer" : undefined;
 const PRICE_CARD_NOTE = STRIPE_ENABLED
-  ? "Secure Stripe checkout. The polished 31-page PDF pack, six focused PDFs, and editable source files download immediately after payment. 7-day refund."
+  ? "Secure Stripe checkout. The polished 31-page PDF pack, six focused PDFs, and editable source files download immediately after payment. 7-day satisfaction refund."
   : "Pilot checkout opens your email so we can confirm and send your access link within one business day. Payment links via Gumroad / LemonSqueezy / Stripe ship next.";
 
 const ASK_MAILTO =
@@ -156,8 +156,8 @@ const deliveryNotes = [
   },
   {
     label: "Refund policy",
-    title: "7-day refund, no forms, no friction",
-    body: "Use the toolkit for a week. If it doesn't make replying to reviews faster and safer for your team, email hello@spareply.com and we will refund the $49.",
+    title: "7-day satisfaction refund, no forms",
+    body: "Use the toolkit for a week. If it doesn't make replying to reviews faster and safer for your team, email hello@spareply.com within 7 days with the email address and date you used at Stripe checkout — we'll refund the $49 to your original payment method. Requests are reviewed to prevent abuse, duplicate claims, redistribution, or policy misuse.",
   },
 ];
 
@@ -203,7 +203,7 @@ export default function ToolkitPreviewPage() {
               </Link>
             </div>
             <p className={styles.policyTrust}>
-              <strong>7-day refund</strong>
+              <strong>7-day satisfaction refund</strong>
               <span className={styles.sep} aria-hidden="true">·</span>
               <strong>Secure Stripe checkout</strong>
               <span className={styles.sep} aria-hidden="true">·</span>
@@ -344,7 +344,7 @@ export default function ToolkitPreviewPage() {
         <p>
           No onboarding call, no SaaS login, no AI key. Buyers go straight to a download
           page with the polished PDFs and editable source files ready to grab — and a
-          7-day refund if it doesn&rsquo;t earn its keep.
+          7-day satisfaction refund if it doesn&rsquo;t earn its keep.
         </p>
         <div className={styles.deliveryGrid}>
           {deliveryNotes.map((note) => (
@@ -362,7 +362,7 @@ export default function ToolkitPreviewPage() {
           <div className={styles.eyebrow}>Get started</div>
           <h2 id="cta">Hand your front desk a system, not a vibe.</h2>
           <p>
-            $49 one-time. 7-day refund.{" "}
+            $49 one-time. 7-day satisfaction refund.{" "}
             {STRIPE_ENABLED
               ? "Pay via secure Stripe checkout and the polished 31-page PDF pack, six focused PDFs, and editable Markdown / CSV source files download immediately."
               : "Replies come from a human at hello@spareply.com — usually within one business day."}

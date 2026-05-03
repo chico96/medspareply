@@ -88,9 +88,9 @@ export const audiences = [
 ];
 
 export const guarantee = {
-  headline: "7-day refund if it does not save you time",
+  headline: "7-day satisfaction refund",
   detail:
-    "Use the toolkit for a week. If it does not make replying to reviews faster and safer for your team, email hello@spareply.com and we will refund the $49 — no forms, no friction.",
+    "Use the toolkit for a week. If it does not make replying to reviews faster and safer for your team, email hello@spareply.com within 7 days with the email address and date you used at Stripe checkout. We will refund the full $49 — no forms, no survey. Refunds are reviewed to prevent abuse, duplicate claims, redistribution, or policy misuse, and accounts that misuse the policy may be refused future purchases.",
 };
 
 export const contentExamples = [
@@ -137,7 +137,7 @@ export const faqItems = [
   {
     question: "What if it doesn't help my team?",
     answer:
-      "Email hello@spareply.com within 7 days for a full refund. No forms. No support runaround.",
+      "Email hello@spareply.com within 7 days of purchase with the email address and date you used at Stripe checkout, and we'll refund the full $49 to your original payment method. No forms, no survey, no support runaround. Refund requests are reviewed to prevent abuse, duplicate claims, redistribution, or policy misuse — accounts that misuse the policy may be refused future purchases.",
   },
   {
     question: "Will there be a software platform later?",

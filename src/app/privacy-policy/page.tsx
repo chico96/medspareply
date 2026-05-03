@@ -141,7 +141,7 @@ export default function PrivacyPolicyPage() {
           </li>
           <li>
             <strong>Refund:</strong> see the{" "}
-            <Link href="/refund-policy">refund policy</Link> for the 7-day refund
+            <Link href="/refund-policy">refund policy</Link> for the 7-day satisfaction refund
             process.
           </li>
           <li>

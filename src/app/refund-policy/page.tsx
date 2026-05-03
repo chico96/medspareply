@@ -10,7 +10,7 @@ const REFUND_MAILTO =
 export const metadata: Metadata = {
   title: "Refund Policy | SpaReply",
   description:
-    "7-day no-friction refund policy for the $49 SpaReply Med Spa Review + Local SEO Toolkit. Email hello@spareply.com with your order email and date — refunds return to the original payment method.",
+    "7-day satisfaction refund policy for the $49 SpaReply Med Spa Review + Local SEO Toolkit. Email hello@spareply.com with your order email and purchase date — refunds return to the original payment method, and abuse, redistribution, and duplicate claims are reviewed.",
   alternates: { canonical: "/refund-policy" },
   robots: { index: true, follow: true },
 };
@@ -23,7 +23,7 @@ export default function RefundPolicyPage() {
       <SiteHeader />
       <article className={styles.article}>
         <div className={styles.eyebrow}>Refund policy</div>
-        <h1>7-day refund. No forms. Email a human.</h1>
+        <h1>7-day satisfaction refund. No forms. Email a human.</h1>
         <p className={styles.lede}>
           SpaReply sells one paid product: the $49 Med Spa Review + Local SEO Toolkit
           — a one-time digital purchase delivered as printable PDFs and editable source
@@ -35,10 +35,12 @@ export default function RefundPolicyPage() {
           <strong>The short version.</strong>
           <p>
             Email <a href={REFUND_MAILTO}>hello@spareply.com</a> within{" "}
-            <strong>7 days</strong> of your purchase, include the email address and
-            date you used at checkout, and we&rsquo;ll refund the full $49 to your
-            original payment method. No survey, no &ldquo;why are you leaving&rdquo;
-            forms, no phone call required.
+            <strong>7 days</strong> of your purchase. Include the{" "}
+            <strong>email address and purchase date</strong> you used at Stripe
+            checkout, and we&rsquo;ll refund the full $49 to your original payment
+            method. No survey, no &ldquo;why are you leaving&rdquo; forms, no phone
+            call required. Requests are reviewed to prevent abuse, duplicate claims,
+            redistribution, or policy misuse.
           </p>
         </div>
 
@@ -68,7 +70,7 @@ export default function RefundPolicyPage() {
             We use it to look up your order.
           </li>
           <li>
-            Include the <strong>date of purchase</strong>. (If you don&rsquo;t have it
+            Include the <strong>purchase date</strong>. (If you don&rsquo;t have it
             handy, the Stripe receipt in your inbox shows it.)
           </li>
           <li>
@@ -77,6 +79,12 @@ export default function RefundPolicyPage() {
             required to receive the refund.
           </li>
         </ol>
+        <p>
+          Refund requests are reviewed by a human before issuing — typically within
+          two business days — to verify the order and protect against abuse,
+          redistribution, and duplicate claims. The vast majority of refund requests
+          are approved without back-and-forth.
+        </p>
 
         <h2>How and when refunds are issued</h2>
         <ul>
@@ -108,14 +116,43 @@ export default function RefundPolicyPage() {
           should not continue to be redistributed or used after a refund.
         </p>
 
-        <h2>Abuse and fraud</h2>
+        <h2>Abuse, redistribution, and duplicate claims</h2>
         <p>
-          The 7-day refund exists so med-spa owners can buy without risk. Repeated
-          purchases and refunds from the same buyer, fraudulent chargebacks, or
-          requests that appear tied to redistribution or resale of the toolkit may
-          be denied. We reserve the right to refuse a refund in cases of clear
-          abuse, and to refuse future purchases to accounts associated with abusive
-          patterns.
+          The 7-day satisfaction refund exists so med-spa owners can buy without
+          risk. To keep the offer sustainable for everyone, we review each request
+          and may decline a refund — and refuse future purchases to the same
+          account, email, or payment method — when a request appears tied to:
+        </p>
+        <ul>
+          <li>
+            <strong>Repeat refund cycling</strong> — multiple purchases and refunds
+            from the same buyer, household, or clinic.
+          </li>
+          <li>
+            <strong>Redistribution or resale</strong> — sharing the SpaReply-branded
+            PDFs, Markdown, or CSV with other clinics, agencies, courses, or
+            file-sharing sites, in whole or in substantial part.
+          </li>
+          <li>
+            <strong>Duplicate claims</strong> — refund requests on orders already
+            refunded, or chargebacks filed alongside an active refund request.
+          </li>
+          <li>
+            <strong>Fraudulent chargebacks</strong> — disputes filed without
+            contacting us first, after the toolkit has been downloaded, or in bad
+            faith.
+          </li>
+          <li>
+            <strong>Other policy misuse</strong> — patterns that suggest the refund
+            is being used as a free download path rather than as a satisfaction
+            check.
+          </li>
+        </ul>
+        <p>
+          This isn&rsquo;t aimed at the typical buyer — if the toolkit doesn&rsquo;t
+          fit your clinic, just email and we&rsquo;ll refund. The review exists so
+          one bad actor can&rsquo;t force us to take the policy away from everyone
+          else.
         </p>
 
         <h2>Chargebacks</h2>

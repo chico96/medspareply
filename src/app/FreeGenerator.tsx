@@ -68,9 +68,11 @@ export function FreeGenerator({
             Try it: turn a med-spa review into a polished, HIPAA-aware reply.
           </h2>
           <p>
-            No login, no API key, no review text leaving your device. The generator covers
-            the basics — the $49 toolkit gives your team 120 polished templates plus the SOPs
-            that make replying take 20 minutes a week.
+            No login, no API key, no review text leaving your device. The free generator
+            handles <strong>one reply at a time</strong>. The $49 toolkit gives your front
+            desk the full template bank, the negative-review triage SOP, the 7-question
+            safety check, the GBP prompts, and the 4-week content calendar — so replying
+            to a week of reviews is a 20-minute Tuesday block, not a Sunday project.
           </p>
         </div>
         <span className={styles.localBadge}>Local-only · private</span>
@@ -194,14 +196,16 @@ export function FreeGenerator({
 
       <div className={styles.generatorUpsell}>
         <div>
-          <span className={styles.upsellEyebrow}>When the free generator is not enough</span>
+          <span className={styles.upsellEyebrow}>When one reply is not enough</span>
           <strong>
-            Get 120 polished templates, negative-review scripts, and the front-desk SOP for $49.
+            Free generator = one reply. $49 toolkit = the whole front-desk system.
           </strong>
           <p>
-            The generator handles a single reply at a time. The launch toolkit gives your team
-            ready-to-paste wording for every star rating, treatment, and escalation — plus
-            Google Business Profile prompts and a 90-day content calendar.
+            20 paste-ready review-reply templates across 5★ to 1★, the 8-step
+            negative-review triage with sign-off block, the HIPAA-aware safety
+            checklist, the GBP + 4-week content calendar, the local SEO prompts, and
+            the operating cadence — as a 31-page complete PDF, six focused PDFs, and
+            editable Markdown / CSV source files. 7-day satisfaction refund.
           </p>
         </div>
         <a

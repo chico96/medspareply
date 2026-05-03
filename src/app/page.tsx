@@ -51,6 +51,57 @@ const instantDelivery = [
   },
 ];
 
+const packTableOfContents = [
+  {
+    pages: "5 pages",
+    title: "Front-desk reply SOP",
+    body: "20-minute setup block, the HIPAA-aware do/don't list, the 7-question pre-post safety check, and the daily / weekly / monthly cadence — all on one printable file.",
+  },
+  {
+    pages: "7 pages · 20 templates",
+    title: "Review reply template bank",
+    body: "Paste-ready replies for 5★ praise, staff shoutouts, treatment mentions, neutral 3★, wait-time and pricing complaints, and 1–2★ reviews — plus the PHI-risky → safer rewrite table.",
+  },
+  {
+    pages: "5 pages · 8-step triage",
+    title: "Negative-review triage checklist",
+    body: "Pre-checks, lane decision, draft from template, run the safety check, post, log, and Google policy flag — with a sign-off block for the practice manager.",
+  },
+  {
+    pages: "4 pages · 4-week schedule",
+    title: "GBP + content calendar",
+    body: "Week-by-week schedule across GBP posts, review work, email, and SEO focus — with post drafts, owner column, and status column. Drops straight into Google Sheets.",
+  },
+  {
+    pages: "5 pages · 13 prompts",
+    title: "Local SEO + GBP prompt pack",
+    body: "GBP post angles, a treatment-page outline, and city / neighborhood angles — the prompts that pair with the 4-week calendar so the front desk never stares at a blank box.",
+  },
+  {
+    pages: "5 pages",
+    title: "Operating cadence",
+    body: "The week, on a single page: daily 10-minute slot, daily 15-minute approval, the Tuesday 20-minute SOP, the Friday huddle, and the monthly + quarterly review.",
+  },
+];
+
+const ladderSteps = [
+  {
+    label: "Free · in browser",
+    title: "Reply generator",
+    body: "Paste one review, pick the rating and service, get a HIPAA-aware public reply plus a private follow-up. Runs locally — no login, no API key, no review text leaving your device. One reply at a time.",
+  },
+  {
+    label: "Free · 5 pages",
+    title: "Sample preview PDF",
+    body: "An abbreviated peek at the toolkit — cover, the 7-question pre-post check, three of the 20 templates, three steps of the negative-review triage, and two GBP prompts. No email required.",
+  },
+  {
+    label: "$49 · one-time",
+    title: "Full toolkit",
+    body: "The polished 31-page complete PDF, six focused individual PDFs, and the editable Markdown + CSV source files. Built for a front-desk lead to run a 20-minute weekly review-reply cadence without an agency.",
+  },
+];
+
 const resources = [
   {
     href: "/review-response-examples",
@@ -83,17 +134,19 @@ export default function Home() {
       <section className={styles.hero} id="top">
         <div className={styles.heroCopy}>
           <div className={styles.pill}>
-            Launch toolkit · review replies + local SEO for med spas
+            Built for med spas only · review replies + local SEO
           </div>
           <h1>
             Med-spa review replies your front desk can copy, customize, and post safely.
           </h1>
           <p>
-            Use the free browser-based generator for quick, HIPAA-aware replies. Or buy the{" "}
-            <strong>$49 launch toolkit</strong> and download the polished{" "}
-            <strong>31-page SpaReply PDF pack</strong> the moment Stripe confirms — plus six
-            focused individual PDFs for the front desk and editable Markdown / CSV source
-            files for your shared drive. 7-day refund.
+            Niche-built for aesthetic clinics — Hydrafacial, injectables, laser, peels,
+            and memberships, with negative-review triage and Google Business Profile
+            prompts already wired in. Try the free in-browser generator for one reply.
+            Or buy the <strong>$49 toolkit</strong>: a polished{" "}
+            <strong>31-page complete PDF</strong>, six focused PDFs, and the editable{" "}
+            <strong>Markdown + CSV source files</strong> — instant Stripe checkout,
+            instant download, 7-day satisfaction refund.
           </p>
           <div className={styles.ctas}>
             <a
@@ -109,11 +162,8 @@ export default function Home() {
               href={samplePreviewPdf.href}
               download={samplePreviewPdf.filename}
             >
-              View free 5-page sample PDF
+              Free 5-page sample PDF · no email
             </a>
-            <Link className={styles.secondaryCta} href="/toolkit-preview">
-              Preview what is inside
-            </Link>
             <a className={styles.secondaryCta} href="#generator">
               Try the free generator
             </a>
@@ -127,7 +177,7 @@ export default function Home() {
             ))}
           </ul>
           <p className={styles.policyTrust}>
-            <strong>7-day refund</strong>
+            <strong>7-day satisfaction refund</strong>
             <span className={styles.sep} aria-hidden="true">·</span>
             <strong>Secure Stripe checkout</strong>
             <span className={styles.sep} aria-hidden="true">·</span>
@@ -199,7 +249,10 @@ export default function Home() {
               <li>Polished 31-page SpaReply PDF complete pack</li>
               <li>Six focused individual PDFs (SOP, templates, triage, GBP, SEO, cadence)</li>
               <li>Editable Markdown and CSV source files</li>
-              <li>7-day refund · email hello@spareply.com, no forms</li>
+              <li>
+                7-day satisfaction refund · email hello@spareply.com with order email
+                and purchase date
+              </li>
             </ul>
             <a
               className={styles.sampleCtaFull}
@@ -210,6 +263,74 @@ export default function Home() {
               {PRIMARY_CTA_LABEL}
             </a>
           </article>
+        </div>
+      </section>
+
+      <section className={styles.ladder} aria-labelledby="ladder-title">
+        <div className={styles.ladderHeader}>
+          <span className={styles.sectionEyebrow}>Free → free → $49</span>
+          <h2 id="ladder-title">Three ways to use SpaReply — only one is paid.</h2>
+          <p>
+            Try the free generator on a real review, skim the free 5-page sample, and
+            only buy the toolkit if the wording is already obviously better than what
+            your front desk posts today.
+          </p>
+        </div>
+        <ol className={styles.ladderList}>
+          {ladderSteps.map((step, index) => (
+            <li key={step.title} className={styles.ladderStep}>
+              <span className={styles.ladderIndex}>{`0${index + 1}`.slice(-2)}</span>
+              <div>
+                <span className={styles.ladderLabel}>{step.label}</span>
+                <strong>{step.title}</strong>
+                <p>{step.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className={styles.tocSection} aria-labelledby="toc-title">
+        <div className={styles.tocHeader}>
+          <span className={styles.sectionEyebrow}>Inside the 31-page pack</span>
+          <h2 id="toc-title">
+            Six pillars. Every page printable. Every section paste-ready.
+          </h2>
+          <p>
+            The complete pack is built so a practice manager can read it cover-to-cover
+            on a Sunday and a front-desk lead can pull a single section between guests.
+            Page counts below match the actual PDF — no fluff pages, no padding.
+          </p>
+        </div>
+        <ol className={styles.tocList}>
+          {packTableOfContents.map((entry, index) => (
+            <li key={entry.title} className={styles.tocRow}>
+              <span className={styles.tocIndex}>{`0${index + 1}`.slice(-2)}</span>
+              <div className={styles.tocBody}>
+                <span className={styles.tocPages}>{entry.pages}</span>
+                <strong>{entry.title}</strong>
+                <p>{entry.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p className={styles.tocFooter}>
+          The same six pillars also ship as six focused individual PDFs and as
+          editable Markdown + CSV source files — fork the wording into your clinic&rsquo;s
+          shared drive without retyping it.
+        </p>
+        <div className={styles.tocCtas}>
+          <a
+            className={styles.primaryCta}
+            href={TOOLKIT_CHECKOUT_URL}
+            target={PRIMARY_CTA_TARGET}
+            rel={PRIMARY_CTA_REL}
+          >
+            {PRIMARY_CTA_LABEL}
+          </a>
+          <Link className={styles.secondaryCta} href="/toolkit-preview">
+            See sample wording from each pillar →
+          </Link>
         </div>
       </section>
 
@@ -444,7 +565,7 @@ export default function Home() {
           <div className={styles.sectionEyebrow}>Get started</div>
           <h2>Hand your front desk a system, not a vibe.</h2>
           <p>
-            $49 one-time. 7-day refund.{" "}
+            $49 one-time. 7-day satisfaction refund.{" "}
             {STRIPE_ENABLED
               ? "Pay via secure Stripe checkout and the polished 31-page PDF pack, six focused PDFs, and editable source files download immediately."
               : "Email replies come from a human at hello@spareply.com — usually within one business day."}

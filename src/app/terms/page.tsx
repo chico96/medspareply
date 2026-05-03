@@ -38,7 +38,7 @@ export default function TermsPage() {
             it, repost it publicly, or redistribute it. Templates are{" "}
             <strong>editorial guidance</strong> — review every reply before posting.
             SpaReply does not provide legal, medical, or compliance advice. Payment
-            is handled by Stripe. 7-day refund. Email{" "}
+            is handled by Stripe. 7-day satisfaction refund. Email{" "}
             <a href={SUPPORT_MAILTO}>hello@spareply.com</a> with questions.
           </p>
         </div>
@@ -140,7 +140,7 @@ export default function TermsPage() {
           Checkout is handled by <strong>Stripe</strong>. By paying, you agree to
           Stripe&rsquo;s terms in addition to these. The toolkit is a one-time
           purchase at $49 — there is no subscription and no auto-renewal. The
-          7-day refund process is described in the{" "}
+          7-day satisfaction refund process is described in the{" "}
           <Link href="/refund-policy">refund policy</Link>; refunds are issued
           through Stripe to the original payment method.
         </p>

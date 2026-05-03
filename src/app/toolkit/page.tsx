@@ -509,7 +509,7 @@ export default function ToolkitPage() {
               <span className={styles.summaryEyebrow}>Order</span>
               <strong>SpaReply MedSpa Review + Local SEO Toolkit</strong>
               <p>
-                $49 one-time · Google Drive folder · 7-day refund.
+                $49 one-time · Google Drive folder · 7-day satisfaction refund.
                 Support: <a href={SUPPORT_MAILTO}>hello@spareply.com</a>
               </p>
             </div>
@@ -828,13 +828,16 @@ export default function ToolkitPage() {
           </article>
           <article className={styles.supportCard}>
             <span>Refund</span>
-            <strong>7-day no-friction refund</strong>
+            <strong>7-day satisfaction refund</strong>
             <p>
               Use the toolkit for a week. If it doesn&rsquo;t make replying to reviews
               faster and safer for your front desk, email{" "}
-              <a href={REFUND_MAILTO}>hello@spareply.com</a> within 7 days of purchase
-              and we&rsquo;ll refund the $49. No forms. No &ldquo;why are you
-              leaving&rdquo; survey.
+              <a href={REFUND_MAILTO}>hello@spareply.com</a> within 7 days with the
+              email address and date you used at Stripe checkout, and we&rsquo;ll
+              refund the $49 to your original payment method. No forms, no &ldquo;why
+              are you leaving&rdquo; survey. Refund requests are reviewed to prevent
+              abuse, duplicate claims, redistribution, or policy misuse — see the{" "}
+              <Link href="/refund-policy">refund policy</Link> for the full terms.
             </p>
           </article>
         </div>
