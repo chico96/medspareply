@@ -22,14 +22,32 @@ const PRIMARY_CTA_LABEL = STRIPE_ENABLED
 const PRIMARY_CTA_REL = STRIPE_ENABLED ? "noopener noreferrer" : undefined;
 const PRIMARY_CTA_TARGET = STRIPE_ENABLED ? "_blank" : undefined;
 const CHECKOUT_ASSURANCE = STRIPE_ENABLED
-  ? "Secure Stripe checkout · instant Google Drive link emailed after purchase."
+  ? "Secure Stripe checkout · the polished PDF pack downloads instantly the moment payment clears."
   : "Pilot checkout: opens your email so we can confirm and send your access link within one business day.";
 
 const heroQuickFacts = [
-  { label: "Templates", value: "120" },
-  { label: "Service categories", value: "6" },
+  { label: "PDF pack pages", value: "31" },
+  { label: "Focused PDFs", value: "6" },
   { label: "Refund window", value: "7 days" },
   { label: "Launch price", value: "$49" },
+];
+
+const instantDelivery = [
+  {
+    label: "Complete pack",
+    title: "31-page SpaReply PDF",
+    body: "One branded, printable PDF covering the SOP, template bank, negative-review triage, GBP calendar, local SEO prompts, and operating cadence — designed to be read in one sitting.",
+  },
+  {
+    label: "Individual files",
+    title: "Six focused PDFs",
+    body: "The same six pieces split into print-and-tape PDFs so the front desk, practice manager, and privacy officer can each grab the page they need without scrolling the full pack.",
+  },
+  {
+    label: "Editable sources",
+    title: "Markdown + CSV originals",
+    body: "Five Markdown files and the 4-week content calendar CSV — open in any editor or import into Google Docs / Sheets so your clinic can fork the wording into its own shared drive.",
+  },
 ];
 
 const resources = [
@@ -71,9 +89,10 @@ export default function Home() {
           </h1>
           <p>
             Use the free browser-based generator for quick, HIPAA-aware replies. Or buy the{" "}
-            <strong>$49 launch toolkit</strong> now for 120 service-specific templates,
-            negative-review scripts, a safety checklist, and Google Business Profile prompts —
-            instant-ready, refundable for 7 days.
+            <strong>$49 launch toolkit</strong> and download the polished{" "}
+            <strong>31-page SpaReply PDF pack</strong> the moment Stripe confirms — plus six
+            focused individual PDFs for the front desk and editable Markdown / CSV source
+            files for your shared drive. 7-day refund.
           </p>
           <div className={styles.ctas}>
             <a
@@ -167,6 +186,30 @@ export default function Home() {
             onboarding call, no SaaS subscription, no AI key required.
           </p>
         </div>
+        <div
+          className={styles.instantDelivery}
+          aria-labelledby="instant-delivery-title"
+        >
+          <div className={styles.instantDeliveryHeader}>
+            <span className={styles.instantDeliveryEyebrow}>Instant delivery</span>
+            <strong id="instant-delivery-title">
+              Three downloads land the moment Stripe confirms.
+            </strong>
+            <p>
+              No onboarding call, no AI key, no SaaS login. Buyers go straight to a download
+              page with the PDFs and editable source files ready to grab.
+            </p>
+          </div>
+          <ul className={styles.instantDeliveryList}>
+            {instantDelivery.map((item) => (
+              <li key={item.title}>
+                <span>{item.label}</span>
+                <strong>{item.title}</strong>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className={styles.offerLayout}>
           <div className={styles.deliverableTable}>
             {toolkitDeliverables.map((item) => (
@@ -183,7 +226,10 @@ export default function Home() {
           <aside className={styles.priceCard}>
             <span>Launch price</span>
             <strong>$49</strong>
-            <p>One-time. Instant Google Drive access. Free updates during launch.</p>
+            <p>
+              One-time. The 31-page PDF pack, six focused PDFs, and the editable source
+              files download instantly. Free updates during launch.
+            </p>
             <a
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
@@ -320,9 +366,9 @@ export default function Home() {
           <div className={styles.sectionEyebrow}>Get started</div>
           <h2>Hand your front desk a system, not a vibe.</h2>
           <p>
-            $49 one-time. Instant-ready templates. 7-day refund.{" "}
+            $49 one-time. 7-day refund.{" "}
             {STRIPE_ENABLED
-              ? "Buy now via secure Stripe checkout — your Google Drive link arrives in your inbox right after payment."
+              ? "Pay via secure Stripe checkout and the polished 31-page PDF pack, six focused PDFs, and editable source files download immediately."
               : "Email replies come from a human at hello@spareply.com — usually within one business day."}
           </p>
           <div className={styles.ctas}>

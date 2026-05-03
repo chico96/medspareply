@@ -13,7 +13,7 @@ const PRIMARY_CTA_LABEL = STRIPE_ENABLED
 const PRIMARY_CTA_TARGET = STRIPE_ENABLED ? "_blank" : undefined;
 const PRIMARY_CTA_REL = STRIPE_ENABLED ? "noopener noreferrer" : undefined;
 const PRICE_CARD_NOTE = STRIPE_ENABLED
-  ? "Secure Stripe checkout. Your Google Drive access link is emailed within minutes of payment. 7-day refund."
+  ? "Secure Stripe checkout. The polished 31-page PDF pack, six focused PDFs, and editable source files download immediately after payment. 7-day refund."
   : "Pilot checkout opens your email so we can confirm and send your access link within one business day. Payment links via Gumroad / LemonSqueezy / Stripe ship next.";
 
 const ASK_MAILTO =
@@ -137,26 +137,26 @@ const deliverables: Deliverable[] = [
 
 const deliveryNotes = [
   {
-    label: "After purchase",
-    title: "A Google Drive folder lands in your inbox",
+    label: "Step 1 · Instant download",
+    title: "31-page SpaReply PDF complete pack",
     body: STRIPE_ENABLED
-      ? "Pay with card via Stripe and a Drive link is emailed within minutes. Everything is editable in Google Docs, Sheets, and Notion. No SaaS login, no AI key, no monthly seat."
-      : "We send a Drive link within one business day. Everything is editable in Google Docs, Sheets, and Notion. No SaaS login, no AI key, no monthly seat.",
+      ? "The moment Stripe confirms, you land on a buyer page with the polished 31-page PDF pack ready to download — branded, printable, and structured to be read in one sitting."
+      : "Once we confirm payment we email a buyer link with the polished 31-page PDF pack — branded, printable, and structured to be read in one sitting.",
   },
   {
-    label: "Inside the Drive",
-    title: "120+ templates, expanded packs, and printable assets",
-    body: "The repo seed library expands into the full 120+ template pack, seasonal expansion sets, a printable safety checklist for the back-office wall, and the editable Sheet versions of every tracker.",
+    label: "Step 2 · Split for the team",
+    title: "Six focused individual PDFs",
+    body: "The same six pieces split into print-and-tape PDFs — front-desk SOP, template bank, negative-review triage, GBP + 4-week content calendar, local SEO prompts, and the operating cadence — so each role can grab the page they need.",
+  },
+  {
+    label: "Step 3 · Make it your own",
+    title: "Editable Markdown + CSV source files",
+    body: "Five Markdown originals plus the 4-week content calendar CSV. Open in any editor or import into Google Docs and Sheets so your clinic can fork the wording into its own shared drive without retyping it.",
   },
   {
     label: "Refund policy",
     title: "7-day refund, no forms, no friction",
     body: "Use the toolkit for a week. If it doesn't make replying to reviews faster and safer for your team, email hello@spareply.com and we will refund the $49.",
-  },
-  {
-    label: "Free updates",
-    title: "Launch buyers receive every update",
-    body: "Spring, summer, fall, and holiday expansion packs ship into the same Drive folder. Buyers also get launch pricing on the upcoming SpaReply platform when it ships.",
   },
 ];
 
@@ -172,11 +172,13 @@ export default function ToolkitPreviewPage() {
             <h1>See exactly what is inside the MedSpa Review + Local SEO Toolkit.</h1>
             <p>
               Six tangible deliverables your team can use the same day they receive them.
-              Each section below shows a real sample pulled from the toolkit. The repo seed
-              library is open source; the <strong>full Google Drive version</strong> unlocks
-              after purchase with the 120+ template pack and seasonal expansion sets.{" "}
+              Each section below shows a real sample pulled from the toolkit. After
+              checkout, buyers download the polished{" "}
+              <strong>31-page SpaReply PDF complete pack</strong>, six focused individual
+              PDFs, and the editable Markdown / CSV source files — instantly, no Drive
+              wait, no onboarding call.{" "}
               {STRIPE_ENABLED
-                ? "Buy the $49 bundle now via secure Stripe checkout — your Drive link is emailed right after payment."
+                ? "Buy the $49 bundle now via secure Stripe checkout."
                 : null}
             </p>
             <div className={styles.heroCtas}>
@@ -194,12 +196,12 @@ export default function ToolkitPreviewPage() {
             </div>
             <div className={styles.heroFacts}>
               <div>
-                <strong>6</strong>
-                <span>Deliverables</span>
+                <strong>31 pages</strong>
+                <span>Complete PDF pack</span>
               </div>
               <div>
-                <strong>120+</strong>
-                <span>Templates (full)</span>
+                <strong>6</strong>
+                <span>Focused PDFs</span>
               </div>
               <div>
                 <strong>20 min</strong>
@@ -215,13 +217,16 @@ export default function ToolkitPreviewPage() {
           <aside className={styles.priceCard}>
             <span>Launch price</span>
             <strong>$49</strong>
-            <p>One-time. Instant Google Drive access. Free updates during the launch window.</p>
+            <p>
+              One-time. The PDF pack and editable source files download instantly. Free
+              updates during the launch window.
+            </p>
             <ul className={styles.priceList}>
-              <li>120+ public reply templates (Drive)</li>
-              <li>Negative-review playbook + tracker</li>
-              <li>HIPAA-aware safety checklist</li>
-              <li>25 GBP prompts + 13-week calendar</li>
-              <li>Front-desk weekly SOP</li>
+              <li>31-page SpaReply PDF complete pack</li>
+              <li>Six focused individual PDFs</li>
+              <li>Editable Markdown + CSV sources</li>
+              <li>HIPAA-aware safety checklist + GBP prompts</li>
+              <li>Front-desk SOP + 4-week content calendar</li>
             </ul>
             <a
               href={TOOLKIT_CHECKOUT_URL}
@@ -240,9 +245,10 @@ export default function ToolkitPreviewPage() {
         <h2 id="inside">Six deliverables, each with a sample you can read right now.</h2>
         <p>
           The seed library lives in the open-source repo at{" "}
-          <code>toolkit/medspa-review-local-seo-toolkit/</code>. The Google Drive version
-          adds the 120-template expansion pack, seasonal updates, printable assets, and the
-          editable Sheet versions of each tracker.
+          <code>toolkit/medspa-review-local-seo-toolkit/</code>. After purchase, the same
+          six pieces ship as the polished 31-page PDF complete pack and as six focused
+          individual PDFs — plus the editable Markdown and CSV originals so your team can
+          fork the wording into a shared drive.
         </p>
 
         <div className={styles.deliverables}>
@@ -270,11 +276,12 @@ export default function ToolkitPreviewPage() {
       </section>
 
       <section className={styles.section} aria-labelledby="delivery">
-        <div className={styles.eyebrow}>Delivery + refund</div>
-        <h2 id="delivery">How you actually receive the toolkit.</h2>
+        <div className={styles.eyebrow}>Instant delivery + refund</div>
+        <h2 id="delivery">What lands the moment Stripe confirms.</h2>
         <p>
-          The launch flow is intentionally simple. You email us, we confirm, and you get
-          a Drive folder you own. No SaaS subscription. No onboarding call required.
+          No onboarding call, no SaaS login, no AI key. Buyers go straight to a download
+          page with the polished PDFs and editable source files ready to grab — and a
+          7-day refund if it doesn&rsquo;t earn its keep.
         </p>
         <div className={styles.deliveryGrid}>
           {deliveryNotes.map((note) => (
@@ -292,9 +299,9 @@ export default function ToolkitPreviewPage() {
           <div className={styles.eyebrow}>Get started</div>
           <h2 id="cta">Hand your front desk a system, not a vibe.</h2>
           <p>
-            $49 one-time. Instant-ready templates. 7-day refund.{" "}
+            $49 one-time. 7-day refund.{" "}
             {STRIPE_ENABLED
-              ? "Pay with card via Stripe and your Google Drive link arrives in your inbox right after checkout."
+              ? "Pay via secure Stripe checkout and the polished 31-page PDF pack, six focused PDFs, and editable Markdown / CSV source files download immediately."
               : "Replies come from a human at hello@spareply.com — usually within one business day."}
           </p>
           <div className={styles.ctaActions}>

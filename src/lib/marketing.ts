@@ -121,7 +121,7 @@ export const faqItems = [
   {
     question: "How is the toolkit delivered?",
     answer:
-      "After purchase you get instant access to a Google Drive folder with the templates, scripts, checklist, prompts, SOP, and content calendar. Everything is editable in Google Docs, Sheets, or Notion.",
+      "Instantly, the moment Stripe confirms payment. You land on a buyer page where you can download the polished 31-page SpaReply PDF complete pack, six focused individual PDFs (front-desk SOP, template bank, negative-review triage, GBP + 4-week content calendar, local SEO prompts, operating cadence), and the editable Markdown and CSV source files for teams that want to fork the wording into their own shared drive.",
   },
   {
     question: "What if it doesn't help my team?",
