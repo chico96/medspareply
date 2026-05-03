@@ -173,9 +173,25 @@ export default function NegativeReviewResponsePage() {
         </div>
 
         <div className={styles.linkRow}>
-          <Link href="/review-response-examples">
+          <Link href="/negative-med-spa-review-response">
+            <span>Playbook</span>
+            Expanded negative med spa review playbook (six scripts)
+          </Link>
+          <Link href="/med-spa-review-response-examples">
             <span>Examples</span>
-            Med spa review response examples (5★ to 1★)
+            Med spa review response examples by rating &amp; service
+          </Link>
+          <Link href="/botox-review-response-templates">
+            <span>Templates</span>
+            Botox &amp; injectables review response templates
+          </Link>
+          <Link href="/med-spa-google-review-reply">
+            <span>Workflow</span>
+            Med spa Google review reply best practices
+          </Link>
+          <Link href="/aesthetic-clinic-review-templates">
+            <span>Templates</span>
+            Aesthetic clinic review templates by service
           </Link>
           <Link href="/local-seo-checklist">
             <span>Checklist</span>

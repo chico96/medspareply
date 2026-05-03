@@ -21,8 +21,11 @@ export function SiteFooter() {
           </div>
           <div>
             <span>Resources</span>
-            <Link href="/review-response-examples">Med spa review response examples</Link>
-            <Link href="/negative-review-response">Negative med spa review response</Link>
+            <Link href="/med-spa-review-response-examples">Med spa review response examples</Link>
+            <Link href="/botox-review-response-templates">Botox review response templates</Link>
+            <Link href="/negative-med-spa-review-response">Negative med spa review response</Link>
+            <Link href="/med-spa-google-review-reply">Med spa Google review reply guide</Link>
+            <Link href="/aesthetic-clinic-review-templates">Aesthetic clinic review templates</Link>
             <Link href="/local-seo-checklist">Med spa local SEO checklist</Link>
           </div>
           <div>

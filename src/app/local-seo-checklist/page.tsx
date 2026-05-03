@@ -171,13 +171,25 @@ export default function LocalSeoChecklistPage() {
         </div>
 
         <div className={styles.linkRow}>
-          <Link href="/review-response-examples">
-            <span>Examples</span>
-            Med spa review response examples (5★ to 1★)
+          <Link href="/med-spa-google-review-reply">
+            <span>Workflow</span>
+            Med spa Google review reply best practices
           </Link>
-          <Link href="/negative-review-response">
+          <Link href="/med-spa-review-response-examples">
+            <span>Examples</span>
+            Med spa review response examples by rating &amp; service
+          </Link>
+          <Link href="/botox-review-response-templates">
+            <span>Templates</span>
+            Botox &amp; injectables review response templates
+          </Link>
+          <Link href="/negative-med-spa-review-response">
             <span>Playbook</span>
-            How to respond to a negative med spa review
+            Negative med spa review response playbook
+          </Link>
+          <Link href="/aesthetic-clinic-review-templates">
+            <span>Templates</span>
+            Aesthetic clinic review templates by service
           </Link>
         </div>
       </article>
