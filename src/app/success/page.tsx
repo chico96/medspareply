@@ -94,6 +94,20 @@ export default function SuccessPage() {
               <small>Paid via Stripe · 7-day refund.</small>
             </div>
           </div>
+
+          <Link href="/toolkit" className={styles.toolkitCard}>
+            <div className={styles.toolkitCardBody}>
+              <span className={styles.toolkitCardTag}>Start now · while the Drive email arrives</span>
+              <strong>Open the buyer toolkit</strong>
+              <p>
+                The 20-minute setup SOP, HIPAA-aware reply rules, 20+ paste-ready review
+                replies, the negative-review triage checklist, 13 GBP prompts, and the
+                4-week content calendar — already live on this site, no Drive access
+                needed.
+              </p>
+            </div>
+            <span className={styles.toolkitCardArrow} aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 
@@ -216,12 +230,12 @@ export default function SuccessPage() {
           refresher or a new resource.
         </p>
         <div className={styles.ctaActions}>
-          <a className={styles.ctaPrimary} href={SUPPORT_MAILTO}>
+          <Link className={styles.ctaPrimary} href="/toolkit">
+            Open the buyer toolkit
+          </Link>
+          <a className={styles.ctaSecondary} href={SUPPORT_MAILTO}>
             Email hello@spareply.com
           </a>
-          <Link className={styles.ctaSecondary} href="/">
-            Back to SpaReply home
-          </Link>
         </div>
       </section>
 

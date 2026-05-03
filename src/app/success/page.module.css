@@ -115,6 +115,73 @@
 }
 .summaryPrice small { color: #d6b8a9; font-size: 12px; line-height: 1.5; }
 
+.toolkitCard {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px;
+  gap: 18px;
+  align-items: center;
+  padding: 22px clamp(20px, 3vw, 28px);
+  border-radius: 24px;
+  background: #fff8f2;
+  border: 1px solid rgba(47, 106, 74, 0.28);
+  box-shadow: 0 18px 60px rgba(91, 52, 38, 0.08);
+  text-decoration: none;
+  color: #1c100b;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+.toolkitCard:hover {
+  transform: translateY(-1px);
+  border-color: rgba(47, 106, 74, 0.55);
+  box-shadow: 0 24px 70px rgba(47, 106, 74, 0.18);
+}
+.toolkitCardBody { display: grid; gap: 6px; }
+.toolkitCardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: rgba(47, 106, 74, 0.12);
+  color: #2f6a4a;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.toolkitCardTag::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #2f6a4a;
+  box-shadow: 0 0 0 4px rgba(47, 106, 74, 0.16);
+}
+.toolkitCardBody strong {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: #1c100b;
+  line-height: 1.25;
+}
+.toolkitCardBody p {
+  margin: 0;
+  color: #5a4039;
+  line-height: 1.6;
+  font-size: 15px;
+}
+.toolkitCardArrow {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #1c100b;
+  color: #fff8f2;
+  font-size: 16px;
+  font-weight: 800;
+}
+
 .section {
   width: min(960px, calc(100% - 32px));
   margin: 24px auto 0;
