@@ -1,5 +1,8 @@
+import Link from "next/link";
 import { faqItems, contentExamples, toolkitFeatures } from "@/lib/marketing";
 import { FreeGenerator } from "./FreeGenerator";
+import { SiteFooter } from "./_components/SiteFooter";
+import { SiteHeader } from "./_components/SiteHeader";
 import styles from "./page.module.css";
 
 const included = [
@@ -15,24 +18,38 @@ const steps = [
   "Upgrade to the toolkit when your team needs repeatable SOPs and content.",
 ];
 
+const resources = [
+  {
+    href: "/review-response-examples",
+    eyebrow: "Examples",
+    title: "Med spa review response examples (5★ to 1★)",
+    blurb:
+      "Example public replies for Hydrafacial, Injectables, Laser, Peels, and membership visits across every star rating.",
+  },
+  {
+    href: "/negative-review-response",
+    eyebrow: "Playbook",
+    title: "Negative med spa review response",
+    blurb:
+      "Step-by-step playbook for 1- and 2-star reviews — privacy-safe public phrasing and the private follow-up checklist.",
+  },
+  {
+    href: "/local-seo-checklist",
+    eyebrow: "Checklist",
+    title: "Med spa local SEO checklist",
+    blurb:
+      "Foundations, weekly cadence, and monthly content moves that compound into stronger map-pack rankings.",
+  },
+];
+
 export default function Home() {
   return (
     <main className={styles.page}>
-      <nav className={styles.nav} aria-label="Main navigation">
-        <a className={styles.brand} href="#top">
-          <span>✦</span> MedSpaReply
-        </a>
-        <div className={styles.navLinks}>
-          <a href="#generator">Generator</a>
-          <a href="#toolkit">Toolkit</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#waitlist">Waitlist</a>
-        </div>
-      </nav>
+      <SiteHeader homepageAnchors />
 
       <section className={styles.hero} id="top">
         <div className={styles.heroCopy}>
-          <div className={styles.pill}>AI review replies + local SEO content for med spas</div>
+          <div className={styles.pill}>Early pilot · review replies + local SEO for med spas</div>
           <h1>Premium reputation marketing for aesthetic clinics that move fast.</h1>
           <p>
             MedSpaReply helps owners, managers, and front-desk teams answer reviews, protect trust,
@@ -63,19 +80,40 @@ export default function Home() {
 
       <FreeGenerator />
 
+      <section className={styles.resources} id="resources">
+        <div>
+          <div className={styles.sectionEyebrow}>Free resources</div>
+          <h2>Playbooks the pilot clinics actually use.</h2>
+          <p>
+            Three evergreen guides built from real review patterns we see across med spas. Skim
+            them solo, or pair each one with the generator above.
+          </p>
+        </div>
+        <div className={styles.resourceGrid}>
+          {resources.map((resource) => (
+            <Link key={resource.href} href={resource.href} className={styles.resourceCard}>
+              <span>{resource.eyebrow}</span>
+              <strong>{resource.title}</strong>
+              <p>{resource.blurb}</p>
+              <em>Read the guide →</em>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className={styles.offer} id="toolkit">
         <div>
           <div className={styles.sectionEyebrow}>Launch offer</div>
           <h2>The $49 MedSpa Review + Local SEO Toolkit</h2>
           <p>
-            A plug-and-play operating kit for teams that want premium reply quality before investing in
-            a full software subscription.
+            A plug-and-play operating kit for teams that want premium reply quality before
+            investing in a full software subscription.
           </p>
         </div>
         <div className={styles.priceCard}>
           <span>Founding price</span>
           <strong>$49</strong>
-          <p>One-time toolkit mock offer for MVP validation.</p>
+          <p>One-time pilot price, hand-delivered while we&apos;re onboarding the first clinics.</p>
           <a href="#waitlist">Request early access</a>
         </div>
       </section>
@@ -178,21 +216,26 @@ export default function Home() {
 
       <section className={styles.waitlist} id="waitlist">
         <div>
-          <div className={styles.sectionEyebrow}>Founder / early access</div>
+          <div className={styles.sectionEyebrow}>Pilot · early access</div>
           <h2>Help shape the med-spa reputation growth system.</h2>
           <p>
-            Join the mock early-access list for launch validation. This form is intentionally local and
-            does not submit data yet.
+            We&apos;re onboarding the first pilot clinics now. Drop your details below or email{" "}
+            <a href="mailto:hello@denzellrei.com">hello@denzellrei.com</a> directly — every reply
+            goes to a human during the pilot.
           </p>
         </div>
-        <form className={styles.waitlistForm} action="#waitlist">
-          <input aria-label="Name" placeholder="Your name" />
-          <input aria-label="Clinic email" placeholder="Clinic email" type="email" />
-          <input aria-label="Med spa city" placeholder="City / market" />
-          <button type="button">Join early access</button>
-          <small>Mock form: no data is sent or stored.</small>
+        <form className={styles.waitlistForm} action="mailto:hello@denzellrei.com" method="post" encType="text/plain">
+          <input aria-label="Name" name="name" placeholder="Your name" />
+          <input aria-label="Clinic email" name="email" placeholder="Clinic email" type="email" />
+          <input aria-label="Med spa city" name="city" placeholder="City / market" />
+          <button type="submit">Request early access</button>
+          <small>
+            Pilot phase: this opens your email client so you stay in control of what you send.
+          </small>
         </form>
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

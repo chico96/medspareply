@@ -8,7 +8,8 @@ MedSpaReply is a Next.js 16 App Router MVP for med-spa reputation marketing. It 
 - Free deterministic review reply generator with no external API calls
 - Outputs: public reply, private follow-up, and safety notes
 - $49 toolkit offer for templates, SOPs, and local SEO prompts
-- Mock founder / early-access waitlist form that does not submit or store data
+- Pilot early-access form that opens the user's email client
+- SEO landing pages for review examples, negative-review playbooks, and local SEO checklists
 
 ## Privacy and safety
 

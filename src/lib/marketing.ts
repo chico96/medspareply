@@ -37,8 +37,8 @@ export const faqItems = [
       "Owners, practice managers, and front-desk teams that want faster Google review replies and more local SEO content without a monthly platform commitment.",
   },
   {
-    question: "What happens after the waitlist form?",
+    question: "What happens after I request early access?",
     answer:
-      "This MVP uses a mock form only. It previews early-access interest without sending your information anywhere yet.",
+      "We're in pilot mode. The form opens your email client so you stay in control of what you send, and replies come from a human at hello@denzellrei.com — usually within a business day.",
   },
 ];
