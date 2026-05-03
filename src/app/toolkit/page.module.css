@@ -175,6 +175,87 @@
 }
 
 /* Downloads */
+.combinedDownload {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  margin: 0 0 18px;
+  padding: 22px clamp(20px, 3vw, 28px);
+  border-radius: 24px;
+  text-decoration: none;
+  background: linear-gradient(155deg, #1c100b 0%, #2f6a4a 130%);
+  color: #fff8f2;
+  border: 1px solid rgba(28, 16, 11, 0.3);
+  box-shadow: 0 24px 60px rgba(28, 16, 11, 0.22);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.combinedDownload:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 28px 70px rgba(28, 16, 11, 0.3);
+}
+.combinedDownloadBody { display: grid; gap: 8px; }
+.combinedDownloadTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: rgba(255, 248, 242, 0.12);
+  color: #ffe6d6;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.combinedDownloadTag::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #ffe6d6;
+  box-shadow: 0 0 0 4px rgba(255, 230, 214, 0.18);
+}
+.combinedDownloadBody strong {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: #fff8f2;
+  line-height: 1.25;
+}
+.combinedDownloadBody p {
+  margin: 0;
+  color: #ead3c8;
+  line-height: 1.6;
+  font-size: 14px;
+  max-width: 720px;
+}
+.combinedDownloadBody code {
+  font-family: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  background: rgba(255, 248, 242, 0.1);
+  color: #ffe6d6;
+  border-radius: 8px;
+  padding: 4px 8px;
+  width: fit-content;
+}
+.combinedDownloadButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  border-radius: 999px;
+  min-height: 44px;
+  padding: 0 20px;
+  background: #fff8f2;
+  color: #1c100b;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
 .downloads {
   list-style: none;
   padding: 0;
@@ -251,6 +332,71 @@
 .downloadButton:hover {
   transform: translateY(-1px);
   background: #2f6a4a;
+}
+
+.editableSources {
+  margin-top: 18px;
+  padding: 20px clamp(18px, 2.6vw, 24px);
+  border-radius: 20px;
+  background: rgba(255, 253, 250, 0.7);
+  border: 1px dashed rgba(98, 58, 45, 0.28);
+  display: grid;
+  gap: 14px;
+}
+.editableSourcesHeader { display: grid; gap: 8px; }
+.editableSourcesTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: rgba(28, 16, 11, 0.06);
+  color: #6e564c;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.editableSourcesHeader p {
+  margin: 0;
+  color: #6e564c;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+.editableSourcesList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 18px;
+}
+.editableSourcesList li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.editableSourcesList a {
+  font-family: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  color: #1c100b;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  font-size: 13px;
+}
+.editableSourcesList a:hover { color: #2f6a4a; }
+.editableSourcesList span {
+  color: #934f36;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* Steps */

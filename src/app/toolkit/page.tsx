@@ -18,63 +18,84 @@ export const metadata: Metadata = {
 };
 
 type ToolkitDownload = {
-  filename: string;
-  href: string;
+  pdfFilename: string;
+  pdfHref: string;
+  sourceFilename: string;
+  sourceHref: string;
+  sourceFormat: "Markdown" | "CSV";
   label: string;
-  format: string;
   description: string;
 };
 
 const toolkitDownloads: ToolkitDownload[] = [
   {
-    filename: "front-desk-review-reply-sop.md",
-    href: "/downloads/spareply-toolkit/front-desk-review-reply-sop.md",
+    pdfFilename: "front-desk-review-reply-sop.pdf",
+    pdfHref: "/downloads/spareply-toolkit/front-desk-review-reply-sop.pdf",
+    sourceFilename: "front-desk-review-reply-sop.md",
+    sourceHref: "/downloads/spareply-toolkit/front-desk-review-reply-sop.md",
+    sourceFormat: "Markdown",
     label: "Front-desk reply SOP",
-    format: "Markdown · editable",
     description:
-      "The 20-minute setup block, the HIPAA-aware do/don't list, the 7-question safety check, and the daily/weekly/monthly cadence — in one editable file.",
+      "The 20-minute setup block, the HIPAA-aware do/don't list, the 7-question safety check, and the daily/weekly/monthly cadence — in one printable file.",
   },
   {
-    filename: "review-reply-template-bank.md",
-    href: "/downloads/spareply-toolkit/review-reply-template-bank.md",
+    pdfFilename: "review-reply-template-bank.pdf",
+    pdfHref: "/downloads/spareply-toolkit/review-reply-template-bank.pdf",
+    sourceFilename: "review-reply-template-bank.md",
+    sourceHref: "/downloads/spareply-toolkit/review-reply-template-bank.md",
+    sourceFormat: "Markdown",
     label: "Review reply template bank",
-    format: "Markdown · editable",
     description:
       "20 paste-ready replies across 5★ praise, staff shoutouts, treatment mentions, neutral 3★, wait-time and pricing complaints, and negative reviews — plus the PHI-risky → safer rewrite table.",
   },
   {
-    filename: "negative-review-triage-checklist.md",
-    href: "/downloads/spareply-toolkit/negative-review-triage-checklist.md",
+    pdfFilename: "negative-review-triage-checklist.pdf",
+    pdfHref: "/downloads/spareply-toolkit/negative-review-triage-checklist.pdf",
+    sourceFilename: "negative-review-triage-checklist.md",
+    sourceHref: "/downloads/spareply-toolkit/negative-review-triage-checklist.md",
+    sourceFormat: "Markdown",
     label: "Negative-review triage checklist",
-    format: "Markdown · printable",
     description:
       "The 8-step triage: pre-checks, lane decision, draft from template, run the 7-question safety check, post, log, and Google policy flag — with a sign-off block for the practice manager.",
   },
   {
-    filename: "google-business-profile-content-calendar.csv",
-    href: "/downloads/spareply-toolkit/google-business-profile-content-calendar.csv",
+    pdfFilename: "google-business-profile-content-calendar.pdf",
+    pdfHref:
+      "/downloads/spareply-toolkit/google-business-profile-content-calendar.pdf",
+    sourceFilename: "google-business-profile-content-calendar.csv",
+    sourceHref:
+      "/downloads/spareply-toolkit/google-business-profile-content-calendar.csv",
+    sourceFormat: "CSV",
     label: "GBP + content calendar (4 weeks)",
-    format: "CSV · spreadsheet-ready",
     description:
-      "Week-by-week schedule across GBP posts, review work, email, and SEO focus — with post drafts, owner column, and status column. Drop into Google Sheets and assign by name.",
+      "Week-by-week schedule across GBP posts, review work, email, and SEO focus — with post drafts, owner column, and status column. The CSV drops straight into Google Sheets.",
   },
   {
-    filename: "local-seo-prompts.md",
-    href: "/downloads/spareply-toolkit/local-seo-prompts.md",
+    pdfFilename: "local-seo-prompts.pdf",
+    pdfHref: "/downloads/spareply-toolkit/local-seo-prompts.pdf",
+    sourceFilename: "local-seo-prompts.md",
+    sourceHref: "/downloads/spareply-toolkit/local-seo-prompts.md",
+    sourceFormat: "Markdown",
     label: "Local SEO + GBP prompt pack",
-    format: "Markdown · editable",
     description:
       "13 GBP post angles, a treatment-page outline, and city/neighborhood angles — the prompts that pair with the 4-week calendar.",
   },
   {
-    filename: "operating-cadence.md",
-    href: "/downloads/spareply-toolkit/operating-cadence.md",
+    pdfFilename: "operating-cadence.pdf",
+    pdfHref: "/downloads/spareply-toolkit/operating-cadence.pdf",
+    sourceFilename: "operating-cadence.md",
+    sourceHref: "/downloads/spareply-toolkit/operating-cadence.md",
+    sourceFormat: "Markdown",
     label: "Operating cadence (print & tape)",
-    format: "Markdown · printable",
     description:
       "The week, on a single page: daily 10-minute slot, daily 15-minute approval, the Tuesday 20-minute SOP, the Friday huddle, and the monthly + quarterly review.",
   },
 ];
+
+const combinedToolkitPdf = {
+  href: "/downloads/spareply-toolkit/SpaReply-toolkit-complete.pdf",
+  filename: "SpaReply-toolkit-complete.pdf",
+};
 
 const setupSteps = [
   {
@@ -502,34 +523,76 @@ export default function ToolkitPage() {
       </section>
 
       <section className={styles.section} aria-labelledby="downloads">
-        <div className={styles.sectionEyebrow}>Download the toolkit files</div>
-        <h2 id="downloads">Editable Markdown &amp; CSV — keep them in your clinic&rsquo;s drive.</h2>
+        <div className={styles.sectionEyebrow}>Download the toolkit</div>
+        <h2 id="downloads">Branded PDFs your team can print, sign, and tape up.</h2>
         <p>
-          Six editable files that mirror this page. Save them to your clinic&rsquo;s
-          shared drive, fill in the bracketed fields, and let the front desk work
-          from a copy you control. The Drive folder linked in your access email
-          contains the same set, plus the Google Doc and Sheet versions.
+          Each piece of the toolkit ships as a SpaReply-branded PDF — clean
+          headings, bracketed placeholders, sign-off blocks, and a footer that
+          tells your front desk where it came from. Hand them to the practice
+          manager, drop them into your SOP wiki, or send them to your privacy
+          officer for review. The editable Markdown &amp; CSV sources are still
+          available below for teams that want to fork their own copy.
         </p>
+
+        <a
+          className={styles.combinedDownload}
+          href={combinedToolkitPdf.href}
+          download={combinedToolkitPdf.filename}
+        >
+          <div className={styles.combinedDownloadBody}>
+            <span className={styles.combinedDownloadTag}>One file · everything</span>
+            <strong>SpaReply toolkit · complete pack (PDF)</strong>
+            <p>
+              All six pieces in a single branded PDF — SOP, template bank,
+              triage checklist, content calendar, local SEO prompts, and
+              operating cadence. Ideal for the practice manager who wants to
+              read the whole thing on a Sunday before deploying to the team.
+            </p>
+            <code className={styles.downloadFilename}>{combinedToolkitPdf.filename}</code>
+          </div>
+          <span className={styles.combinedDownloadButton}>Download PDF</span>
+        </a>
 
         <ul className={styles.downloads}>
           {toolkitDownloads.map((file) => (
-            <li key={file.filename} className={styles.downloadCard}>
+            <li key={file.pdfFilename} className={styles.downloadCard}>
               <div className={styles.downloadBody}>
-                <span className={styles.downloadFormat}>{file.format}</span>
+                <span className={styles.downloadFormat}>PDF · printable</span>
                 <strong>{file.label}</strong>
                 <p>{file.description}</p>
-                <code className={styles.downloadFilename}>{file.filename}</code>
+                <code className={styles.downloadFilename}>{file.pdfFilename}</code>
               </div>
               <a
                 className={styles.downloadButton}
-                href={file.href}
-                download={file.filename}
+                href={file.pdfHref}
+                download={file.pdfFilename}
               >
-                Download
+                Download PDF
               </a>
             </li>
           ))}
         </ul>
+
+        <div className={styles.editableSources}>
+          <div className={styles.editableSourcesHeader}>
+            <span className={styles.editableSourcesTag}>Editable source files</span>
+            <p>
+              Prefer to fork the wording in your clinic&rsquo;s shared drive?
+              The Markdown &amp; CSV originals are here. Open in any editor or
+              import into Google Docs / Sheets.
+            </p>
+          </div>
+          <ul className={styles.editableSourcesList}>
+            {toolkitDownloads.map((file) => (
+              <li key={file.sourceFilename}>
+                <a href={file.sourceHref} download={file.sourceFilename}>
+                  {file.sourceFilename}
+                </a>
+                <span>{file.sourceFormat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className={styles.section} aria-labelledby="setup">

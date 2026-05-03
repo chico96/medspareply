@@ -111,67 +111,75 @@ export default function SuccessPage() {
 
           <div className={styles.downloadsCard}>
             <div className={styles.downloadsCardBody}>
-              <span className={styles.downloadsCardTag}>Editable files · download now</span>
-              <strong>Grab the Markdown &amp; CSV files while the Drive link arrives.</strong>
+              <span className={styles.downloadsCardTag}>PDF toolkit · download now</span>
+              <strong>Grab the polished PDF pack while the Drive link arrives.</strong>
               <p>
-                Six editable files mirror the buyer toolkit page — the front-desk SOP,
-                the reply template bank, the negative-review checklist, the GBP &amp;
-                content calendar (CSV), the local SEO prompts, and the operating
-                cadence. Save them to your clinic&rsquo;s shared drive today.
+                Start with the complete PDF if you want one printable file. The individual
+                PDFs split the SOP, template bank, negative-review checklist, GBP calendar,
+                local SEO prompts, and operating cadence for your front desk.
               </p>
             </div>
             <ul className={styles.downloadsList}>
               <li>
                 <a
-                  href="/downloads/spareply-toolkit/front-desk-review-reply-sop.md"
-                  download="front-desk-review-reply-sop.md"
+                  href="/downloads/spareply-toolkit/SpaReply-toolkit-complete.pdf"
+                  download="SpaReply-toolkit-complete.pdf"
                 >
-                  front-desk-review-reply-sop.md
+                  SpaReply-toolkit-complete.pdf
                 </a>
               </li>
               <li>
                 <a
-                  href="/downloads/spareply-toolkit/review-reply-template-bank.md"
-                  download="review-reply-template-bank.md"
+                  href="/downloads/spareply-toolkit/front-desk-review-reply-sop.pdf"
+                  download="front-desk-review-reply-sop.pdf"
                 >
-                  review-reply-template-bank.md
+                  front-desk-review-reply-sop.pdf
                 </a>
               </li>
               <li>
                 <a
-                  href="/downloads/spareply-toolkit/negative-review-triage-checklist.md"
-                  download="negative-review-triage-checklist.md"
+                  href="/downloads/spareply-toolkit/review-reply-template-bank.pdf"
+                  download="review-reply-template-bank.pdf"
                 >
-                  negative-review-triage-checklist.md
+                  review-reply-template-bank.pdf
                 </a>
               </li>
               <li>
                 <a
-                  href="/downloads/spareply-toolkit/google-business-profile-content-calendar.csv"
-                  download="google-business-profile-content-calendar.csv"
+                  href="/downloads/spareply-toolkit/negative-review-triage-checklist.pdf"
+                  download="negative-review-triage-checklist.pdf"
                 >
-                  google-business-profile-content-calendar.csv
+                  negative-review-triage-checklist.pdf
                 </a>
               </li>
               <li>
                 <a
-                  href="/downloads/spareply-toolkit/local-seo-prompts.md"
-                  download="local-seo-prompts.md"
+                  href="/downloads/spareply-toolkit/google-business-profile-content-calendar.pdf"
+                  download="google-business-profile-content-calendar.pdf"
                 >
-                  local-seo-prompts.md
+                  google-business-profile-content-calendar.pdf
                 </a>
               </li>
               <li>
                 <a
-                  href="/downloads/spareply-toolkit/operating-cadence.md"
-                  download="operating-cadence.md"
+                  href="/downloads/spareply-toolkit/local-seo-prompts.pdf"
+                  download="local-seo-prompts.pdf"
                 >
-                  operating-cadence.md
+                  local-seo-prompts.pdf
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/downloads/spareply-toolkit/operating-cadence.pdf"
+                  download="operating-cadence.pdf"
+                >
+                  operating-cadence.pdf
                 </a>
               </li>
             </ul>
             <p className={styles.downloadsHint}>
-              Or open <Link href="/toolkit">/toolkit</Link> for the always-on web version.
+              Need editable files too? Open <Link href="/toolkit">/toolkit</Link> for the
+              Markdown and CSV source files.
             </p>
           </div>
         </div>
