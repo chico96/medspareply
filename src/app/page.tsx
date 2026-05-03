@@ -126,6 +126,18 @@ export default function Home() {
               </li>
             ))}
           </ul>
+          <p className={styles.policyTrust}>
+            <strong>7-day refund</strong>
+            <span className={styles.sep} aria-hidden="true">·</span>
+            <strong>Secure Stripe checkout</strong>
+            <span className={styles.sep} aria-hidden="true">·</span>
+            <span>Policies:</span>
+            <Link href="/refund-policy">Refund</Link>
+            <span className={styles.sep} aria-hidden="true">·</span>
+            <Link href="/privacy-policy">Privacy</Link>
+            <span className={styles.sep} aria-hidden="true">·</span>
+            <Link href="/terms">Terms</Link>
+          </p>
         </div>
         <aside className={styles.heroCard} aria-label="Sample reply">
           <div className={styles.cardHeader}>Sample · 5★ Hydrafacial</div>
@@ -299,6 +311,14 @@ export default function Home() {
               Preview what is inside →
             </Link>
             <small>{CHECKOUT_ASSURANCE}</small>
+            <p className={styles.policyTrust}>
+              <span>Policies:</span>
+              <Link href="/refund-policy">Refund</Link>
+              <span className={styles.sep} aria-hidden="true">·</span>
+              <Link href="/privacy-policy">Privacy</Link>
+              <span className={styles.sep} aria-hidden="true">·</span>
+              <Link href="/terms">Terms</Link>
+            </p>
           </aside>
         </div>
         <div className={styles.guaranteeBar}>

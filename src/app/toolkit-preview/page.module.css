@@ -66,6 +66,38 @@
 .heroFacts span { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #8a6a5f; }
 
 .heroCtas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+
+.policyTrust {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  color: #6e564c;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.policyTrust strong { color: #1c100b; font-weight: 700; }
+.policyTrust a {
+  color: #1c100b;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(28, 16, 11, 0.25);
+}
+.policyTrust a:hover { border-bottom-color: #1c100b; }
+.policyTrust .sep { color: #b89889; }
+
+.priceCard .policyTrust {
+  margin-top: 12px;
+  color: #d6b8a9;
+  font-size: 12px;
+}
+.priceCard .policyTrust strong { color: #fff8f2; }
+.priceCard .policyTrust a {
+  color: #fff8f2;
+  border-bottom-color: rgba(255, 248, 242, 0.45);
+}
+.priceCard .policyTrust a:hover { border-bottom-color: #fff8f2; }
+.priceCard .policyTrust .sep { color: rgba(255, 248, 242, 0.45); }
 .primaryCta,
 .secondaryCta,
 .priceCard a {

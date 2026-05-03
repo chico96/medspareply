@@ -30,6 +30,12 @@ export function SiteFooter() {
             <Link href="/toolkit-preview">Preview the $49 toolkit</Link>
             <a href="mailto:hello@spareply.com">hello@spareply.com</a>
           </div>
+          <div>
+            <span>Policies</span>
+            <Link href="/refund-policy">Refund policy</Link>
+            <Link href="/privacy-policy">Privacy policy</Link>
+            <Link href="/terms">Terms of use</Link>
+          </div>
         </div>
       </div>
       <div className={styles.footerNote}>

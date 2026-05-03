@@ -202,6 +202,18 @@ export default function ToolkitPreviewPage() {
                 Try the free generator
               </Link>
             </div>
+            <p className={styles.policyTrust}>
+              <strong>7-day refund</strong>
+              <span className={styles.sep} aria-hidden="true">·</span>
+              <strong>Secure Stripe checkout</strong>
+              <span className={styles.sep} aria-hidden="true">·</span>
+              <span>Policies:</span>
+              <Link href="/refund-policy">Refund</Link>
+              <span className={styles.sep} aria-hidden="true">·</span>
+              <Link href="/privacy-policy">Privacy</Link>
+              <span className={styles.sep} aria-hidden="true">·</span>
+              <Link href="/terms">Terms</Link>
+            </p>
             <div className={styles.heroFacts}>
               <div>
                 <strong>31 pages</strong>
@@ -244,6 +256,14 @@ export default function ToolkitPreviewPage() {
               {PRIMARY_CTA_LABEL}
             </a>
             <small>{PRICE_CARD_NOTE}</small>
+            <p className={styles.policyTrust}>
+              <span>Policies:</span>
+              <Link href="/refund-policy">Refund</Link>
+              <span className={styles.sep} aria-hidden="true">·</span>
+              <Link href="/privacy-policy">Privacy</Link>
+              <span className={styles.sep} aria-hidden="true">·</span>
+              <Link href="/terms">Terms</Link>
+            </p>
           </aside>
         </div>
       </section>
