@@ -421,7 +421,7 @@ class PdfRenderer {
 
   // ---------- Cover layout ----------
 
-  drawCover({ eyebrow, title, subtitle }) {
+  drawCover({ eyebrow, title, subtitle, panelLeftBody, panelRightBody }) {
     const { doc } = this;
     const left = PAGE.margins.left;
     const right = doc.page.width - PAGE.margins.right;
@@ -536,7 +536,8 @@ class PdfRenderer {
       .font(FONTS.body)
       .fontSize(9.5)
       .text(
-        "$49 one-time · 7-day refund · Google Drive folder of editable assets.",
+        panelLeftBody ||
+          "$49 one-time · 7-day refund · Google Drive folder of editable assets.",
         left + cellPadX,
         panelY + cellPadY + 50,
         { width: width / 2 - cellPadX * 2, lineGap: 2 },
@@ -564,7 +565,8 @@ class PdfRenderer {
       .font(FONTS.body)
       .fontSize(9.5)
       .text(
-        `A real human reads every email — same business day on most issues. ${BRAND.domain}`,
+        panelRightBody ||
+          `A real human reads every email — same business day on most issues. ${BRAND.domain}`,
         rightCellX,
         panelY + cellPadY + 50,
         { width: width / 2 - cellPadX * 2, lineGap: 2 },
@@ -1101,6 +1103,8 @@ function buildPdf({ outPath, sections, isCombined }) {
         eyebrow: section.eyebrow,
         title: section.title,
         subtitle: section.subtitle,
+        panelLeftBody: section.panelLeftBody,
+        panelRightBody: section.panelRightBody,
       });
 
       renderer.beginBodyPage();
@@ -1122,6 +1126,122 @@ function buildPdf({ outPath, sections, isCombined }) {
     stream.on("error", reject);
   });
 }
+
+// Public sample preview — short, polished, abbreviated. Lives inline so the
+// full editable Markdown for the sample is never published as a downloadable
+// source file alongside the paid Markdown originals.
+const sampleSection = {
+  file: "SpaReply-sample-preview",
+  source: { type: "markdown", path: null },
+  title: "MedSpa Review + Local SEO Toolkit — sample preview",
+  subtitle:
+    "An abbreviated 5-page peek at the polished SpaReply toolkit. The full $49 purchase delivers the 31-page complete pack, six focused PDFs, and editable Markdown / CSV source files.",
+  eyebrow: "Sample preview · free abbreviated peek",
+  panelLeftBody:
+    "Free 5-page sample · the full $49 toolkit downloads instantly after Stripe checkout.",
+  panelRightBody:
+    "Questions before you buy? hello@spareply.com · a real human reads every email.",
+  markdown: `# What is in this sample
+
+An abbreviated peek at the SpaReply MedSpa Review + Local SEO Toolkit — enough for an owner or practice manager to judge the wording, tone, and structure before paying.
+
+**This sample includes (excerpts only):** the 7-question pre-post safety check and the do/don't list, three of the 20 paste-ready review-reply templates, the first three steps of the 8-step negative-review triage plus the "do not post" list, and a short Google Business Profile + local SEO sample.
+
+**The full $49 purchase delivers** the polished 31-page SpaReply PDF complete pack, six focused individual PDFs (front-desk SOP, full template bank, negative-review triage, GBP + 4-week content calendar, local SEO prompts, operating cadence), and the editable Markdown / CSV source files — instantly, the moment Stripe confirms. 7-day refund.
+
+# Front-desk reply SOP — excerpt
+
+## The 7-question pre-post safety check
+
+Run this on every public reply before it goes live. If any answer is "no," send the draft back to the practice manager.
+
+1. Did the guest write the detail publicly first?
+2. Is the reply free of treatment specifics the guest did not name?
+3. Free of outcome promises (skin cleared, pain gone, results lasted)?
+4. Was anything sensitive moved to a private channel?
+5. Has a second person at the clinic read this?
+6. Does the tone match a calm, well-run clinic?
+7. Are we within 24 business hours of the review going live?
+
+## HIPAA-aware reply rules — short list
+
+**Do**
+
+- Thank the guest by first name only.
+- Acknowledge the visit without naming the treatment unless the guest named it first.
+- Praise the team member by first name if the guest named them.
+- Invite further conversation through a private channel for anything sensitive.
+- Keep replies under 60 words for 5-star and under 90 words for negative reviews.
+- Have a second person read every reply before it goes live.
+
+**Don't**
+
+- Confirm or deny that someone is or was a patient at the clinic.
+- Name a specific treatment the guest didn't already mention publicly.
+- Reference dosages, units, brands, products, or clinical outcomes.
+- Apologize in a way that admits liability before the practice manager reviews.
+- Promise refunds, comps, or remedies in public — move those offline.
+- Use exclamation points, emoji, or all-caps. The clinical tone is the point.
+
+# Reply templates — 3 of 20 samples
+
+The full template bank covers seven scenarios — 5★ general, staff shoutout, treatment named by the guest, neutral 3★, wait-time, pricing, and negative — across warm, polished, and clinical tones. Three samples follow.
+
+## 5★ praise · general · warm tone
+
+> Thank you for the kind note, [guest first name]. The team appreciated caring for you, and we're glad the visit felt calm and professional. We look forward to welcoming you back.
+
+## 5★ Hydrafacial · guest-named the treatment
+
+> Thank you for the kind note, [guest first name]. We're glad the visit felt refreshing, and the team enjoyed taking care of you. We look forward to welcoming you back when you're ready.
+
+## 1★ default · public reply, no clinical claims
+
+> We're sorry your visit didn't feel as seamless as it should have, [guest first name]. We appreciate you bringing this to our attention. Please contact our practice manager at [practice manager email] so we can listen, review the details, and follow up offline with care.
+
+# Negative-review triage — excerpt
+
+The full playbook is an 8-step triage with sign-off blocks for the practice manager. Below: steps 1–3 and the "do not post" list.
+
+## 1. Acknowledge within 24 business hours
+
+A 1- or 2-star review left unanswered for a week reads worse than the review itself. The front-desk lead pings the practice manager the same day; the public reply does not need to be perfect, only careful.
+
+## 2. Identify the guest internally — quietly
+
+Search your booking system for the name in the review. Note their last visit, provider, and any prior issues in the internal tracker only. Do not reference any of that in the public reply.
+
+## 3. Decide the lane: clinical, operational, billing, or hostile
+
+Each lane has a different default reply. Clinical concerns route to a licensed provider. Operational issues route to the practice manager. Billing routes to the office manager. Hostile or bot-like reviews still get a calm public acknowledgement — no debate.
+
+## "Do not post" list — bring to the practice manager first
+
+- The guest names a clinical adverse event.
+- The guest names a regulator (state board, FDA, OSHA, OCR).
+- The guest threatens legal action or names an attorney.
+- The reply you drafted confirms a treatment the guest did not name.
+- The reply you drafted apologizes for a specific outcome.
+- The reply offers a refund, comp, or credit publicly.
+- You can't answer "yes" to all seven safety-check questions.
+
+# Local SEO + GBP — excerpt
+
+The full prompt pack ships with 13 Google Business Profile angles, headline patterns, a treatment-page outline, and city / neighborhood angles. Two GBP samples follow.
+
+## Sample GBP post · spring glow plan
+
+> Spring glow plan in [city]: Hydrafacial + LED finishing — three weekly slots open this week. Members save 15%. Booking link in our profile.
+
+## Sample GBP post · provider spotlight (no clinical claims)
+
+> Meet [provider first name] — [years] years of aesthetic experience, conservative philosophy, and a calm bedside manner. Booking with [provider first name] is open Wednesday and Friday afternoons.
+
+---
+
+**Get the full toolkit:** $49 one-time at **spareply.com**. Instant download after Stripe checkout — the 31-page PDF complete pack, six focused PDFs, and the editable Markdown / CSV source files. 7-day refund. Questions before you buy: **hello@spareply.com**.
+`,
+};
 
 async function main() {
   const summary = [];
@@ -1146,6 +1266,18 @@ async function main() {
   await buildPdf({ outPath: combinedOut, sections, isCombined: true });
   const stat = fs.statSync(combinedOut);
   summary.push({ file: path.relative(repoRoot, combinedOut), bytes: stat.size });
+
+  const sampleOut = path.join(toolkitDir, `${sampleSection.file}.pdf`);
+  await buildPdf({
+    outPath: sampleOut,
+    sections: [sampleSection],
+    isCombined: false,
+  });
+  const sampleStat = fs.statSync(sampleOut);
+  summary.push({
+    file: path.relative(repoRoot, sampleOut),
+    bytes: sampleStat.size,
+  });
 
   console.log(`Generated ${summary.length} PDF${summary.length === 1 ? "" : "s"}:`);
   for (const s of summary) {

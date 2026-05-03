@@ -352,6 +352,20 @@
 }
 .askForm small { color: #d6b8a9; font-size: 12px; line-height: 1.5; }
 
+.sampleActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+}
+.sampleMeta {
+  display: block;
+  color: #77594f;
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 14px;
+}
+
 .disclaimer {
   margin: 24px auto 56px;
   width: min(1140px, calc(100% - 32px));

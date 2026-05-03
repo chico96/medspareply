@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getToolkitCheckoutUrl, isStripeCheckoutEnabled } from "@/lib/checkout";
+import { samplePreviewPdf } from "@/lib/marketing";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
 import styles from "./page.module.css";
@@ -190,6 +191,13 @@ export default function ToolkitPreviewPage() {
               >
                 {PRIMARY_CTA_LABEL}
               </a>
+              <a
+                className={styles.secondaryCta}
+                href={samplePreviewPdf.href}
+                download={samplePreviewPdf.filename}
+              >
+                Download free 5-page sample PDF
+              </a>
               <Link className={styles.secondaryCta} href="/#generator">
                 Try the free generator
               </Link>
@@ -238,6 +246,41 @@ export default function ToolkitPreviewPage() {
             <small>{PRICE_CARD_NOTE}</small>
           </aside>
         </div>
+      </section>
+
+      <section className={styles.section} aria-labelledby="sample">
+        <div className={styles.eyebrow}>Sample preview · free</div>
+        <h2 id="sample">A free 5-page sample PDF, no email required.</h2>
+        <p>
+          Read an abbreviated SpaReply sample before paying — cover, the
+          7-question pre-post safety check, three of the 20 paste-ready
+          review-reply templates, the first three steps of the negative-review
+          triage, and two GBP prompt samples. The full $49 purchase delivers
+          the polished 31-page complete pack, six focused individual PDFs, and
+          the editable Markdown / CSV source files.
+        </p>
+        <div className={styles.sampleActions}>
+          <a
+            className={styles.primaryCta}
+            href={samplePreviewPdf.href}
+            download={samplePreviewPdf.filename}
+          >
+            Download the sample PDF
+          </a>
+          <a
+            className={styles.secondaryCta}
+            href={TOOLKIT_CHECKOUT_URL}
+            target={PRIMARY_CTA_TARGET}
+            rel={PRIMARY_CTA_REL}
+          >
+            {PRIMARY_CTA_LABEL}
+          </a>
+        </div>
+        <small className={styles.sampleMeta}>
+          {samplePreviewPdf.filename} · {samplePreviewPdf.pages} pages · clearly
+          marked as a sample. The full toolkit is the only download that
+          includes the 31-page complete pack and editable sources.
+        </small>
       </section>
 
       <section className={styles.section} aria-labelledby="inside">

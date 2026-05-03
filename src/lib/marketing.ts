@@ -1,3 +1,9 @@
+export const samplePreviewPdf = {
+  href: "/downloads/spareply-toolkit/SpaReply-sample-preview.pdf",
+  filename: "SpaReply-sample-preview.pdf",
+  pages: 5,
+};
+
 export type ToolkitDeliverable = {
   category: string;
   title: string;
@@ -117,6 +123,11 @@ export const faqItems = [
     question: "Who is the $49 launch toolkit for?",
     answer:
       "Med-spa owners, practice managers, and front-desk leads who want faster Google review replies, a HIPAA-aware SOP, and ready-to-post local SEO content — without committing to a monthly platform.",
+  },
+  {
+    question: "Can I see the toolkit before paying?",
+    answer:
+      "Yes. Download the free 5-page sample preview PDF — a cover, the 7-question pre-post safety check, three of the 20 paste-ready review-reply templates, the first three steps of the 8-step negative-review triage, and two Google Business Profile prompt samples. It is enough to judge wording, tone, and structure before you spend $49.",
   },
   {
     question: "How is the toolkit delivered?",

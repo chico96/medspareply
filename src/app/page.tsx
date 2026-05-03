@@ -5,6 +5,7 @@ import {
   contentExamples,
   faqItems,
   guarantee,
+  samplePreviewPdf,
   toolkitDeliverables,
   trustBullets,
 } from "@/lib/marketing";
@@ -103,6 +104,13 @@ export default function Home() {
             >
               {PRIMARY_CTA_LABEL}
             </a>
+            <a
+              className={styles.secondaryCta}
+              href={samplePreviewPdf.href}
+              download={samplePreviewPdf.filename}
+            >
+              View free 5-page sample PDF
+            </a>
             <Link className={styles.secondaryCta} href="/toolkit-preview">
               Preview what is inside
             </Link>
@@ -141,6 +149,56 @@ export default function Home() {
             </div>
           </div>
         </aside>
+      </section>
+
+      <section className={styles.samplePreview} aria-labelledby="sample-preview">
+        <div className={styles.samplePreviewHeader}>
+          <span className={styles.sectionEyebrow}>See it before you pay</span>
+          <h2 id="sample-preview">A free 5-page sample of the toolkit, no email required.</h2>
+          <p>
+            Download the abbreviated SpaReply sample PDF — cover, the 7-question
+            pre-post safety check, three of the 20 paste-ready review-reply templates,
+            three steps of the negative-review triage, and two GBP prompt samples.
+            Read it on the train; decide if the wording fits your clinic before you
+            spend a dollar.
+          </p>
+        </div>
+        <div className={styles.sampleColumns}>
+          <article className={styles.sampleCardFree}>
+            <span>Free sample · 5 pages</span>
+            <strong>SpaReply sample preview PDF</strong>
+            <p>
+              An abbreviated peek — branded, printable, and clearly marked as a sample.
+              No login, no email, no AI key. Click and read.
+            </p>
+            <a
+              className={styles.sampleCtaFree}
+              href={samplePreviewPdf.href}
+              download={samplePreviewPdf.filename}
+            >
+              Download the sample PDF
+            </a>
+            <small>{samplePreviewPdf.filename} · ~13 KB</small>
+          </article>
+          <article className={styles.sampleCardFull}>
+            <span>Full toolkit · $49 one-time</span>
+            <strong>Everything that ships after Stripe checkout</strong>
+            <ul>
+              <li>Polished 31-page SpaReply PDF complete pack</li>
+              <li>Six focused individual PDFs (SOP, templates, triage, GBP, SEO, cadence)</li>
+              <li>Editable Markdown and CSV source files</li>
+              <li>7-day refund · email hello@spareply.com, no forms</li>
+            </ul>
+            <a
+              className={styles.sampleCtaFull}
+              href={TOOLKIT_CHECKOUT_URL}
+              target={PRIMARY_CTA_TARGET}
+              rel={PRIMARY_CTA_REL}
+            >
+              {PRIMARY_CTA_LABEL}
+            </a>
+          </article>
+        </div>
       </section>
 
       <FreeGenerator
