@@ -70,6 +70,9 @@ export default function Home() {
             <a className={styles.primaryCta} href={TOOLKIT_MAILTO}>
               Get the $49 toolkit
             </a>
+            <Link className={styles.secondaryCta} href="/toolkit-preview">
+              Preview what is inside
+            </Link>
             <a className={styles.secondaryCta} href="#generator">
               Try the free generator
             </a>
@@ -163,6 +166,9 @@ export default function Home() {
             <strong>$49</strong>
             <p>One-time. Instant Google Drive access. Free updates during launch.</p>
             <a href={TOOLKIT_MAILTO}>Get the $49 toolkit</a>
+            <Link className={styles.priceCardSecondary} href="/toolkit-preview">
+              Preview what is inside →
+            </Link>
             <small>
               Pilot checkout: opens your email so we can confirm and send your access link
               within one business day.

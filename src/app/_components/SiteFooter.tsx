@@ -17,7 +17,7 @@ export function SiteFooter() {
           <div>
             <span>Tools</span>
             <Link href="/#generator">Free reply generator</Link>
-            <Link href="/#toolkit">$49 launch toolkit</Link>
+            <Link href="/toolkit-preview">$49 launch toolkit</Link>
           </div>
           <div>
             <span>Resources</span>
@@ -27,7 +27,7 @@ export function SiteFooter() {
           </div>
           <div>
             <span>Get started</span>
-            <Link href="/#toolkit">Get the $49 launch toolkit</Link>
+            <Link href="/toolkit-preview">Preview the $49 toolkit</Link>
             <a href="mailto:hello@denzellrei.com">hello@denzellrei.com</a>
           </div>
         </div>

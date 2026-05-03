@@ -14,7 +14,7 @@ export function SiteHeader({ homepageAnchors = false }: SiteHeaderProps) {
       </Link>
       <div className={styles.navLinks}>
         <Link href={homepageAnchors ? "#generator" : "/#generator"}>Free generator</Link>
-        <Link href={homepageAnchors ? "#toolkit" : "/#toolkit"}>$49 toolkit</Link>
+        <Link href="/toolkit-preview">$49 toolkit</Link>
         <Link href="/review-response-examples">Examples</Link>
         <Link href="/negative-review-response">Negative reviews</Link>
         <Link href="/local-seo-checklist">Local SEO</Link>

@@ -7,6 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${BASE_URL}/`, lastModified, changeFrequency: "weekly", priority: 1 },
     {
+      url: `${BASE_URL}/toolkit-preview`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${BASE_URL}/review-response-examples`,
       lastModified,
       changeFrequency: "monthly",
