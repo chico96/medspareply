@@ -220,8 +220,26 @@
 .formPanel select:focus,
 .waitlistForm input:focus { border-color: #b76e58; box-shadow: 0 0 0 4px rgba(183, 110, 88, 0.12); }
 .fieldGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
-.outputPanel { display: grid; gap: 14px; }
+.outputPanel { display: grid; gap: 14px; align-content: start; }
 .outputCard { background: #fff8f2; border-radius: 22px; padding: 18px; border: 1px solid rgba(83, 48, 36, 0.1); }
+.primaryOutput { background: #241713; color: #fff8f2; border-color: rgba(36, 23, 19, 0.2); box-shadow: 0 18px 42px rgba(36, 23, 19, 0.13); }
+.primaryOutput p { color: #fff3eb !important; font-size: 17px; }
+.outputHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.outputHeader button,
+.generatorActions button {
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 850;
+}
+.outputHeader button { padding: 8px 11px; background: #f1dece; color: #241713; font-size: 13px; white-space: nowrap; }
+.primaryOutput .outputHeader button { background: #fff8f2; color: #241713; }
+.generatorActions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.generatorActions button { min-height: 48px; padding: 0 18px; }
+.generatorActions button:first-child { background: #241713; color: #fff8f2; }
+.generatorActions button:last-child { background: #f1dece; color: #4d332a; }
+.privacyNote { display: block; margin-top: 12px; color: #77594f; line-height: 1.5; }
 .outputCard p,
 .outputCard li { margin-top: 8px; color: #5f493f; line-height: 1.55; }
 .outputCard ul { padding-left: 18px; }

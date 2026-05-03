@@ -1,21 +1,45 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { generateReviewReply, services, tones, type ReplyTone } from "@/lib/replyGenerator";
+import { generateReviewReply, services, tones, type ReplyTone, type ReviewReplyInput } from "@/lib/replyGenerator";
 import styles from "./page.module.css";
 
-export function FreeGenerator() {
-  const [reviewText, setReviewText] = useState(
+const exampleInput: ReviewReplyInput = {
+  reviewText:
     "Loved my Hydrafacial with Mia. The spa felt calm and my skin looked so refreshed before my event.",
-  );
-  const [rating, setRating] = useState(5);
-  const [serviceType, setServiceType] = useState("Hydrafacial");
-  const [tone, setTone] = useState<ReplyTone>("warm");
+  rating: 5,
+  serviceType: "Hydrafacial",
+  tone: "warm",
+};
 
-  const reply = useMemo(
-    () => generateReviewReply({ reviewText, rating, serviceType, tone }),
-    [rating, reviewText, serviceType, tone],
-  );
+export function FreeGenerator() {
+  const [reviewText, setReviewText] = useState(exampleInput.reviewText);
+  const [rating, setRating] = useState(exampleInput.rating);
+  const [serviceType, setServiceType] = useState(exampleInput.serviceType);
+  const [tone, setTone] = useState<ReplyTone>(exampleInput.tone);
+  const [generatedInput, setGeneratedInput] = useState<ReviewReplyInput>(exampleInput);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const reply = useMemo(() => generateReviewReply(generatedInput), [generatedInput]);
+
+  function generateReply() {
+    setGeneratedInput({ reviewText, rating, serviceType, tone });
+    setCopied(null);
+  }
+
+  function resetExample() {
+    setReviewText(exampleInput.reviewText);
+    setRating(exampleInput.rating);
+    setServiceType(exampleInput.serviceType);
+    setTone(exampleInput.tone);
+    setGeneratedInput(exampleInput);
+    setCopied(null);
+  }
+
+  async function copyText(label: string, text: string) {
+    await navigator.clipboard.writeText(text);
+    setCopied(label);
+  }
 
   return (
     <section className={styles.generator} id="generator" aria-labelledby="generator-title">
@@ -31,7 +55,13 @@ export function FreeGenerator() {
       </div>
 
       <div className={styles.generatorGrid}>
-        <form className={styles.formPanel} onSubmit={(event) => event.preventDefault()}>
+        <form
+          className={styles.formPanel}
+          onSubmit={(event) => {
+            event.preventDefault();
+            generateReply();
+          }}
+        >
           <label>
             Review text
             <textarea
@@ -76,19 +106,40 @@ export function FreeGenerator() {
               </select>
             </label>
           </div>
+
+          <div className={styles.generatorActions}>
+            <button type="submit">Generate reply</button>
+            <button type="button" onClick={resetExample}>Reset example</button>
+          </div>
+          <small className={styles.privacyNote}>Runs locally in your browser. Paste, generate, copy, and leave.</small>
         </form>
 
         <div className={styles.outputPanel} aria-live="polite">
-          <div className={styles.outputCard}>
-            <span>Public reply</span>
+          <div className={`${styles.outputCard} ${styles.primaryOutput}`}>
+            <div className={styles.outputHeader}>
+              <span>Public reply</span>
+              <button type="button" onClick={() => copyText("public", reply.publicReply)}>
+                {copied === "public" ? "Copied" : "Copy reply"}
+              </button>
+            </div>
             <p>{reply.publicReply}</p>
           </div>
           <div className={styles.outputCard}>
-            <span>Private follow-up</span>
+            <div className={styles.outputHeader}>
+              <span>Private follow-up</span>
+              <button type="button" onClick={() => copyText("follow-up", reply.privateFollowUp)}>
+                {copied === "follow-up" ? "Copied" : "Copy"}
+              </button>
+            </div>
             <p>{reply.privateFollowUp}</p>
           </div>
           <div className={styles.outputCard}>
-            <span>Safety notes</span>
+            <div className={styles.outputHeader}>
+              <span>Safety notes</span>
+              <button type="button" onClick={() => copyText("notes", reply.safetyNotes.join("\n"))}>
+                {copied === "notes" ? "Copied" : "Copy"}
+              </button>
+            </div>
             <ul>
               {reply.safetyNotes.map((note) => (
                 <li key={note}>{note}</li>

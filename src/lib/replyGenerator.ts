@@ -78,7 +78,7 @@ export function generateReviewReply(input: ReviewReplyInput): ReviewReplyOutput 
   const rating = clampRating(input.rating);
   const tone = input.tone in toneOpeners ? input.tone : "polished";
   const teamMember = review ? extractTeamMember(review) : null;
-  const teamPhrase = teamMember ? ` ${teamMember} and` : "";
+  const teamPhrase = teamMember ? `${teamMember} and our team appreciate` : "Our team appreciates";
   const safetyNotes = [
     "Do not mention protected health details or treatment outcomes beyond what the guest shared publicly.",
     "Keep claims modest; avoid guaranteeing medical or cosmetic results.",
@@ -108,12 +108,12 @@ export function generateReviewReply(input: ReviewReplyInput): ReviewReplyOutput 
 
   const fallbackDetail =
     rating === 4
-      ? "We appreciate your thoughtful rating"
-      : "We are so glad your visit felt memorable";
-  const detail = review || fallbackDetail;
+      ? "you took time to leave a thoughtful rating"
+      : "your visit felt memorable";
+  const detail = review ? review.replace(/[.!?]+$/, "") : fallbackDetail;
 
   return {
-    publicReply: `${toneOpeners[tone]} after your ${serviceType} visit. ${teamPhrase} our whole team appreciates hearing that ${detail.charAt(0).toLowerCase()}${detail.slice(1)}. ${positiveClosers[tone]}`,
+    publicReply: `${toneOpeners[tone]} after your ${serviceType} visit. ${teamPhrase} your feedback: “${detail}.” ${positiveClosers[tone]}`,
     privateFollowUp:
       rating === 5
         ? `Flag this guest for a rebooking thank-you, ask permission before resharing their words, and invite them to mention their favorite service in future reviews.`
