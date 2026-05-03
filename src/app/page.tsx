@@ -1,12 +1,9 @@
 import Link from "next/link";
 import {
-  audiences,
   beforeAfter,
-  contentExamples,
   faqItems,
   guarantee,
   samplePreviewPdf,
-  toolkitDeliverables,
   trustBullets,
 } from "@/lib/marketing";
 import { getToolkitCheckoutUrl, isStripeCheckoutEnabled } from "@/lib/checkout";
@@ -19,91 +16,89 @@ import styles from "./page.module.css";
 const TOOLKIT_CHECKOUT_URL = getToolkitCheckoutUrl();
 const STRIPE_ENABLED = isStripeCheckoutEnabled();
 const PRIMARY_CTA_LABEL = STRIPE_ENABLED
-  ? "Buy the $49 toolkit"
-  : "Get the $49 toolkit";
+  ? "Equip your front desk · $49"
+  : "Get the toolkit · $49";
 const PRIMARY_CTA_REL = STRIPE_ENABLED ? "noopener noreferrer" : undefined;
 const PRIMARY_CTA_TARGET = STRIPE_ENABLED ? "_blank" : undefined;
 const CHECKOUT_ASSURANCE = STRIPE_ENABLED
-  ? "Secure Stripe checkout · the polished PDF pack downloads instantly the moment payment clears."
-  : "Pilot checkout: opens your email so we can confirm and send your access link within one business day.";
+  ? "Secure Stripe checkout. The 31-page PDF, six focused PDFs, and editable source files download the moment payment clears."
+  : "Pilot checkout opens your email so we can confirm and send your access link within one business day.";
 
-const heroQuickFacts = [
-  { label: "PDF pack pages", value: "31" },
-  { label: "Focused PDFs", value: "6" },
-  { label: "Refund window", value: "7 days" },
-  { label: "Launch price", value: "$49" },
+const trustStrip = [
+  { label: "Private", value: "Generator runs in browser" },
+  { label: "Specific", value: "Built for med spas only" },
+  { label: "Safe", value: "HIPAA-aware wording" },
+  { label: "Secure", value: "Stripe checkout · 7-day refund" },
 ];
 
-const instantDelivery = [
-  {
-    label: "Complete pack",
-    title: "31-page SpaReply PDF",
-    body: "One branded, printable PDF covering the SOP, template bank, negative-review triage, GBP calendar, local SEO prompts, and operating cadence — designed to be read in one sitting.",
-  },
-  {
-    label: "Individual files",
-    title: "Six focused PDFs",
-    body: "The same six pieces split into print-and-tape PDFs so the front desk, practice manager, and privacy officer can each grab the page they need without scrolling the full pack.",
-  },
-  {
-    label: "Editable sources",
-    title: "Markdown + CSV originals",
-    body: "Five Markdown files and the 4-week content calendar CSV — open in any editor or import into Google Docs / Sheets so your clinic can fork the wording into its own shared drive.",
-  },
+const productFacts = [
+  { value: "31", label: "page complete PDF" },
+  { value: "6", label: "focused individual PDFs" },
+  { value: "20", label: "paste-ready templates" },
+  { value: "$49", label: "one-time" },
 ];
 
-const packTableOfContents = [
+const tableOfContents = [
   {
+    no: "01",
     pages: "5 pages",
     title: "Front-desk reply SOP",
-    body: "20-minute setup block, the HIPAA-aware do/don't list, the 7-question pre-post safety check, and the daily / weekly / monthly cadence — all on one printable file.",
+    body: "20-minute setup, the do/don't list, the 7-question safety check, and the daily / weekly / monthly cadence — all on one printable file.",
   },
   {
+    no: "02",
     pages: "7 pages · 20 templates",
-    title: "Review reply template bank",
-    body: "Paste-ready replies for 5★ praise, staff shoutouts, treatment mentions, neutral 3★, wait-time and pricing complaints, and 1–2★ reviews — plus the PHI-risky → safer rewrite table.",
+    title: "Reply template bank",
+    body: "Paste-ready replies for 5★ praise, staff shoutouts, treatment mentions, neutral 3★, wait-time and pricing complaints, and 1–2★ reviews.",
   },
   {
+    no: "03",
     pages: "5 pages · 8-step triage",
-    title: "Negative-review triage checklist",
-    body: "Pre-checks, lane decision, draft from template, run the safety check, post, log, and Google policy flag — with a sign-off block for the practice manager.",
+    title: "Negative-review triage",
+    body: "Pre-checks, lane decision, draft from template, run the safety check, post, log, and policy flag — with a sign-off block.",
   },
   {
+    no: "04",
     pages: "4 pages · 4-week schedule",
     title: "GBP + content calendar",
-    body: "Week-by-week schedule across GBP posts, review work, email, and SEO focus — with post drafts, owner column, and status column. Drops straight into Google Sheets.",
+    body: "Week-by-week schedule across GBP posts, review work, email, and SEO focus — drops straight into Google Sheets.",
   },
   {
+    no: "05",
     pages: "5 pages · 13 prompts",
-    title: "Local SEO + GBP prompt pack",
-    body: "GBP post angles, a treatment-page outline, and city / neighborhood angles — the prompts that pair with the 4-week calendar so the front desk never stares at a blank box.",
+    title: "Local SEO + GBP prompts",
+    body: "GBP post angles, a treatment-page outline, and city / neighborhood angles to pair with the 4-week calendar.",
   },
   {
+    no: "06",
     pages: "5 pages",
     title: "Operating cadence",
-    body: "The week, on a single page: daily 10-minute slot, daily 15-minute approval, the Tuesday 20-minute SOP, the Friday huddle, and the monthly + quarterly review.",
+    body: "The week, on a single page: daily 10-minute slot, daily 15-minute approval, the Tuesday 20-minute SOP, the Friday huddle.",
   },
 ];
 
 const ladderSteps = [
   {
-    label: "Free · in browser",
+    label: "Free",
+    sublabel: "in browser · no login",
     title: "Reply generator",
-    body: "Paste one review, pick the rating and service, get a HIPAA-aware public reply plus a private follow-up. Runs locally — no login, no API key, no review text leaving your device. One reply at a time.",
+    body: "Paste a review, get a HIPAA-aware public reply plus a private follow-up. One reply at a time. No API key, no review text leaving your device.",
   },
   {
-    label: "Free · 5 pages",
+    label: "Free",
+    sublabel: "5-page PDF · no email",
     title: "Sample preview PDF",
-    body: "An abbreviated peek at the toolkit — cover, the 7-question pre-post check, three of the 20 templates, three steps of the negative-review triage, and two GBP prompts. No email required.",
+    body: "Cover, the 7-question pre-post safety check, three of the 20 templates, three steps of the negative-review triage, and two GBP prompt samples.",
   },
   {
-    label: "$49 · one-time",
+    label: "$49",
+    sublabel: "one-time · 7-day refund",
     title: "Full toolkit",
-    body: "The polished 31-page complete PDF, six focused individual PDFs, and the editable Markdown + CSV source files. Built for a front-desk lead to run a 20-minute weekly review-reply cadence without an agency.",
+    body: "Polished 31-page complete PDF, six focused individual PDFs, and editable Markdown + CSV source files. Built for a 20-minute Tuesday cadence.",
   },
 ];
 
-const resources = [
+const resourceLinks = [
   {
     href: "/review-response-examples",
     eyebrow: "Examples",
@@ -132,229 +127,331 @@ export default function Home() {
     <main className={styles.page}>
       <SiteHeader homepageAnchors />
 
+      {/* ===== HERO ===== */}
       <section className={styles.hero} id="top">
-        <div className={styles.heroCopy}>
-          <div className={styles.pill}>
-            Built for med spas only · review replies + local SEO
+        <div className={styles.heroInner}>
+          <div className={styles.heroCopy}>
+            <p className={styles.eyebrow}>
+              <span className={styles.eyebrowDot} aria-hidden="true" />
+              Med-spa review replies, done right
+            </p>
+            <h1 className={styles.heroHeadline}>
+              <span>The front-desk system for</span>
+              <span>med-spa review replies</span>
+              <span>and local SEO.</span>
+            </h1>
+            <p className={styles.heroLede}>
+              Free in-browser generator. Or a $49 toolkit your team can run in a 20-minute
+              weekly Tuesday block — without confirming a treatment your guest didn&rsquo;t name.
+            </p>
+
+            <div className={styles.heroCtas}>
+              <TrackedAnchor
+                className={styles.ctaPrimary}
+                href={TOOLKIT_CHECKOUT_URL}
+                target={PRIMARY_CTA_TARGET}
+                rel={PRIMARY_CTA_REL}
+                event="stripe_cta_click"
+                eventProperties={{ location: "home_hero" }}
+              >
+                {PRIMARY_CTA_LABEL}
+                <span aria-hidden="true">→</span>
+              </TrackedAnchor>
+              <TrackedAnchor
+                className={styles.ctaSecondary}
+                href={samplePreviewPdf.href}
+                download={samplePreviewPdf.filename}
+                event="sample_pdf_click"
+                eventProperties={{ location: "home_hero" }}
+              >
+                Read the 5-page sample PDF
+              </TrackedAnchor>
+              <TrackedAnchor
+                className={styles.ctaGhost}
+                href="#generator"
+                event="free_generator_click"
+                eventProperties={{ location: "home_hero" }}
+              >
+                Try the free generator
+              </TrackedAnchor>
+            </div>
+
+            <dl className={styles.heroProof}>
+              {productFacts.map((fact) => (
+                <div key={fact.label} className={styles.heroProofItem}>
+                  <dt>{fact.value}</dt>
+                  <dd>{fact.label}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <h1>
-            Med-spa review replies your front desk can copy, customize, and post safely.
-          </h1>
-          <p>
-            Niche-built for aesthetic clinics — Hydrafacial, injectables, laser, peels,
-            and memberships, with negative-review triage and Google Business Profile
-            prompts already wired in. Try the free in-browser generator for one reply.
-            Or buy the <strong>$49 toolkit</strong>: a polished{" "}
-            <strong>31-page complete PDF</strong>, six focused PDFs, and the editable{" "}
-            <strong>Markdown + CSV source files</strong> — instant Stripe checkout,
-            instant download, 7-day satisfaction refund.
+
+          {/* Editorial product mockup */}
+          <div className={styles.heroVisual} aria-hidden="true">
+            <div className={styles.bookCover}>
+              <div className={styles.bookCorner}>
+                <span>SR</span>
+                <em>Edition 01</em>
+              </div>
+              <div className={styles.bookSpine}>SpaReply</div>
+              <div className={styles.bookTitle}>
+                <p className={styles.bookKicker}>The med-spa</p>
+                <p className={styles.bookHeadline}>
+                  Review<br />&amp; Local SEO<br />Toolkit
+                </p>
+              </div>
+              <div className={styles.bookMeta}>
+                <span>31 pages · 6 PDFs</span>
+                <span>Editable Markdown + CSV</span>
+              </div>
+              <div className={styles.bookSeal}>
+                <span>$49</span>
+                <em>one-time</em>
+              </div>
+            </div>
+
+            <div className={styles.reviewCard}>
+              <div className={styles.reviewHead}>
+                <div className={styles.reviewAvatar}>M</div>
+                <div className={styles.reviewMeta}>
+                  <strong>M. Reyes</strong>
+                  <span>
+                    <span className={styles.stars} aria-hidden="true">★★★★★</span>
+                    <span className={styles.dotSep} aria-hidden="true">·</span>
+                    Local guide
+                  </span>
+                </div>
+                <span className={styles.reviewBadge}>5★ Hydrafacial</span>
+              </div>
+              <p className={styles.reviewQuote}>
+                &ldquo;Loved my Hydrafacial with Mia. The spa felt calm and my skin looked
+                refreshed before my event.&rdquo;
+              </p>
+              <div className={styles.reviewReply}>
+                <span className={styles.reviewReplyLabel}>
+                  <span className={styles.reviewReplyDot} />
+                  Reply from owner · toolkit-quality
+                </span>
+                <p>
+                  Thank you for trusting us with your visit. Mia and the team appreciated
+                  caring for you — we look forward to welcoming you back soon.
+                </p>
+                <ul className={styles.reviewReplyChecks}>
+                  <li>No treatment specifics confirmed</li>
+                  <li>No outcome promises</li>
+                  <li>Under 35 words</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TRUST STRIP ===== */}
+      <section className={styles.trustStrip} aria-label="Why med spas trust SpaReply">
+        {trustStrip.map((item) => (
+          <div key={item.label} className={styles.trustItem}>
+            <span className={styles.trustLabel}>{item.label}</span>
+            <span className={styles.trustValue}>{item.value}</span>
+          </div>
+        ))}
+      </section>
+
+      {/* ===== PRODUCT EDITORIAL ===== */}
+      <section className={styles.product} aria-labelledby="product-title">
+        <div className={styles.productCopy}>
+          <p className={styles.eyebrow}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            The product
           </p>
-          <div className={styles.ctas}>
-            <TrackedAnchor
-              className={styles.primaryCta}
-              href={TOOLKIT_CHECKOUT_URL}
-              target={PRIMARY_CTA_TARGET}
-              rel={PRIMARY_CTA_REL}
-              event="stripe_cta_click"
-              eventProperties={{ location: "home_hero" }}
-            >
-              {PRIMARY_CTA_LABEL}
-            </TrackedAnchor>
-            <TrackedAnchor
-              className={styles.secondaryCta}
-              href={samplePreviewPdf.href}
-              download={samplePreviewPdf.filename}
-              event="sample_pdf_click"
-              eventProperties={{ location: "home_hero" }}
-            >
-              Free 5-page sample PDF · no email
-            </TrackedAnchor>
-            <TrackedAnchor
-              className={styles.secondaryCta}
-              href="#generator"
-              event="free_generator_click"
-              eventProperties={{ location: "home_hero" }}
-            >
-              Try the free generator
-            </TrackedAnchor>
-          </div>
-          <ul className={styles.trustList} aria-label="Why med spas trust SpaReply">
+          <h2 id="product-title" className={styles.sectionHeadline}>
+            One toolkit. Six pieces. Built like a clinic SOP — not a Notion template.
+          </h2>
+          <p className={styles.sectionLede}>
+            Every page printable. Every section paste-ready. The complete pack reads
+            cover-to-cover on a Sunday; the front desk pulls a single PDF between guests.
+          </p>
+          <ul className={styles.productList}>
             {trustBullets.map((bullet) => (
               <li key={bullet}>
-                <span aria-hidden="true">✓</span>
+                <span className={styles.productCheck} aria-hidden="true" />
                 {bullet}
               </li>
             ))}
           </ul>
-          <p className={styles.policyTrust}>
-            <strong>7-day satisfaction refund</strong>
-            <span className={styles.sep} aria-hidden="true">·</span>
-            <strong>Secure Stripe checkout</strong>
-            <span className={styles.sep} aria-hidden="true">·</span>
-            <span>Policies:</span>
-            <Link href="/refund-policy">Refund</Link>
-            <span className={styles.sep} aria-hidden="true">·</span>
-            <Link href="/privacy-policy">Privacy</Link>
-            <span className={styles.sep} aria-hidden="true">·</span>
-            <Link href="/terms">Terms</Link>
-          </p>
-        </div>
-        <aside className={styles.heroCard} aria-label="Sample reply">
-          <div className={styles.cardHeader}>Sample · 5★ Hydrafacial</div>
-          <div className={styles.reviewBubble}>
-            “Loved my Hydrafacial with Mia. The spa felt calm and my skin looked refreshed
-            before my event.”
-          </div>
-          <div className={styles.replyPreview}>
-            <span>Public reply (toolkit-quality)</span>
-            <p>
-              Thank you for trusting us with your visit. Mia and the team appreciated caring
-              for you — we look forward to welcoming you back soon.
-            </p>
-            <div className={styles.heroFacts}>
-              {heroQuickFacts.map((fact) => (
-                <div key={fact.label}>
-                  <strong>{fact.value}</strong>
-                  <span>{fact.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section className={styles.samplePreview} aria-labelledby="sample-preview">
-        <div className={styles.samplePreviewHeader}>
-          <span className={styles.sectionEyebrow}>See it before you pay</span>
-          <h2 id="sample-preview">A free 5-page sample of the toolkit, no email required.</h2>
-          <p>
-            Download the abbreviated SpaReply sample PDF — cover, the 7-question
-            pre-post safety check, three of the 20 paste-ready review-reply templates,
-            three steps of the negative-review triage, and two GBP prompt samples.
-            Read it on the train; decide if the wording fits your clinic before you
-            spend a dollar.
-          </p>
-        </div>
-        <div className={styles.sampleColumns}>
-          <article className={styles.sampleCardFree}>
-            <span>Free sample · 5 pages</span>
-            <strong>SpaReply sample preview PDF</strong>
-            <p>
-              An abbreviated peek — branded, printable, and clearly marked as a sample.
-              No login, no email, no AI key. Click and read.
-            </p>
+          <div className={styles.productCtas}>
             <TrackedAnchor
-              className={styles.sampleCtaFree}
-              href={samplePreviewPdf.href}
-              download={samplePreviewPdf.filename}
-              event="sample_pdf_click"
-              eventProperties={{ location: "home_sample_section" }}
-            >
-              Download the sample PDF
-            </TrackedAnchor>
-            <small>{samplePreviewPdf.filename} · ~13 KB</small>
-          </article>
-          <article className={styles.sampleCardFull}>
-            <span>Full toolkit · $49 one-time</span>
-            <strong>Everything that ships after Stripe checkout</strong>
-            <ul>
-              <li>Polished 31-page SpaReply PDF complete pack</li>
-              <li>Six focused individual PDFs (SOP, templates, triage, GBP, SEO, cadence)</li>
-              <li>Editable Markdown and CSV source files</li>
-              <li>
-                7-day satisfaction refund · email hello@spareply.com with order email
-                and purchase date
-              </li>
-            </ul>
-            <TrackedAnchor
-              className={styles.sampleCtaFull}
+              className={styles.ctaPrimary}
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
               event="stripe_cta_click"
-              eventProperties={{ location: "home_sample_section" }}
+              eventProperties={{ location: "home_product" }}
             >
               {PRIMARY_CTA_LABEL}
+              <span aria-hidden="true">→</span>
             </TrackedAnchor>
-          </article>
+            <TrackedLink
+              className={styles.ctaTextLink}
+              href="/toolkit-preview"
+              event="toolkit_preview_click"
+              eventProperties={{ location: "home_product" }}
+            >
+              See sample wording from each pillar →
+            </TrackedLink>
+          </div>
         </div>
+
+        <aside className={styles.specSheet} aria-label="Toolkit spec sheet">
+          <header className={styles.specHead}>
+            <span>Spec sheet</span>
+            <span>SR · 2026.01</span>
+          </header>
+          <dl className={styles.specRows}>
+            <div>
+              <dt>Format</dt>
+              <dd>PDF + Markdown + CSV</dd>
+            </div>
+            <div>
+              <dt>Complete pack</dt>
+              <dd>31 pages · printable</dd>
+            </div>
+            <div>
+              <dt>Individual files</dt>
+              <dd>6 focused PDFs</dd>
+            </div>
+            <div>
+              <dt>Source files</dt>
+              <dd>5 Markdown · 1 CSV</dd>
+            </div>
+            <div>
+              <dt>Templates</dt>
+              <dd>20 paste-ready (5★ → 1★)</dd>
+            </div>
+            <div>
+              <dt>Cadence</dt>
+              <dd>20 min / week</dd>
+            </div>
+            <div>
+              <dt>Delivery</dt>
+              <dd>Instant after Stripe</dd>
+            </div>
+            <div>
+              <dt>Refund</dt>
+              <dd>7-day satisfaction</dd>
+            </div>
+          </dl>
+          <footer className={styles.specFoot}>
+            <strong>$49</strong>
+            <span>one-time · all updates included during launch</span>
+          </footer>
+        </aside>
       </section>
 
-      <section className={styles.ladder} aria-labelledby="ladder-title">
-        <div className={styles.ladderHeader}>
-          <span className={styles.sectionEyebrow}>Free → free → $49</span>
-          <h2 id="ladder-title">Three ways to use SpaReply — only one is paid.</h2>
-          <p>
-            Try the free generator on a real review, skim the free 5-page sample, and
-            only buy the toolkit if the wording is already obviously better than what
-            your front desk posts today.
+      {/* ===== DARK SHOWROOM — TOC ===== */}
+      <section className={styles.showroom} aria-labelledby="showroom-title">
+        <div className={styles.showroomHeader}>
+          <p className={`${styles.eyebrow} ${styles.eyebrowOnDark}`}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            Inside the 31 pages
           </p>
-        </div>
-        <ol className={styles.ladderList}>
-          {ladderSteps.map((step, index) => (
-            <li key={step.title} className={styles.ladderStep}>
-              <span className={styles.ladderIndex}>{`0${index + 1}`.slice(-2)}</span>
-              <div>
-                <span className={styles.ladderLabel}>{step.label}</span>
-                <strong>{step.title}</strong>
-                <p>{step.body}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className={styles.tocSection} aria-labelledby="toc-title">
-        <div className={styles.tocHeader}>
-          <span className={styles.sectionEyebrow}>Inside the 31-page pack</span>
-          <h2 id="toc-title">
-            Six pillars. Every page printable. Every section paste-ready.
+          <h2 id="showroom-title" className={styles.showroomHeadline}>
+            Six pillars. Each one a working file your front desk can run with on Monday.
           </h2>
-          <p>
-            The complete pack is built so a practice manager can read it cover-to-cover
-            on a Sunday and a front-desk lead can pull a single section between guests.
-            Page counts below match the actual PDF — no fluff pages, no padding.
+          <p className={styles.showroomLede}>
+            Page counts match the actual PDF. No fluff pages, no padding.
           </p>
         </div>
+
         <ol className={styles.tocList}>
-          {packTableOfContents.map((entry, index) => (
-            <li key={entry.title} className={styles.tocRow}>
-              <span className={styles.tocIndex}>{`0${index + 1}`.slice(-2)}</span>
-              <div className={styles.tocBody}>
+          {tableOfContents.map((entry) => (
+            <li key={entry.title} className={styles.tocItem}>
+              <div className={styles.tocLeft}>
+                <span className={styles.tocNo}>{entry.no}</span>
                 <span className={styles.tocPages}>{entry.pages}</span>
+              </div>
+              <div className={styles.tocBody}>
                 <strong>{entry.title}</strong>
                 <p>{entry.body}</p>
               </div>
             </li>
           ))}
         </ol>
-        <p className={styles.tocFooter}>
-          The same six pillars also ship as six focused individual PDFs and as
-          editable Markdown + CSV source files — fork the wording into your clinic&rsquo;s
-          shared drive without retyping it.
-        </p>
-        <div className={styles.tocCtas}>
+
+        <div className={styles.showroomCtas}>
           <TrackedAnchor
-            className={styles.primaryCta}
+            className={styles.ctaPrimaryOnDark}
             href={TOOLKIT_CHECKOUT_URL}
             target={PRIMARY_CTA_TARGET}
             rel={PRIMARY_CTA_REL}
             event="stripe_cta_click"
-            eventProperties={{ location: "home_toc" }}
+            eventProperties={{ location: "home_showroom" }}
           >
             {PRIMARY_CTA_LABEL}
+            <span aria-hidden="true">→</span>
           </TrackedAnchor>
           <TrackedLink
-            className={styles.secondaryCta}
+            className={styles.ctaTextLinkDark}
             href="/toolkit-preview"
             event="toolkit_preview_click"
-            eventProperties={{ location: "home_toc" }}
+            eventProperties={{ location: "home_showroom" }}
           >
             See sample wording from each pillar →
           </TrackedLink>
         </div>
       </section>
 
+      {/* ===== BEFORE / AFTER ===== */}
+      <section className={styles.beforeAfter} aria-labelledby="beforeafter-title">
+        <header className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            Same review · two replies
+          </p>
+          <h2 id="beforeafter-title" className={styles.sectionHeadline}>
+            A reply your guests will actually believe.
+          </h2>
+          <p className={styles.sectionLede}>
+            Generic emoji-stuffed replies feel like spam. Toolkit-quality replies sound
+            like a calm, well-run clinic — without making outcome promises.
+          </p>
+        </header>
+
+        <div className={styles.baGrid}>
+          <article className={styles.baCard} data-variant="before">
+            <header>
+              <span className={styles.baTag}>Before</span>
+              <span className={styles.baSub}>Typical front-desk reply</span>
+            </header>
+            <p className={styles.baReview}>&ldquo;{beforeAfter.reviewText}&rdquo;</p>
+            <div className={styles.baReply}>
+              <p>{beforeAfter.before}</p>
+            </div>
+            <ul className={styles.baFlags} data-tone="warn">
+              <li>Confirms treatment publicly</li>
+              <li>Reads like marketing, not care</li>
+              <li>Implies an outcome</li>
+            </ul>
+          </article>
+          <article className={styles.baCard} data-variant="after">
+            <header>
+              <span className={styles.baTag}>After</span>
+              <span className={styles.baSub}>From the toolkit</span>
+            </header>
+            <p className={styles.baReview}>&ldquo;{beforeAfter.reviewText}&rdquo;</p>
+            <div className={styles.baReply}>
+              <p>{beforeAfter.after}</p>
+            </div>
+            <ul className={styles.baFlags} data-tone="ok">
+              <li>No treatment specifics confirmed</li>
+              <li>No outcome promises</li>
+              <li>Brief, calm, on-brand</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      {/* ===== FREE GENERATOR ===== */}
       <FreeGenerator
         toolkitHref={TOOLKIT_CHECKOUT_URL}
         toolkitLabel={PRIMARY_CTA_LABEL}
@@ -362,245 +459,188 @@ export default function Home() {
         toolkitRel={PRIMARY_CTA_REL}
       />
 
-      <section className={styles.beforeAfter} aria-labelledby="before-after-title">
-        <div className={styles.sectionEyebrow}>Before / after</div>
-        <h2 id="before-after-title">A reply your guests will actually believe.</h2>
-        <p className={styles.beforeAfterIntro}>
-          Generic emoji-stuffed replies feel like spam. Toolkit-quality replies sound like a
-          calm, well-run clinic — without making outcome promises.
-        </p>
-        <div className={styles.beforeAfterGrid}>
-          <article className={styles.beforeCard}>
-            <span>Before</span>
-            <p className={styles.beforeAfterReview}>“{beforeAfter.reviewText}”</p>
-            <div className={styles.beforeAfterReply}>
-              <strong>Typical reply</strong>
-              <p>{beforeAfter.before}</p>
-            </div>
-          </article>
-          <article className={styles.afterCard}>
-            <span>After</span>
-            <p className={styles.beforeAfterReview}>“{beforeAfter.reviewText}”</p>
-            <div className={styles.beforeAfterReply}>
-              <strong>Toolkit reply</strong>
-              <p>{beforeAfter.after}</p>
-            </div>
-          </article>
-        </div>
+      {/* ===== LADDER ===== */}
+      <section className={styles.ladder} aria-labelledby="ladder-title">
+        <header className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            Free → free → $49
+          </p>
+          <h2 id="ladder-title" className={styles.sectionHeadline}>
+            Three ways to use SpaReply. Only one is paid.
+          </h2>
+          <p className={styles.sectionLede}>
+            Try the free generator on a real review. Skim the 5-page sample. Buy the
+            toolkit only if the wording is already obviously better than what your front
+            desk posts today.
+          </p>
+        </header>
+
+        <ol className={styles.ladderList}>
+          {ladderSteps.map((step, index) => (
+            <li key={step.title} className={styles.ladderItem}>
+              <div className={styles.ladderRow}>
+                <span className={styles.ladderNo}>{`0${index + 1}`}</span>
+                <div className={styles.ladderTags}>
+                  <span className={styles.ladderTag}>{step.label}</span>
+                  <span className={styles.ladderSub}>{step.sublabel}</span>
+                </div>
+              </div>
+              <strong>{step.title}</strong>
+              <p>{step.body}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
-      <section className={styles.offer} id="toolkit">
-        <div className={styles.offerHeading}>
-          <div className={styles.sectionEyebrow}>What you get for $49</div>
-          <h2>The MedSpa Review + Local SEO launch toolkit.</h2>
-          <p>
-            Six tangible deliverables your team can use the day they receive them — no
-            onboarding call, no SaaS subscription, no AI key required.
-          </p>
-        </div>
-        <div
-          className={styles.instantDelivery}
-          aria-labelledby="instant-delivery-title"
-        >
-          <div className={styles.instantDeliveryHeader}>
-            <span className={styles.instantDeliveryEyebrow}>Instant delivery</span>
-            <strong id="instant-delivery-title">
-              Three downloads land the moment Stripe confirms.
-            </strong>
-            <p>
-              No onboarding call, no AI key, no SaaS login. Buyers go straight to a download
-              page with the PDFs and editable source files ready to grab.
+      {/* ===== PRICING ===== */}
+      <section className={styles.pricing} id="toolkit" aria-labelledby="pricing-title">
+        <div className={styles.pricingGrid}>
+          <div className={styles.pricingCopy}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowOnDark}`}>
+              <span className={styles.eyebrowDot} aria-hidden="true" />
+              Pricing
             </p>
+            <h2 id="pricing-title" className={styles.pricingHeadline}>
+              The Med Spa Review + Local SEO Toolkit.
+            </h2>
+            <p className={styles.pricingLede}>
+              One-time purchase. Instant download. Built for a front-desk lead to run
+              a 20-minute weekly cadence — without an agency, a SaaS subscription, or
+              an AI key.
+            </p>
+            <ul className={styles.pricingIncludes}>
+              <li><span className={styles.pricingDot} />31-page polished SpaReply complete PDF</li>
+              <li><span className={styles.pricingDot} />Six focused individual PDFs</li>
+              <li><span className={styles.pricingDot} />Editable Markdown + CSV source files</li>
+              <li><span className={styles.pricingDot} />20 paste-ready review-reply templates</li>
+              <li><span className={styles.pricingDot} />HIPAA-aware safety checklist + GBP prompts</li>
+              <li><span className={styles.pricingDot} />4-week content calendar + operating cadence</li>
+            </ul>
           </div>
-          <ul className={styles.instantDeliveryList}>
-            {instantDelivery.map((item) => (
-              <li key={item.title}>
-                <span>{item.label}</span>
-                <strong>{item.title}</strong>
-                <p>{item.body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.offerLayout}>
-          <div className={styles.deliverableTable}>
-            {toolkitDeliverables.map((item) => (
-              <article key={item.title} className={styles.deliverableRow}>
-                <span className={styles.deliverableCategory}>{item.category}</span>
-                <div>
-                  <strong>{item.title}</strong>
-                  <p>{item.detail}</p>
-                </div>
-                <span className={styles.deliverableFormat}>{item.format}</span>
-              </article>
-            ))}
-          </div>
-          <aside className={styles.priceCard}>
-            <span>Launch price</span>
-            <strong>$49</strong>
-            <p>
-              One-time. The 31-page PDF pack, six focused PDFs, and the editable source
-              files download instantly. Free updates during launch.
+
+          <aside className={styles.pricingCard}>
+            <div className={styles.pricingPriceRow}>
+              <strong className={styles.pricingPrice}>$49</strong>
+              <span className={styles.pricingPriceSub}>one-time</span>
+            </div>
+            <p className={styles.pricingTagline}>
+              The complete PDF, six focused PDFs, and editable source files —
+              instant download after Stripe checkout.
             </p>
             <TrackedAnchor
+              className={styles.pricingCta}
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
               event="stripe_cta_click"
-              eventProperties={{ location: "home_price_card" }}
+              eventProperties={{ location: "home_pricing_card" }}
             >
               {PRIMARY_CTA_LABEL}
+              <span aria-hidden="true">→</span>
             </TrackedAnchor>
             <TrackedLink
-              className={styles.priceCardSecondary}
+              className={styles.pricingCtaSecondary}
               href="/toolkit-preview"
               event="toolkit_preview_click"
-              eventProperties={{ location: "home_price_card" }}
+              eventProperties={{ location: "home_pricing_card" }}
             >
               Preview what is inside →
             </TrackedLink>
-            <small>{CHECKOUT_ASSURANCE}</small>
-            <p className={styles.policyTrust}>
-              <span>Policies:</span>
+            <p className={styles.pricingNote}>{CHECKOUT_ASSURANCE}</p>
+            <div className={styles.pricingPolicies}>
+              <span>Policies</span>
               <Link href="/refund-policy">Refund</Link>
-              <span className={styles.sep} aria-hidden="true">·</span>
               <Link href="/privacy-policy">Privacy</Link>
-              <span className={styles.sep} aria-hidden="true">·</span>
               <Link href="/terms">Terms</Link>
-            </p>
+            </div>
           </aside>
         </div>
-        <div className={styles.guaranteeBar}>
-          <div>
-            <span className={styles.guaranteeBadge}>Risk reversal</span>
-            <strong>{guarantee.headline}</strong>
+
+        <div className={styles.guarantee}>
+          <div className={styles.guaranteeMark} aria-hidden="true">
+            <span>7</span>
+            <em>day</em>
           </div>
-          <p>{guarantee.detail}</p>
+          <div>
+            <strong>{guarantee.headline}</strong>
+            <p>{guarantee.detail}</p>
+          </div>
         </div>
       </section>
 
-      <section className={styles.resources} id="resources">
-        <div>
-          <div className={styles.sectionEyebrow}>Free resources</div>
-          <h2>Playbooks the launch clinics actually use.</h2>
-          <p>
+      {/* ===== RESOURCES ===== */}
+      <section className={styles.resources} id="resources" aria-labelledby="resources-title">
+        <header className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            Free resources
+          </p>
+          <h2 id="resources-title" className={styles.sectionHeadline}>
+            Playbooks the launch clinics actually use.
+          </h2>
+          <p className={styles.sectionLede}>
             Three evergreen guides built from real review patterns we see across med spas.
             Skim them solo, or pair each one with the generator above.
           </p>
-        </div>
-        <div className={styles.resourceGrid}>
-          {resources.map((resource) => (
-            <Link key={resource.href} href={resource.href} className={styles.resourceCard}>
-              <span>{resource.eyebrow}</span>
-              <strong>{resource.title}</strong>
-              <p>{resource.blurb}</p>
-              <em>Read the guide →</em>
-            </Link>
+        </header>
+        <ul className={styles.resourceList}>
+          {resourceLinks.map((resource) => (
+            <li key={resource.href}>
+              <Link href={resource.href} className={styles.resourceRow}>
+                <span className={styles.resourceEyebrow}>{resource.eyebrow}</span>
+                <strong>{resource.title}</strong>
+                <p>{resource.blurb}</p>
+                <em>Read the guide →</em>
+              </Link>
+            </li>
           ))}
-        </div>
-      </section>
-
-      <section className={styles.audience}>
-        <div>
-          <div className={styles.sectionEyebrow}>Who it is for</div>
-          <h2>Built for the people who actually answer the reviews.</h2>
-        </div>
-        <div className={styles.audienceGrid}>
-          {audiences.map((item) => (
-            <article key={item.title}>
-              <strong>{item.title}</strong>
-              <p>{item.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.problemSolution}>
-        <div className={styles.problemCard}>
-          <span>Problem</span>
-          <h2>Every unanswered review is a missed local SEO signal — and a quiet trust leak.</h2>
-          <p>
-            Med spas juggle clinical nuance, privacy constraints, and high guest expectations.
-            Generic replies feel robotic, delayed replies erode trust, and one wrong word can
-            confirm protected health information you never meant to share.
-          </p>
-        </div>
-        <div className={styles.solutionCard}>
-          <span>Solution</span>
-          <h2>Fast replies with guardrails your team can actually use on a Tuesday.</h2>
-          <p>
-            SpaReply gives you service-aware templates, HIPAA-aware wording reminders, and
-            local SEO prompts so reputation work becomes a 20-minute weekly habit — not a
-            weekend project for the owner.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.examples}>
-        <div>
-          <div className={styles.sectionEyebrow}>Inside the local SEO prompts</div>
-          <h2>Turn review insights into local search assets.</h2>
-        </div>
-        <div className={styles.exampleGrid}>
-          {contentExamples.map((example) => (
-            <article key={example.title}>
-              <span>{example.title}</span>
-              <p>{example.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.safety}>
-        <div className={styles.sectionEyebrow}>Safety + compliance</div>
-        <h2>HIPAA-aware by design — but never legal advice.</h2>
-        <ul className={styles.safetyList}>
-          <li>
-            <strong>Reminders, not legal review.</strong> The toolkit flags wording that risks
-            confirming protected health information, but final compliance decisions still
-            belong with your provider and counsel.
-          </li>
-          <li>
-            <strong>No outcome promises.</strong> Templates avoid guaranteeing medical or
-            cosmetic results — even when the guest praises them in a 5-star review.
-          </li>
-          <li>
-            <strong>Private by default.</strong> The generator never sends review text off
-            your device. The toolkit lives in your own Google Drive.
-          </li>
-          <li>
-            <strong>Not medical advice.</strong> Clinical questions get routed to a licensed
-            provider via the included escalation script.
-          </li>
         </ul>
       </section>
 
-      <section className={styles.faq}>
-        <div className={styles.sectionEyebrow}>FAQ</div>
-        <h2>Questions med-spa teams ask first.</h2>
-        <div className={styles.faqGrid}>
+      {/* ===== FAQ ===== */}
+      <section className={styles.faq} aria-labelledby="faq-title">
+        <header className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            FAQ
+          </p>
+          <h2 id="faq-title" className={styles.sectionHeadline}>
+            Questions med-spa teams ask first.
+          </h2>
+        </header>
+        <div className={styles.faqList}>
           {faqItems.map((item) => (
             <details key={item.question}>
-              <summary>{item.question}</summary>
+              <summary>
+                <span>{item.question}</span>
+                <span className={styles.faqIcon} aria-hidden="true" />
+              </summary>
               <p>{item.answer}</p>
             </details>
           ))}
         </div>
       </section>
 
-      <section className={styles.finalCta} id="waitlist">
-        <div>
-          <div className={styles.sectionEyebrow}>Get started</div>
-          <h2>Hand your front desk a system, not a vibe.</h2>
-          <p>
+      {/* ===== FINAL CTA ===== */}
+      <section className={styles.finalCta} id="waitlist" aria-labelledby="final-title">
+        <div className={styles.finalCtaInner}>
+          <p className={`${styles.eyebrow} ${styles.eyebrowOnDark}`}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            Get started
+          </p>
+          <h2 id="final-title" className={styles.finalHeadline}>
+            Hand your front desk a system, not a vibe.
+          </h2>
+          <p className={styles.finalLede}>
             $49 one-time. 7-day satisfaction refund.{" "}
             {STRIPE_ENABLED
-              ? "Pay via secure Stripe checkout and the polished 31-page PDF pack, six focused PDFs, and editable source files download immediately."
+              ? "Pay via secure Stripe checkout — the PDFs and editable source files download immediately."
               : "Email replies come from a human at hello@spareply.com — usually within one business day."}
           </p>
-          <div className={styles.ctas}>
+          <div className={styles.finalCtas}>
             <TrackedAnchor
-              className={styles.primaryCtaLight}
+              className={styles.ctaPrimaryOnDark}
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
@@ -608,9 +648,10 @@ export default function Home() {
               eventProperties={{ location: "home_final_cta" }}
             >
               {PRIMARY_CTA_LABEL}
+              <span aria-hidden="true">→</span>
             </TrackedAnchor>
             <TrackedAnchor
-              className={styles.secondaryCtaDark}
+              className={styles.ctaGhostOnDark}
               href="#generator"
               event="free_generator_click"
               eventProperties={{ location: "home_final_cta" }}
@@ -618,24 +659,14 @@ export default function Home() {
               Try the free generator first
             </TrackedAnchor>
           </div>
+          <p className={styles.finalContact}>
+            Have a question first?{" "}
+            <a href="mailto:hello@spareply.com?subject=Question%20about%20the%20SpaReply%20toolkit">
+              hello@spareply.com
+            </a>{" "}
+            — a human reads every email.
+          </p>
         </div>
-        <form
-          className={styles.waitlistForm}
-          action="mailto:hello@spareply.com"
-          method="post"
-          encType="text/plain"
-          aria-label="Ask a question before you buy"
-        >
-          <strong>Have a question first?</strong>
-          <input aria-label="Name" name="name" placeholder="Your name" />
-          <input aria-label="Clinic email" name="email" placeholder="Clinic email" type="email" />
-          <input aria-label="Med spa city" name="city" placeholder="City / market" />
-          <button type="submit">Send a question</button>
-          <small>
-            Opens your email client so you stay in control of what you send. No CRM,
-            no marketing automation.
-          </small>
-        </form>
       </section>
 
       <SiteFooter />

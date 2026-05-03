@@ -7,16 +7,26 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
         <div className={styles.footerBrand}>
-          <strong>SpaReply</strong>
+          <Link className={styles.footerWordmark} href="/">
+            <span className={styles.footerMark} aria-hidden="true">
+              <span />
+            </span>
+            SpaReply
+          </Link>
           <p>
-            Premium review replies, HIPAA-aware safety wording, and local SEO prompts for
-            aesthetic clinics. Built from real med-spa review patterns — not generic
-            restaurant templates.
+            A front-desk system for med-spa review replies and local SEO.
+            Built from real aesthetic-clinic review patterns — Hydrafacial,
+            injectables, laser, peels, memberships — not generic restaurant templates.
+          </p>
+          <p className={styles.footerContact}>
+            <span>Contact</span>
+            <a href="mailto:hello@spareply.com">hello@spareply.com</a>
           </p>
         </div>
+
         <div className={styles.footerCols}>
           <div>
-            <span>Tools</span>
+            <span>Product</span>
             <TrackedLink
               href="/#generator"
               event="free_generator_click"
@@ -29,28 +39,17 @@ export function SiteFooter() {
               event="toolkit_preview_click"
               eventProperties={{ location: "site_footer_tools" }}
             >
-              $49 launch toolkit
+              The $49 toolkit
             </TrackedLink>
           </div>
           <div>
             <span>Resources</span>
-            <Link href="/med-spa-review-response-examples">Med spa review response examples</Link>
-            <Link href="/botox-review-response-templates">Botox review response templates</Link>
-            <Link href="/negative-med-spa-review-response">Negative med spa review response</Link>
-            <Link href="/med-spa-google-review-reply">Med spa Google review reply guide</Link>
-            <Link href="/aesthetic-clinic-review-templates">Aesthetic clinic review templates</Link>
-            <Link href="/local-seo-checklist">Med spa local SEO checklist</Link>
-          </div>
-          <div>
-            <span>Get started</span>
-            <TrackedLink
-              href="/toolkit-preview"
-              event="toolkit_preview_click"
-              eventProperties={{ location: "site_footer_get_started" }}
-            >
-              Preview the $49 toolkit
-            </TrackedLink>
-            <a href="mailto:hello@spareply.com">hello@spareply.com</a>
+            <Link href="/med-spa-review-response-examples">Review response examples</Link>
+            <Link href="/botox-review-response-templates">Botox reply templates</Link>
+            <Link href="/negative-med-spa-review-response">Negative review response</Link>
+            <Link href="/med-spa-google-review-reply">Google review reply guide</Link>
+            <Link href="/aesthetic-clinic-review-templates">Aesthetic clinic templates</Link>
+            <Link href="/local-seo-checklist">Local SEO checklist</Link>
           </div>
           <div>
             <span>Policies</span>
@@ -60,11 +59,10 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
+
       <div className={styles.footerNote}>
-        <small>
-          SpaReply is informational. It does not provide medical, legal, or compliance advice.
-          Route clinical and legal questions to licensed providers and counsel.
-        </small>
+        <small>© {new Date().getFullYear()} SpaReply. Informational only — not medical, legal, or compliance advice.</small>
+        <small>Made for aesthetic clinics in the United States &amp; Canada.</small>
       </div>
     </footer>
   );
