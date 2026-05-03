@@ -56,7 +56,7 @@ const safetyNotes = [
   },
   {
     title: "HIPAA-aware editorial guidance, not legal advice.",
-    body: "SpaReply is HIPAA-aware — designed to help your team avoid confirming protected health information in public replies. It is not HIPAA-compliant software, not a BAA, and not a substitute for your privacy officer or counsel.",
+    body: "SpaReply is HIPAA-aware — designed to help your team avoid confirming protected health information in public replies. It does not provide legal, privacy, or compliance advice; have your privacy officer or counsel review your clinic’s policy before posting.",
   },
   {
     title: "Not medical advice.",

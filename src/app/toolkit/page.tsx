@@ -471,10 +471,10 @@ export default function ToolkitPage() {
         <h2 id="rules">What to say, what not to say, and the phrases to rewrite.</h2>
         <p>
           SpaReply is HIPAA-aware editorial guidance — designed to help your team avoid
-          confirming protected health information in public replies. It is not
-          HIPAA-compliant software, not a BAA, and not a substitute for your privacy
-          officer or counsel. The rules below are the editorial guardrails the templates
-          on this page were written against.
+          confirming protected health information in public replies. It does not provide legal,
+          privacy, or compliance advice; have your privacy officer or counsel review your clinic’s
+          policy before posting. The rules below are the editorial guardrails the templates on this
+          page were written against.
         </p>
 
         <div className={styles.rulesGrid}>
