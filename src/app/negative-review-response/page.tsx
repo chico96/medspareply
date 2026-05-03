@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
+import { TrackedLink } from "../_components/TrackedLink";
 import styles from "../_components/content.module.css";
 
 export const metadata: Metadata = {
@@ -169,7 +170,13 @@ export default function NegativeReviewResponsePage() {
               reply, private follow-up, and clinical escalation note for you.
             </p>
           </div>
-          <Link href="/#generator">Open the generator</Link>
+          <TrackedLink
+            href="/#generator"
+            event="free_generator_click"
+            eventProperties={{ location: "seo_negative_review_response" }}
+          >
+            Open the generator
+          </TrackedLink>
         </div>
 
         <div className={styles.linkRow}>

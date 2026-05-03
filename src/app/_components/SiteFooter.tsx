@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedLink } from "./TrackedLink";
 import styles from "./shell.module.css";
 
 export function SiteFooter() {
@@ -16,8 +17,20 @@ export function SiteFooter() {
         <div className={styles.footerCols}>
           <div>
             <span>Tools</span>
-            <Link href="/#generator">Free reply generator</Link>
-            <Link href="/toolkit-preview">$49 launch toolkit</Link>
+            <TrackedLink
+              href="/#generator"
+              event="free_generator_click"
+              eventProperties={{ location: "site_footer" }}
+            >
+              Free reply generator
+            </TrackedLink>
+            <TrackedLink
+              href="/toolkit-preview"
+              event="toolkit_preview_click"
+              eventProperties={{ location: "site_footer_tools" }}
+            >
+              $49 launch toolkit
+            </TrackedLink>
           </div>
           <div>
             <span>Resources</span>
@@ -30,7 +43,13 @@ export function SiteFooter() {
           </div>
           <div>
             <span>Get started</span>
-            <Link href="/toolkit-preview">Preview the $49 toolkit</Link>
+            <TrackedLink
+              href="/toolkit-preview"
+              event="toolkit_preview_click"
+              eventProperties={{ location: "site_footer_get_started" }}
+            >
+              Preview the $49 toolkit
+            </TrackedLink>
             <a href="mailto:hello@spareply.com">hello@spareply.com</a>
           </div>
           <div>

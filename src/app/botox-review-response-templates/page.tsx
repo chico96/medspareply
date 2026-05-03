@@ -3,6 +3,7 @@ import Link from "next/link";
 import { samplePreviewPdf } from "@/lib/marketing";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
+import { TrackedAnchor, TrackedLink } from "../_components/TrackedLink";
 import styles from "../_components/content.module.css";
 
 export const metadata: Metadata = {
@@ -228,7 +229,13 @@ export default function BotoxReviewResponseTemplatesPage() {
               note when a licensed provider should review.
             </p>
           </div>
-          <Link href="/#generator">Open the generator</Link>
+          <TrackedLink
+            href="/#generator"
+            event="free_generator_click"
+            eventProperties={{ location: "seo_botox" }}
+          >
+            Open the generator
+          </TrackedLink>
         </div>
 
         <div className={styles.callout}>
@@ -236,11 +243,23 @@ export default function BotoxReviewResponseTemplatesPage() {
           <p>
             The $49 toolkit includes 120+ paste-ready replies — including the full Botox, filler,
             and laser banks plus the negative-review playbook. See it before you buy with the{" "}
-            <a href={samplePreviewPdf.href} target="_blank" rel="noopener noreferrer">
+            <TrackedAnchor
+              href={samplePreviewPdf.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              event="sample_pdf_click"
+              eventProperties={{ location: "seo_botox" }}
+            >
               free 5-page sample PDF
-            </a>{" "}
+            </TrackedAnchor>{" "}
             or open the{" "}
-            <Link href="/toolkit-preview">$49 toolkit preview</Link>.
+            <TrackedLink
+              href="/toolkit-preview"
+              event="toolkit_preview_click"
+              eventProperties={{ location: "seo_botox" }}
+            >
+              $49 toolkit preview
+            </TrackedLink>.
           </p>
         </div>
 

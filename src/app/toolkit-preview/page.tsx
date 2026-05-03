@@ -4,6 +4,7 @@ import { getToolkitCheckoutUrl, isStripeCheckoutEnabled } from "@/lib/checkout";
 import { samplePreviewPdf } from "@/lib/marketing";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
+import { TrackedAnchor, TrackedLink } from "../_components/TrackedLink";
 import styles from "./page.module.css";
 
 const TOOLKIT_CHECKOUT_URL = getToolkitCheckoutUrl();
@@ -183,24 +184,33 @@ export default function ToolkitPreviewPage() {
                 : null}
             </p>
             <div className={styles.heroCtas}>
-              <a
+              <TrackedAnchor
                 className={styles.primaryCta}
                 href={TOOLKIT_CHECKOUT_URL}
                 target={PRIMARY_CTA_TARGET}
                 rel={PRIMARY_CTA_REL}
+                event="stripe_cta_click"
+                eventProperties={{ location: "toolkit_preview_hero" }}
               >
                 {PRIMARY_CTA_LABEL}
-              </a>
-              <a
+              </TrackedAnchor>
+              <TrackedAnchor
                 className={styles.secondaryCta}
                 href={samplePreviewPdf.href}
                 download={samplePreviewPdf.filename}
+                event="sample_pdf_click"
+                eventProperties={{ location: "toolkit_preview_hero" }}
               >
                 Download free 5-page sample PDF
-              </a>
-              <Link className={styles.secondaryCta} href="/#generator">
+              </TrackedAnchor>
+              <TrackedLink
+                className={styles.secondaryCta}
+                href="/#generator"
+                event="free_generator_click"
+                eventProperties={{ location: "toolkit_preview_hero" }}
+              >
                 Try the free generator
-              </Link>
+              </TrackedLink>
             </div>
             <p className={styles.policyTrust}>
               <strong>7-day satisfaction refund</strong>
@@ -248,13 +258,15 @@ export default function ToolkitPreviewPage() {
               <li>HIPAA-aware safety checklist + GBP prompts</li>
               <li>Front-desk SOP + 4-week content calendar</li>
             </ul>
-            <a
+            <TrackedAnchor
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
+              event="stripe_cta_click"
+              eventProperties={{ location: "toolkit_preview_price_card" }}
             >
               {PRIMARY_CTA_LABEL}
-            </a>
+            </TrackedAnchor>
             <small>{PRICE_CARD_NOTE}</small>
             <p className={styles.policyTrust}>
               <span>Policies:</span>
@@ -280,21 +292,25 @@ export default function ToolkitPreviewPage() {
           the editable Markdown / CSV source files.
         </p>
         <div className={styles.sampleActions}>
-          <a
+          <TrackedAnchor
             className={styles.primaryCta}
             href={samplePreviewPdf.href}
             download={samplePreviewPdf.filename}
+            event="sample_pdf_click"
+            eventProperties={{ location: "toolkit_preview_sample" }}
           >
             Download the sample PDF
-          </a>
-          <a
+          </TrackedAnchor>
+          <TrackedAnchor
             className={styles.secondaryCta}
             href={TOOLKIT_CHECKOUT_URL}
             target={PRIMARY_CTA_TARGET}
             rel={PRIMARY_CTA_REL}
+            event="stripe_cta_click"
+            eventProperties={{ location: "toolkit_preview_sample" }}
           >
             {PRIMARY_CTA_LABEL}
-          </a>
+          </TrackedAnchor>
         </div>
         <small className={styles.sampleMeta}>
           {samplePreviewPdf.filename} · {samplePreviewPdf.pages} pages · clearly
@@ -368,17 +384,24 @@ export default function ToolkitPreviewPage() {
               : "Replies come from a human at hello@spareply.com — usually within one business day."}
           </p>
           <div className={styles.ctaActions}>
-            <a
+            <TrackedAnchor
               className={styles.ctaPrimary}
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
+              event="stripe_cta_click"
+              eventProperties={{ location: "toolkit_preview_final_cta" }}
             >
               {PRIMARY_CTA_LABEL}
-            </a>
-            <Link className={styles.ctaSecondary} href="/#generator">
+            </TrackedAnchor>
+            <TrackedLink
+              className={styles.ctaSecondary}
+              href="/#generator"
+              event="free_generator_click"
+              eventProperties={{ location: "toolkit_preview_final_cta" }}
+            >
               Try the free generator first
-            </Link>
+            </TrackedLink>
           </div>
         </div>
         <form

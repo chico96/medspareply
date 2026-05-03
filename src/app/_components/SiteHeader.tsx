@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedLink } from "./TrackedLink";
 import styles from "./shell.module.css";
 
 type SiteHeaderProps = {
@@ -13,8 +14,20 @@ export function SiteHeader({ homepageAnchors = false }: SiteHeaderProps) {
         <span aria-hidden="true">✦</span> SpaReply
       </Link>
       <div className={styles.navLinks}>
-        <Link href={homepageAnchors ? "#generator" : "/#generator"}>Free generator</Link>
-        <Link href="/toolkit-preview">$49 toolkit</Link>
+        <TrackedLink
+          href={homepageAnchors ? "#generator" : "/#generator"}
+          event="free_generator_click"
+          eventProperties={{ location: "site_header" }}
+        >
+          Free generator
+        </TrackedLink>
+        <TrackedLink
+          href="/toolkit-preview"
+          event="toolkit_preview_click"
+          eventProperties={{ location: "site_header" }}
+        >
+          $49 toolkit
+        </TrackedLink>
         <Link href="/review-response-examples">Examples</Link>
         <Link href="/negative-review-response">Negative reviews</Link>
         <Link href="/local-seo-checklist">Local SEO</Link>

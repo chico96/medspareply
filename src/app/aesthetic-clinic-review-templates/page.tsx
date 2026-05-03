@@ -3,6 +3,7 @@ import Link from "next/link";
 import { samplePreviewPdf } from "@/lib/marketing";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
+import { TrackedAnchor, TrackedLink } from "../_components/TrackedLink";
 import styles from "../_components/content.module.css";
 
 export const metadata: Metadata = {
@@ -249,11 +250,23 @@ export default function AestheticClinicReviewTemplatesPage() {
             The $49 toolkit ships 120+ paste-ready replies across services, ratings, and tones —
             plus the negative-review playbook, GBP prompts, and the front-desk SOP. Preview it
             first with the{" "}
-            <a href={samplePreviewPdf.href} target="_blank" rel="noopener noreferrer">
+            <TrackedAnchor
+              href={samplePreviewPdf.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              event="sample_pdf_click"
+              eventProperties={{ location: "seo_aesthetic_clinic" }}
+            >
               free 5-page sample PDF
-            </a>{" "}
+            </TrackedAnchor>{" "}
             or open the{" "}
-            <Link href="/toolkit-preview">$49 toolkit preview</Link>.
+            <TrackedLink
+              href="/toolkit-preview"
+              event="toolkit_preview_click"
+              eventProperties={{ location: "seo_aesthetic_clinic" }}
+            >
+              $49 toolkit preview
+            </TrackedLink>.
           </p>
         </div>
 
@@ -265,7 +278,13 @@ export default function AestheticClinicReviewTemplatesPage() {
               the public reply, private follow-up checklist, and safety notes.
             </p>
           </div>
-          <Link href="/#generator">Open the generator</Link>
+          <TrackedLink
+            href="/#generator"
+            event="free_generator_click"
+            eventProperties={{ location: "seo_aesthetic_clinic" }}
+          >
+            Open the generator
+          </TrackedLink>
         </div>
 
         <div className={styles.linkRow}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { track } from "@vercel/analytics";
 import {
   generateReviewReply,
   services,
@@ -43,6 +44,12 @@ export function FreeGenerator({
   function generateReply() {
     setGeneratedInput({ reviewText, rating, serviceType, tone });
     setCopied(null);
+    track("free_generator_click", {
+      action: "generate_reply",
+      rating,
+      serviceType,
+      tone,
+    });
   }
 
   function resetExample() {
@@ -213,6 +220,9 @@ export function FreeGenerator({
           href={toolkitHref ?? "#toolkit"}
           target={toolkitTarget}
           rel={toolkitRel}
+          onClick={() =>
+            track("stripe_cta_click", { location: "free_generator_upsell" })
+          }
         >
           {toolkitLabel ?? "Get the $49 toolkit"}
         </a>

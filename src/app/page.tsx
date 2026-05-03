@@ -13,6 +13,7 @@ import { getToolkitCheckoutUrl, isStripeCheckoutEnabled } from "@/lib/checkout";
 import { FreeGenerator } from "./FreeGenerator";
 import { SiteFooter } from "./_components/SiteFooter";
 import { SiteHeader } from "./_components/SiteHeader";
+import { TrackedAnchor, TrackedLink } from "./_components/TrackedLink";
 import styles from "./page.module.css";
 
 const TOOLKIT_CHECKOUT_URL = getToolkitCheckoutUrl();
@@ -149,24 +150,33 @@ export default function Home() {
             instant download, 7-day satisfaction refund.
           </p>
           <div className={styles.ctas}>
-            <a
+            <TrackedAnchor
               className={styles.primaryCta}
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
+              event="stripe_cta_click"
+              eventProperties={{ location: "home_hero" }}
             >
               {PRIMARY_CTA_LABEL}
-            </a>
-            <a
+            </TrackedAnchor>
+            <TrackedAnchor
               className={styles.secondaryCta}
               href={samplePreviewPdf.href}
               download={samplePreviewPdf.filename}
+              event="sample_pdf_click"
+              eventProperties={{ location: "home_hero" }}
             >
               Free 5-page sample PDF · no email
-            </a>
-            <a className={styles.secondaryCta} href="#generator">
+            </TrackedAnchor>
+            <TrackedAnchor
+              className={styles.secondaryCta}
+              href="#generator"
+              event="free_generator_click"
+              eventProperties={{ location: "home_hero" }}
+            >
               Try the free generator
-            </a>
+            </TrackedAnchor>
           </div>
           <ul className={styles.trustList} aria-label="Why med spas trust SpaReply">
             {trustBullets.map((bullet) => (
@@ -233,13 +243,15 @@ export default function Home() {
               An abbreviated peek — branded, printable, and clearly marked as a sample.
               No login, no email, no AI key. Click and read.
             </p>
-            <a
+            <TrackedAnchor
               className={styles.sampleCtaFree}
               href={samplePreviewPdf.href}
               download={samplePreviewPdf.filename}
+              event="sample_pdf_click"
+              eventProperties={{ location: "home_sample_section" }}
             >
               Download the sample PDF
-            </a>
+            </TrackedAnchor>
             <small>{samplePreviewPdf.filename} · ~13 KB</small>
           </article>
           <article className={styles.sampleCardFull}>
@@ -254,14 +266,16 @@ export default function Home() {
                 and purchase date
               </li>
             </ul>
-            <a
+            <TrackedAnchor
               className={styles.sampleCtaFull}
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
+              event="stripe_cta_click"
+              eventProperties={{ location: "home_sample_section" }}
             >
               {PRIMARY_CTA_LABEL}
-            </a>
+            </TrackedAnchor>
           </article>
         </div>
       </section>
@@ -320,17 +334,24 @@ export default function Home() {
           shared drive without retyping it.
         </p>
         <div className={styles.tocCtas}>
-          <a
+          <TrackedAnchor
             className={styles.primaryCta}
             href={TOOLKIT_CHECKOUT_URL}
             target={PRIMARY_CTA_TARGET}
             rel={PRIMARY_CTA_REL}
+            event="stripe_cta_click"
+            eventProperties={{ location: "home_toc" }}
           >
             {PRIMARY_CTA_LABEL}
-          </a>
-          <Link className={styles.secondaryCta} href="/toolkit-preview">
+          </TrackedAnchor>
+          <TrackedLink
+            className={styles.secondaryCta}
+            href="/toolkit-preview"
+            event="toolkit_preview_click"
+            eventProperties={{ location: "home_toc" }}
+          >
             See sample wording from each pillar →
-          </Link>
+          </TrackedLink>
         </div>
       </section>
 
@@ -421,16 +442,23 @@ export default function Home() {
               One-time. The 31-page PDF pack, six focused PDFs, and the editable source
               files download instantly. Free updates during launch.
             </p>
-            <a
+            <TrackedAnchor
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
+              event="stripe_cta_click"
+              eventProperties={{ location: "home_price_card" }}
             >
               {PRIMARY_CTA_LABEL}
-            </a>
-            <Link className={styles.priceCardSecondary} href="/toolkit-preview">
+            </TrackedAnchor>
+            <TrackedLink
+              className={styles.priceCardSecondary}
+              href="/toolkit-preview"
+              event="toolkit_preview_click"
+              eventProperties={{ location: "home_price_card" }}
+            >
               Preview what is inside →
-            </Link>
+            </TrackedLink>
             <small>{CHECKOUT_ASSURANCE}</small>
             <p className={styles.policyTrust}>
               <span>Policies:</span>
@@ -571,17 +599,24 @@ export default function Home() {
               : "Email replies come from a human at hello@spareply.com — usually within one business day."}
           </p>
           <div className={styles.ctas}>
-            <a
+            <TrackedAnchor
               className={styles.primaryCtaLight}
               href={TOOLKIT_CHECKOUT_URL}
               target={PRIMARY_CTA_TARGET}
               rel={PRIMARY_CTA_REL}
+              event="stripe_cta_click"
+              eventProperties={{ location: "home_final_cta" }}
             >
               {PRIMARY_CTA_LABEL}
-            </a>
-            <a className={styles.secondaryCtaDark} href="#generator">
+            </TrackedAnchor>
+            <TrackedAnchor
+              className={styles.secondaryCtaDark}
+              href="#generator"
+              event="free_generator_click"
+              eventProperties={{ location: "home_final_cta" }}
+            >
               Try the free generator first
-            </a>
+            </TrackedAnchor>
           </div>
         </div>
         <form

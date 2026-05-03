@@ -3,6 +3,7 @@ import Link from "next/link";
 import { samplePreviewPdf } from "@/lib/marketing";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
+import { TrackedAnchor, TrackedLink } from "../_components/TrackedLink";
 import styles from "../_components/content.module.css";
 
 export const metadata: Metadata = {
@@ -225,7 +226,13 @@ export default function NegativeMedSpaReviewResponsePage() {
               reply, private follow-up, and clinical escalation note for you.
             </p>
           </div>
-          <Link href="/#generator">Open the generator</Link>
+          <TrackedLink
+            href="/#generator"
+            event="free_generator_click"
+            eventProperties={{ location: "seo_negative_med_spa" }}
+          >
+            Open the generator
+          </TrackedLink>
         </div>
 
         <div className={styles.callout}>
@@ -234,11 +241,23 @@ export default function NegativeMedSpaReviewResponsePage() {
             The $49 toolkit includes the six-scenario scripts above plus the private follow-up
             SOP, the 13-field tracker, and the front-desk escalation tree. Preview it first with
             the{" "}
-            <a href={samplePreviewPdf.href} target="_blank" rel="noopener noreferrer">
+            <TrackedAnchor
+              href={samplePreviewPdf.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              event="sample_pdf_click"
+              eventProperties={{ location: "seo_negative_med_spa" }}
+            >
               free 5-page sample PDF
-            </a>{" "}
+            </TrackedAnchor>{" "}
             or open the{" "}
-            <Link href="/toolkit-preview">$49 toolkit preview</Link>.
+            <TrackedLink
+              href="/toolkit-preview"
+              event="toolkit_preview_click"
+              eventProperties={{ location: "seo_negative_med_spa" }}
+            >
+              $49 toolkit preview
+            </TrackedLink>.
           </p>
         </div>
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { samplePreviewPdf } from "@/lib/marketing";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
+import { TrackedAnchor, TrackedLink } from "../_components/TrackedLink";
 import styles from "../_components/content.module.css";
 
 export const metadata: Metadata = {
@@ -225,11 +226,23 @@ export default function MedSpaGoogleReviewReplyPage() {
             The $49 toolkit ships the front-desk SOP that wires this weekly cadence into the
             schedule, plus 120+ paste-ready replies across services, ratings, and tones. Preview
             it first with the{" "}
-            <a href={samplePreviewPdf.href} target="_blank" rel="noopener noreferrer">
+            <TrackedAnchor
+              href={samplePreviewPdf.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              event="sample_pdf_click"
+              eventProperties={{ location: "seo_google_review_reply" }}
+            >
               free 5-page sample PDF
-            </a>{" "}
+            </TrackedAnchor>{" "}
             or open the{" "}
-            <Link href="/toolkit-preview">$49 toolkit preview</Link>.
+            <TrackedLink
+              href="/toolkit-preview"
+              event="toolkit_preview_click"
+              eventProperties={{ location: "seo_google_review_reply" }}
+            >
+              $49 toolkit preview
+            </TrackedLink>.
           </p>
         </div>
 
@@ -241,7 +254,13 @@ export default function MedSpaGoogleReviewReplyPage() {
               copy the public reply, private follow-up checklist, and safety notes.
             </p>
           </div>
-          <Link href="/#generator">Open the generator</Link>
+          <TrackedLink
+            href="/#generator"
+            event="free_generator_click"
+            eventProperties={{ location: "seo_google_review_reply" }}
+          >
+            Open the generator
+          </TrackedLink>
         </div>
 
         <div className={styles.linkRow}>
