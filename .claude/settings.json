@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Edit(src/**)",
+      "Edit(toolkit/**)",
+      "Edit(CLAUDE.md)",
+      "Edit(.claude/**)",
+      "Write(.claude/**)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(npm test)",
+      "Bash(npm run lint)",
+      "Bash(npm run build)"
+    ],
+    "deny": [
+      "Read(.env*)",
+      "Read(**/.env*)",
+      "Bash(*STRIPE_SECRET_KEY*)",
+      "Bash(*VERCEL_TOKEN*)",
+      "Bash(*GITHUB_TOKEN*)",
+      "Bash(rm -rf*)",
+      "Bash(git push --force*)"
+    ]
+  }
+}
