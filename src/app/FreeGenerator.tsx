@@ -20,9 +20,17 @@ const exampleInput: ReviewReplyInput = {
 
 type FreeGeneratorProps = {
   toolkitHref?: string;
+  toolkitLabel?: string;
+  toolkitTarget?: string;
+  toolkitRel?: string;
 };
 
-export function FreeGenerator({ toolkitHref }: FreeGeneratorProps = {}) {
+export function FreeGenerator({
+  toolkitHref,
+  toolkitLabel,
+  toolkitTarget,
+  toolkitRel,
+}: FreeGeneratorProps = {}) {
   const [reviewText, setReviewText] = useState(exampleInput.reviewText);
   const [rating, setRating] = useState(exampleInput.rating);
   const [serviceType, setServiceType] = useState(exampleInput.serviceType);
@@ -196,8 +204,13 @@ export function FreeGenerator({ toolkitHref }: FreeGeneratorProps = {}) {
             Google Business Profile prompts and a 90-day content calendar.
           </p>
         </div>
-        <a className={styles.upsellCta} href={toolkitHref ?? "#toolkit"}>
-          Get the $49 toolkit
+        <a
+          className={styles.upsellCta}
+          href={toolkitHref ?? "#toolkit"}
+          target={toolkitTarget}
+          rel={toolkitRel}
+        >
+          {toolkitLabel ?? "Get the $49 toolkit"}
         </a>
       </div>
     </section>

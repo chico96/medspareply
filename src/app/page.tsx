@@ -8,13 +8,22 @@ import {
   toolkitDeliverables,
   trustBullets,
 } from "@/lib/marketing";
+import { getToolkitCheckoutUrl, isStripeCheckoutEnabled } from "@/lib/checkout";
 import { FreeGenerator } from "./FreeGenerator";
 import { SiteFooter } from "./_components/SiteFooter";
 import { SiteHeader } from "./_components/SiteHeader";
 import styles from "./page.module.css";
 
-const TOOLKIT_MAILTO =
-  "mailto:hello@denzellrei.com?subject=MedSpaReply%20%2449%20launch%20toolkit&body=Hi%20Denzell%2C%20I%27d%20like%20to%20buy%20the%20%2449%20MedSpaReply%20launch%20toolkit.%20My%20clinic%3A%20%5Bclinic%20name%5D%20in%20%5Bcity%5D.";
+const TOOLKIT_CHECKOUT_URL = getToolkitCheckoutUrl();
+const STRIPE_ENABLED = isStripeCheckoutEnabled();
+const PRIMARY_CTA_LABEL = STRIPE_ENABLED
+  ? "Buy the $49 toolkit"
+  : "Get the $49 toolkit";
+const PRIMARY_CTA_REL = STRIPE_ENABLED ? "noopener noreferrer" : undefined;
+const PRIMARY_CTA_TARGET = STRIPE_ENABLED ? "_blank" : undefined;
+const CHECKOUT_ASSURANCE = STRIPE_ENABLED
+  ? "Secure Stripe checkout · instant Google Drive link emailed after purchase."
+  : "Pilot checkout: opens your email so we can confirm and send your access link within one business day.";
 
 const heroQuickFacts = [
   { label: "Templates", value: "120" },
@@ -61,14 +70,19 @@ export default function Home() {
             Med-spa review replies your front desk can copy, customize, and post safely.
           </h1>
           <p>
-            Use the free browser-based generator for quick, HIPAA-aware replies. Upgrade to
-            the <strong>$49 launch toolkit</strong> for 120 service-specific templates,
+            Use the free browser-based generator for quick, HIPAA-aware replies. Or buy the{" "}
+            <strong>$49 launch toolkit</strong> now for 120 service-specific templates,
             negative-review scripts, a safety checklist, and Google Business Profile prompts —
             instant-ready, refundable for 7 days.
           </p>
           <div className={styles.ctas}>
-            <a className={styles.primaryCta} href={TOOLKIT_MAILTO}>
-              Get the $49 toolkit
+            <a
+              className={styles.primaryCta}
+              href={TOOLKIT_CHECKOUT_URL}
+              target={PRIMARY_CTA_TARGET}
+              rel={PRIMARY_CTA_REL}
+            >
+              {PRIMARY_CTA_LABEL}
             </a>
             <Link className={styles.secondaryCta} href="/toolkit-preview">
               Preview what is inside
@@ -110,7 +124,12 @@ export default function Home() {
         </aside>
       </section>
 
-      <FreeGenerator toolkitHref={TOOLKIT_MAILTO} />
+      <FreeGenerator
+        toolkitHref={TOOLKIT_CHECKOUT_URL}
+        toolkitLabel={PRIMARY_CTA_LABEL}
+        toolkitTarget={PRIMARY_CTA_TARGET}
+        toolkitRel={PRIMARY_CTA_REL}
+      />
 
       <section className={styles.beforeAfter} aria-labelledby="before-after-title">
         <div className={styles.sectionEyebrow}>Before / after</div>
@@ -165,14 +184,17 @@ export default function Home() {
             <span>Launch price</span>
             <strong>$49</strong>
             <p>One-time. Instant Google Drive access. Free updates during launch.</p>
-            <a href={TOOLKIT_MAILTO}>Get the $49 toolkit</a>
+            <a
+              href={TOOLKIT_CHECKOUT_URL}
+              target={PRIMARY_CTA_TARGET}
+              rel={PRIMARY_CTA_REL}
+            >
+              {PRIMARY_CTA_LABEL}
+            </a>
             <Link className={styles.priceCardSecondary} href="/toolkit-preview">
               Preview what is inside →
             </Link>
-            <small>
-              Pilot checkout: opens your email so we can confirm and send your access link
-              within one business day.
-            </small>
+            <small>{CHECKOUT_ASSURANCE}</small>
           </aside>
         </div>
         <div className={styles.guaranteeBar}>
@@ -298,12 +320,19 @@ export default function Home() {
           <div className={styles.sectionEyebrow}>Get started</div>
           <h2>Hand your front desk a system, not a vibe.</h2>
           <p>
-            $49 one-time. Instant-ready templates. 7-day refund. Email replies come from a
-            human at hello@denzellrei.com — usually within one business day.
+            $49 one-time. Instant-ready templates. 7-day refund.{" "}
+            {STRIPE_ENABLED
+              ? "Buy now via secure Stripe checkout — your Google Drive link arrives in your inbox right after payment."
+              : "Email replies come from a human at hello@denzellrei.com — usually within one business day."}
           </p>
           <div className={styles.ctas}>
-            <a className={styles.primaryCtaLight} href={TOOLKIT_MAILTO}>
-              Get the $49 toolkit
+            <a
+              className={styles.primaryCtaLight}
+              href={TOOLKIT_CHECKOUT_URL}
+              target={PRIMARY_CTA_TARGET}
+              rel={PRIMARY_CTA_REL}
+            >
+              {PRIMARY_CTA_LABEL}
             </a>
             <a className={styles.secondaryCtaDark} href="#generator">
               Try the free generator first

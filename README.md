@@ -34,9 +34,27 @@ npm run build  # Build for production
 npm start      # Start the production server after building
 ```
 
+## Environment variables
+
+- `NEXT_PUBLIC_STRIPE_PAYMENT_LINK` — public Stripe Payment Link URL for the
+  $49 MedSpa Review + Local SEO Toolkit. When set, every "Get / Buy the $49
+  toolkit" CTA on the site links to this checkout and the copy switches to
+  reflect that customers can buy now (instant Drive link after payment). When
+  unset, CTAs fall back to a `mailto:` pilot inquiry so the site still builds
+  and deploys.
+
+Only the public payment link is read by the app. Stripe secret keys are not
+referenced anywhere in this codebase — no backend Stripe code or webhooks are
+configured yet.
+
+To set this in Vercel: add `NEXT_PUBLIC_STRIPE_PAYMENT_LINK` under Project
+Settings → Environment Variables, then redeploy. Locally, add it to
+`.env.local`.
+
 ## Implementation notes
 
 - Framework: Next.js 16.2.4 App Router with TypeScript
 - Styling: CSS modules plus global CSS, no Tailwind
 - Tests: Vitest unit tests for `generateReviewReply`
-- Deployability: Vercel-ready Next.js app; no secrets or server-only integrations required
+- Deployability: Vercel-ready Next.js app; the only optional env var is
+  `NEXT_PUBLIC_STRIPE_PAYMENT_LINK` (above)

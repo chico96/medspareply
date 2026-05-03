@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getToolkitCheckoutUrl, isStripeCheckoutEnabled } from "@/lib/checkout";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
 import styles from "./page.module.css";
 
-const TOOLKIT_MAILTO =
-  "mailto:hello@denzellrei.com?subject=MedSpaReply%20%2449%20launch%20toolkit&body=Hi%20Denzell%2C%20I%27d%20like%20to%20buy%20the%20%2449%20MedSpaReply%20launch%20toolkit.%20My%20clinic%3A%20%5Bclinic%20name%5D%20in%20%5Bcity%5D.";
+const TOOLKIT_CHECKOUT_URL = getToolkitCheckoutUrl();
+const STRIPE_ENABLED = isStripeCheckoutEnabled();
+const PRIMARY_CTA_LABEL = STRIPE_ENABLED
+  ? "Buy the $49 toolkit"
+  : "Get the $49 toolkit";
+const PRIMARY_CTA_TARGET = STRIPE_ENABLED ? "_blank" : undefined;
+const PRIMARY_CTA_REL = STRIPE_ENABLED ? "noopener noreferrer" : undefined;
+const PRICE_CARD_NOTE = STRIPE_ENABLED
+  ? "Secure Stripe checkout. Your Google Drive access link is emailed within minutes of payment. 7-day refund."
+  : "Pilot checkout opens your email so we can confirm and send your access link within one business day. Payment links via Gumroad / LemonSqueezy / Stripe ship next.";
 
 const ASK_MAILTO =
   "mailto:hello@denzellrei.com?subject=Question%20about%20the%20MedSpaReply%20toolkit";
@@ -130,7 +139,9 @@ const deliveryNotes = [
   {
     label: "After purchase",
     title: "A Google Drive folder lands in your inbox",
-    body: "We send a Drive link within one business day. Everything is editable in Google Docs, Sheets, and Notion. No SaaS login, no AI key, no monthly seat.",
+    body: STRIPE_ENABLED
+      ? "Pay with card via Stripe and a Drive link is emailed within minutes. Everything is editable in Google Docs, Sheets, and Notion. No SaaS login, no AI key, no monthly seat."
+      : "We send a Drive link within one business day. Everything is editable in Google Docs, Sheets, and Notion. No SaaS login, no AI key, no monthly seat.",
   },
   {
     label: "Inside the Drive",
@@ -163,11 +174,19 @@ export default function ToolkitPreviewPage() {
               Six tangible deliverables your team can use the same day they receive them.
               Each section below shows a real sample pulled from the toolkit. The repo seed
               library is open source; the <strong>full Google Drive version</strong> unlocks
-              after purchase with the 120+ template pack and seasonal expansion sets.
+              after purchase with the 120+ template pack and seasonal expansion sets.{" "}
+              {STRIPE_ENABLED
+                ? "Buy the $49 bundle now via secure Stripe checkout — your Drive link is emailed right after payment."
+                : null}
             </p>
             <div className={styles.heroCtas}>
-              <a className={styles.primaryCta} href={TOOLKIT_MAILTO}>
-                Get the $49 toolkit
+              <a
+                className={styles.primaryCta}
+                href={TOOLKIT_CHECKOUT_URL}
+                target={PRIMARY_CTA_TARGET}
+                rel={PRIMARY_CTA_REL}
+              >
+                {PRIMARY_CTA_LABEL}
               </a>
               <Link className={styles.secondaryCta} href="/#generator">
                 Try the free generator
@@ -204,12 +223,14 @@ export default function ToolkitPreviewPage() {
               <li>25 GBP prompts + 13-week calendar</li>
               <li>Front-desk weekly SOP</li>
             </ul>
-            <a href={TOOLKIT_MAILTO}>Get the $49 toolkit</a>
-            <small>
-              Pilot checkout opens your email so we can confirm and send your access link
-              within one business day. Payment links via Gumroad / LemonSqueezy / Stripe
-              ship next.
-            </small>
+            <a
+              href={TOOLKIT_CHECKOUT_URL}
+              target={PRIMARY_CTA_TARGET}
+              rel={PRIMARY_CTA_REL}
+            >
+              {PRIMARY_CTA_LABEL}
+            </a>
+            <small>{PRICE_CARD_NOTE}</small>
           </aside>
         </div>
       </section>
@@ -271,12 +292,19 @@ export default function ToolkitPreviewPage() {
           <div className={styles.eyebrow}>Get started</div>
           <h2 id="cta">Hand your front desk a system, not a vibe.</h2>
           <p>
-            $49 one-time. Instant-ready templates. 7-day refund. Replies come from a
-            human at hello@denzellrei.com — usually within one business day.
+            $49 one-time. Instant-ready templates. 7-day refund.{" "}
+            {STRIPE_ENABLED
+              ? "Pay with card via Stripe and your Google Drive link arrives in your inbox right after checkout."
+              : "Replies come from a human at hello@denzellrei.com — usually within one business day."}
           </p>
           <div className={styles.ctaActions}>
-            <a className={styles.ctaPrimary} href={TOOLKIT_MAILTO}>
-              Get the $49 toolkit
+            <a
+              className={styles.ctaPrimary}
+              href={TOOLKIT_CHECKOUT_URL}
+              target={PRIMARY_CTA_TARGET}
+              rel={PRIMARY_CTA_REL}
+            >
+              {PRIMARY_CTA_LABEL}
             </a>
             <Link className={styles.ctaSecondary} href="/#generator">
               Try the free generator first
