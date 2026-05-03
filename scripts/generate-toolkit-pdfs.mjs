@@ -360,8 +360,14 @@ class PdfRenderer {
     this.currentMode = "body";
     this.pageMeta = []; // per page: { mode, headerText, pageNumber }
     this.docContext = "single"; // "single" or "combined"
+    // While stamping page chrome we temporarily zero out the page margins
+    // so footer text drawn near the bottom of the page cannot trigger
+    // PDFKit's auto-pagination. This flag also tells the pageAdded
+    // listener to ignore any (defensive) page additions during stamping.
+    this.stamping = false;
 
     doc.on("pageAdded", () => {
+      if (this.stamping) return;
       this.recordPage();
     });
   }
@@ -946,8 +952,17 @@ class PdfRenderer {
     const { doc } = this;
     const range = doc.bufferedPageRange();
     const totalBody = this.pageMeta.filter((m) => m.mode === "body").length;
+    this.stamping = true;
     for (let p = 0; p < range.count; p += 1) {
       doc.switchToPage(range.start + p);
+      // Header is drawn at y=48 (above PAGE.margins.top=96) and the footer
+      // is drawn at page.height - 56 (below PAGE.margins.bottom=84). PDFKit
+      // treats anything outside [margins.top, page.height - margins.bottom]
+      // as overflow and silently inserts a new page mid-stamp. Zeroing the
+      // page margins for the duration of the stamp lets the chrome sit in
+      // the gutter without being treated as overflow.
+      const savedMargins = doc.page.margins;
+      doc.page.margins = { top: 0, bottom: 0, left: 0, right: 0 };
       const meta = this.pageMeta[p];
       this.stampFooter(meta, totalBody);
       if (meta.mode === "body") {
@@ -955,7 +970,9 @@ class PdfRenderer {
       } else {
         this.stampCoverFooterBrand();
       }
+      doc.page.margins = savedMargins;
     }
+    this.stamping = false;
   }
 
   stampHeader(meta) {
