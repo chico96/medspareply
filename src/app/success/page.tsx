@@ -108,6 +108,72 @@ export default function SuccessPage() {
             </div>
             <span className={styles.toolkitCardArrow} aria-hidden="true">→</span>
           </Link>
+
+          <div className={styles.downloadsCard}>
+            <div className={styles.downloadsCardBody}>
+              <span className={styles.downloadsCardTag}>Editable files · download now</span>
+              <strong>Grab the Markdown &amp; CSV files while the Drive link arrives.</strong>
+              <p>
+                Six editable files mirror the buyer toolkit page — the front-desk SOP,
+                the reply template bank, the negative-review checklist, the GBP &amp;
+                content calendar (CSV), the local SEO prompts, and the operating
+                cadence. Save them to your clinic&rsquo;s shared drive today.
+              </p>
+            </div>
+            <ul className={styles.downloadsList}>
+              <li>
+                <a
+                  href="/downloads/spareply-toolkit/front-desk-review-reply-sop.md"
+                  download="front-desk-review-reply-sop.md"
+                >
+                  front-desk-review-reply-sop.md
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/downloads/spareply-toolkit/review-reply-template-bank.md"
+                  download="review-reply-template-bank.md"
+                >
+                  review-reply-template-bank.md
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/downloads/spareply-toolkit/negative-review-triage-checklist.md"
+                  download="negative-review-triage-checklist.md"
+                >
+                  negative-review-triage-checklist.md
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/downloads/spareply-toolkit/google-business-profile-content-calendar.csv"
+                  download="google-business-profile-content-calendar.csv"
+                >
+                  google-business-profile-content-calendar.csv
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/downloads/spareply-toolkit/local-seo-prompts.md"
+                  download="local-seo-prompts.md"
+                >
+                  local-seo-prompts.md
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/downloads/spareply-toolkit/operating-cadence.md"
+                  download="operating-cadence.md"
+                >
+                  operating-cadence.md
+                </a>
+              </li>
+            </ul>
+            <p className={styles.downloadsHint}>
+              Or open <Link href="/toolkit">/toolkit</Link> for the always-on web version.
+            </p>
+          </div>
         </div>
       </section>
 

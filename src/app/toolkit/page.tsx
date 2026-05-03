@@ -17,6 +17,65 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+type ToolkitDownload = {
+  filename: string;
+  href: string;
+  label: string;
+  format: string;
+  description: string;
+};
+
+const toolkitDownloads: ToolkitDownload[] = [
+  {
+    filename: "front-desk-review-reply-sop.md",
+    href: "/downloads/spareply-toolkit/front-desk-review-reply-sop.md",
+    label: "Front-desk reply SOP",
+    format: "Markdown · editable",
+    description:
+      "The 20-minute setup block, the HIPAA-aware do/don't list, the 7-question safety check, and the daily/weekly/monthly cadence — in one editable file.",
+  },
+  {
+    filename: "review-reply-template-bank.md",
+    href: "/downloads/spareply-toolkit/review-reply-template-bank.md",
+    label: "Review reply template bank",
+    format: "Markdown · editable",
+    description:
+      "20 paste-ready replies across 5★ praise, staff shoutouts, treatment mentions, neutral 3★, wait-time and pricing complaints, and negative reviews — plus the PHI-risky → safer rewrite table.",
+  },
+  {
+    filename: "negative-review-triage-checklist.md",
+    href: "/downloads/spareply-toolkit/negative-review-triage-checklist.md",
+    label: "Negative-review triage checklist",
+    format: "Markdown · printable",
+    description:
+      "The 8-step triage: pre-checks, lane decision, draft from template, run the 7-question safety check, post, log, and Google policy flag — with a sign-off block for the practice manager.",
+  },
+  {
+    filename: "google-business-profile-content-calendar.csv",
+    href: "/downloads/spareply-toolkit/google-business-profile-content-calendar.csv",
+    label: "GBP + content calendar (4 weeks)",
+    format: "CSV · spreadsheet-ready",
+    description:
+      "Week-by-week schedule across GBP posts, review work, email, and SEO focus — with post drafts, owner column, and status column. Drop into Google Sheets and assign by name.",
+  },
+  {
+    filename: "local-seo-prompts.md",
+    href: "/downloads/spareply-toolkit/local-seo-prompts.md",
+    label: "Local SEO + GBP prompt pack",
+    format: "Markdown · editable",
+    description:
+      "13 GBP post angles, a treatment-page outline, and city/neighborhood angles — the prompts that pair with the 4-week calendar.",
+  },
+  {
+    filename: "operating-cadence.md",
+    href: "/downloads/spareply-toolkit/operating-cadence.md",
+    label: "Operating cadence (print & tape)",
+    format: "Markdown · printable",
+    description:
+      "The week, on a single page: daily 10-minute slot, daily 15-minute approval, the Tuesday 20-minute SOP, the Friday huddle, and the monthly + quarterly review.",
+  },
+];
+
 const setupSteps = [
   {
     minutes: "0–3 min",
@@ -440,6 +499,37 @@ export default function ToolkitPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className={styles.section} aria-labelledby="downloads">
+        <div className={styles.sectionEyebrow}>Download the toolkit files</div>
+        <h2 id="downloads">Editable Markdown &amp; CSV — keep them in your clinic&rsquo;s drive.</h2>
+        <p>
+          Six editable files that mirror this page. Save them to your clinic&rsquo;s
+          shared drive, fill in the bracketed fields, and let the front desk work
+          from a copy you control. The Drive folder linked in your access email
+          contains the same set, plus the Google Doc and Sheet versions.
+        </p>
+
+        <ul className={styles.downloads}>
+          {toolkitDownloads.map((file) => (
+            <li key={file.filename} className={styles.downloadCard}>
+              <div className={styles.downloadBody}>
+                <span className={styles.downloadFormat}>{file.format}</span>
+                <strong>{file.label}</strong>
+                <p>{file.description}</p>
+                <code className={styles.downloadFilename}>{file.filename}</code>
+              </div>
+              <a
+                className={styles.downloadButton}
+                href={file.href}
+                download={file.filename}
+              >
+                Download
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className={styles.section} aria-labelledby="setup">
