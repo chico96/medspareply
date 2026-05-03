@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MedSpaReply
 
-## Getting Started
+MedSpaReply is a Next.js 16 App Router MVP for med-spa reputation marketing. It positions a lightweight product for AI-assisted review replies and local SEO content workflows for aesthetic clinics.
 
-First, run the development server:
+## Product MVP
+
+- Premium landing page for med-spa owners, founders, and practice managers
+- Free deterministic review reply generator with no external API calls
+- Outputs: public reply, private follow-up, and safety notes
+- $49 toolkit offer for templates, SOPs, and local SEO prompts
+- Mock founder / early-access waitlist form that does not submit or store data
+
+## Privacy and safety
+
+The free generator runs entirely in the browser using local deterministic TypeScript helpers. It does not use API keys, send review text to third parties, or store submissions. Safety notes remind teams to avoid protected health details, exaggerated results claims, and to route clinical concerns to licensed providers.
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000> to view the MVP.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev    # Start the local Next.js dev server
+npm test       # Run Vitest helper tests
+npm run lint   # Run ESLint
+npm run build  # Build for production
+npm start      # Start the production server after building
+```
 
-## Learn More
+## Implementation notes
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Framework: Next.js 16.2.4 App Router with TypeScript
+- Styling: CSS modules plus global CSS, no Tailwind
+- Tests: Vitest unit tests for `generateReviewReply`
+- Deployability: Vercel-ready Next.js app; no secrets or server-only integrations required
