@@ -5,7 +5,7 @@ This repo folder is the **seed library** that ships inside the $49 launch toolki
 The full purchase version is delivered as an editable Google Drive folder
 (Docs / Sheets / Notion-ready) with the same content plus expansion packs.
 
-> **Important:** MedSpaReply is informational. It does not provide medical, legal,
+> **Important:** SpaReply is informational. It does not provide medical, legal,
 > or compliance advice. HIPAA-aware wording is a starting point — final compliance
 > decisions belong with your provider, privacy officer, and counsel.
 
@@ -71,4 +71,4 @@ This seed library is meant to grow. The Google Drive purchase version adds:
   for weekly review counts and average response time
 
 Buyers receive free updates during the launch window. To buy or ask a question,
-email **hello@denzellrei.com** or visit `/toolkit-preview` on medspareply.com.
+email **hello@spareply.com** or visit `/toolkit-preview` on spareply.com.

@@ -111,7 +111,7 @@ Use these in a 10-minute team huddle:
 
 ## Disclaimer
 
-This checklist is informational and provided as part of the MedSpaReply
+This checklist is informational and provided as part of the SpaReply
 toolkit. It does not constitute legal, medical, or compliance advice. It is
 not a substitute for HIPAA training, your clinic's privacy policies, or
 guidance from your privacy officer and counsel. The terms "HIPAA-aware" and

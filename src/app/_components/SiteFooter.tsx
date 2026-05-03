@@ -6,7 +6,7 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
         <div className={styles.footerBrand}>
-          <strong>MedSpaReply</strong>
+          <strong>SpaReply</strong>
           <p>
             Premium review replies, HIPAA-aware safety wording, and local SEO prompts for
             aesthetic clinics. Built from real med-spa review patterns — not generic
@@ -28,13 +28,13 @@ export function SiteFooter() {
           <div>
             <span>Get started</span>
             <Link href="/toolkit-preview">Preview the $49 toolkit</Link>
-            <a href="mailto:hello@denzellrei.com">hello@denzellrei.com</a>
+            <a href="mailto:hello@spareply.com">hello@spareply.com</a>
           </div>
         </div>
       </div>
       <div className={styles.footerNote}>
         <small>
-          MedSpaReply is informational. It does not provide medical, legal, or compliance advice.
+          SpaReply is informational. It does not provide medical, legal, or compliance advice.
           Route clinical and legal questions to licensed providers and counsel.
         </small>
       </div>

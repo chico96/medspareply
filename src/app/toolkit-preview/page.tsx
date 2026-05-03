@@ -17,17 +17,17 @@ const PRICE_CARD_NOTE = STRIPE_ENABLED
   : "Pilot checkout opens your email so we can confirm and send your access link within one business day. Payment links via Gumroad / LemonSqueezy / Stripe ship next.";
 
 const ASK_MAILTO =
-  "mailto:hello@denzellrei.com?subject=Question%20about%20the%20MedSpaReply%20toolkit";
+  "mailto:hello@spareply.com?subject=Question%20about%20the%20SpaReply%20toolkit";
 
 export const metadata: Metadata = {
-  title: "Toolkit Preview · MedSpa Review + Local SEO Toolkit | MedSpaReply",
+  title: "Toolkit Preview · MedSpa Review + Local SEO Toolkit | SpaReply",
   description:
     "Preview the $49 MedSpa Review + Local SEO Toolkit — sample reply templates, the negative-review playbook, the HIPAA-aware safety checklist, GBP prompts, the front-desk SOP, and the 90-day content calendar.",
   alternates: { canonical: "/toolkit-preview" },
   openGraph: {
     title: "MedSpa Review + Local SEO Toolkit — Preview",
     description:
-      "See exactly what is inside the $49 MedSpaReply launch toolkit before you buy.",
+      "See exactly what is inside the $49 SpaReply launch toolkit before you buy.",
     type: "article",
   },
 };
@@ -151,12 +151,12 @@ const deliveryNotes = [
   {
     label: "Refund policy",
     title: "7-day refund, no forms, no friction",
-    body: "Use the toolkit for a week. If it doesn't make replying to reviews faster and safer for your team, email hello@denzellrei.com and we will refund the $49.",
+    body: "Use the toolkit for a week. If it doesn't make replying to reviews faster and safer for your team, email hello@spareply.com and we will refund the $49.",
   },
   {
     label: "Free updates",
     title: "Launch buyers receive every update",
-    body: "Spring, summer, fall, and holiday expansion packs ship into the same Drive folder. Buyers also get launch pricing on the upcoming MedSpaReply platform when it ships.",
+    body: "Spring, summer, fall, and holiday expansion packs ship into the same Drive folder. Buyers also get launch pricing on the upcoming SpaReply platform when it ships.",
   },
 ];
 
@@ -295,7 +295,7 @@ export default function ToolkitPreviewPage() {
             $49 one-time. Instant-ready templates. 7-day refund.{" "}
             {STRIPE_ENABLED
               ? "Pay with card via Stripe and your Google Drive link arrives in your inbox right after checkout."
-              : "Replies come from a human at hello@denzellrei.com — usually within one business day."}
+              : "Replies come from a human at hello@spareply.com — usually within one business day."}
           </p>
           <div className={styles.ctaActions}>
             <a
@@ -336,7 +336,7 @@ export default function ToolkitPreviewPage() {
       </section>
 
       <p className={styles.disclaimer}>
-        MedSpaReply is informational. The toolkit is HIPAA-aware editorial guidance, not
+        SpaReply is informational. The toolkit is HIPAA-aware editorial guidance, not
         legal, medical, or compliance advice. Final compliance decisions belong with your
         provider, privacy officer, and counsel.
       </p>

@@ -91,7 +91,7 @@ export default function Home() {
               Try the free generator
             </a>
           </div>
-          <ul className={styles.trustList} aria-label="Why med spas trust MedSpaReply">
+          <ul className={styles.trustList} aria-label="Why med spas trust SpaReply">
             {trustBullets.map((bullet) => (
               <li key={bullet}>
                 <span aria-hidden="true">✓</span>
@@ -256,7 +256,7 @@ export default function Home() {
           <span>Solution</span>
           <h2>Fast replies with guardrails your team can actually use on a Tuesday.</h2>
           <p>
-            MedSpaReply gives you service-aware templates, HIPAA-aware wording reminders, and
+            SpaReply gives you service-aware templates, HIPAA-aware wording reminders, and
             local SEO prompts so reputation work becomes a 20-minute weekly habit — not a
             weekend project for the owner.
           </p>
@@ -323,7 +323,7 @@ export default function Home() {
             $49 one-time. Instant-ready templates. 7-day refund.{" "}
             {STRIPE_ENABLED
               ? "Buy now via secure Stripe checkout — your Google Drive link arrives in your inbox right after payment."
-              : "Email replies come from a human at hello@denzellrei.com — usually within one business day."}
+              : "Email replies come from a human at hello@spareply.com — usually within one business day."}
           </p>
           <div className={styles.ctas}>
             <a
@@ -341,7 +341,7 @@ export default function Home() {
         </div>
         <form
           className={styles.waitlistForm}
-          action="mailto:hello@denzellrei.com"
+          action="mailto:hello@spareply.com"
           method="post"
           encType="text/plain"
           aria-label="Ask a question before you buy"

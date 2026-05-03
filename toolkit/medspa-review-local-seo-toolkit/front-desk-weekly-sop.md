@@ -5,7 +5,7 @@ calendar, one tracker. The goal: no review goes unanswered past Friday,
 and no 1- or 2-star review goes out the door without a second pair of eyes.
 
 > Save this as a recurring meeting on the front-desk lead's calendar:
-> **Tuesday, 10:00–10:20 AM, "MedSpaReply review block."**
+> **Tuesday, 10:00–10:20 AM, "SpaReply review block."**
 
 ---
 

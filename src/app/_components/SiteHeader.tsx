@@ -10,7 +10,7 @@ export function SiteHeader({ homepageAnchors = false }: SiteHeaderProps) {
   return (
     <nav className={styles.nav} aria-label="Main navigation">
       <Link className={styles.brand} href={homepageAnchors ? "#top" : "/"}>
-        <span aria-hidden="true">✦</span> MedSpaReply
+        <span aria-hidden="true">✦</span> SpaReply
       </Link>
       <div className={styles.navLinks}>
         <Link href={homepageAnchors ? "#generator" : "/#generator"}>Free generator</Link>

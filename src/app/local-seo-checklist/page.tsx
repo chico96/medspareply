@@ -5,7 +5,7 @@ import { SiteHeader } from "../_components/SiteHeader";
 import styles from "../_components/content.module.css";
 
 export const metadata: Metadata = {
-  title: "Med Spa Local SEO Checklist (2026 Edition) | MedSpaReply",
+  title: "Med Spa Local SEO Checklist (2026 Edition) | SpaReply",
   description:
     "A practical local SEO checklist for med spas: Google Business Profile, on-page treatment pages, reviews, citations, and the weekly content cadence that actually moves rankings.",
   alternates: { canonical: "/local-seo-checklist" },

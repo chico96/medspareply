@@ -84,7 +84,7 @@ export const audiences = [
 export const guarantee = {
   headline: "7-day refund if it does not save you time",
   detail:
-    "Use the toolkit for a week. If it does not make replying to reviews faster and safer for your team, email hello@denzellrei.com and we will refund the $49 — no forms, no friction.",
+    "Use the toolkit for a week. If it does not make replying to reviews faster and safer for your team, email hello@spareply.com and we will refund the $49 — no forms, no friction.",
 };
 
 export const contentExamples = [
@@ -111,7 +111,7 @@ export const faqItems = [
   {
     question: "Is this a replacement for legal, medical, or compliance advice?",
     answer:
-      "No. MedSpaReply gives you wording patterns and operational guardrails. Sensitive clinical, legal, or HIPAA decisions still belong with licensed providers and counsel.",
+      "No. SpaReply gives you wording patterns and operational guardrails. Sensitive clinical, legal, or HIPAA decisions still belong with licensed providers and counsel.",
   },
   {
     question: "Who is the $49 launch toolkit for?",
@@ -126,7 +126,7 @@ export const faqItems = [
   {
     question: "What if it doesn't help my team?",
     answer:
-      "Email hello@denzellrei.com within 7 days for a full refund. No forms. No support runaround.",
+      "Email hello@spareply.com within 7 days for a full refund. No forms. No support runaround.",
   },
   {
     question: "Will there be a software platform later?",

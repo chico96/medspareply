@@ -5,7 +5,7 @@ import { SiteHeader } from "../_components/SiteHeader";
 import styles from "../_components/content.module.css";
 
 export const metadata: Metadata = {
-  title: "Med Spa Review Response Examples (5★ to 1★) | MedSpaReply",
+  title: "Med Spa Review Response Examples (5★ to 1★) | SpaReply",
   description:
     "Real-world med spa review response examples for Hydrafacial, Injectables, and Laser visits — across 5-star, 4-star, 3-star, and 1-2 star ratings, with privacy-safe phrasing.",
   alternates: { canonical: "/review-response-examples" },
@@ -99,7 +99,7 @@ export default function ReviewResponseExamplesPage() {
         <div className={styles.eyebrow}>Med spa review response examples</div>
         <h1>Med spa review response examples for every rating.</h1>
         <p className={styles.lede}>
-          These examples are taken straight from MedSpaReply&apos;s public reply generator so you
+          These examples are taken straight from SpaReply&apos;s public reply generator so you
           can see what kinds of outputs our pilot users get. They are written for aesthetic
           clinics, with safety language baked in and zero protected health detail.
         </p>

@@ -1,6 +1,6 @@
-# MedSpaReply
+# SpaReply
 
-MedSpaReply is a Next.js 16 App Router MVP for med-spa reputation marketing. It positions a lightweight product for AI-assisted review replies and local SEO content workflows for aesthetic clinics.
+SpaReply is a Next.js 16 App Router MVP for med-spa reputation marketing. It positions a lightweight product for AI-assisted review replies and local SEO content workflows for aesthetic clinics. The live site is hosted at spareply.com.
 
 ## Product MVP
 

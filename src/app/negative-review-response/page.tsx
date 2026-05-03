@@ -5,7 +5,7 @@ import { SiteHeader } from "../_components/SiteHeader";
 import styles from "../_components/content.module.css";
 
 export const metadata: Metadata = {
-  title: "Negative Med Spa Review Response: Playbook + Examples | MedSpaReply",
+  title: "Negative Med Spa Review Response: Playbook + Examples | SpaReply",
   description:
     "How to respond to a negative med spa review without revealing PHI, escalating clinical concerns, or losing trust — a step-by-step playbook with public reply examples.",
   alternates: { canonical: "/negative-review-response" },
@@ -130,7 +130,7 @@ export default function NegativeReviewResponsePage() {
         </p>
 
         <div className={styles.callout}>
-          <strong>What MedSpaReply&apos;s generator does for low-rating reviews.</strong>
+          <strong>What SpaReply&apos;s generator does for low-rating reviews.</strong>
           <p>
             When you set the rating to 1 or 2, the{" "}
             <Link href="/#generator">free generator</Link> automatically picks the empathetic
