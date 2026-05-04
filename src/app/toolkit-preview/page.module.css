@@ -218,10 +218,21 @@
 }
 .priceCard .policyTrust strong { color: var(--on-dark); }
 .priceCard .policyTrust a {
+  display: inline;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--on-dark);
-  border-bottom-color: var(--paper-dark-line);
+  font-size: inherit;
+  font-weight: 500;
+  border-bottom: 1px solid color-mix(in srgb, var(--on-dark) 55%, transparent);
 }
-.priceCard .policyTrust a:hover { border-bottom-color: var(--on-dark); }
+.priceCard .policyTrust a:hover {
+  background: transparent;
+  border-bottom-color: var(--on-dark);
+}
 .priceCard .policyTrust .sep { color: var(--paper-dark-line); }
 
 .priceList {
