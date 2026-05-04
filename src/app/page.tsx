@@ -10,6 +10,7 @@ import { getToolkitCheckoutUrl, isStripeCheckoutEnabled } from "@/lib/checkout";
 import { FreeGenerator } from "./FreeGenerator";
 import { SiteFooter } from "./_components/SiteFooter";
 import { SiteHeader } from "./_components/SiteHeader";
+import { ToolkitProductVisual } from "./_components/ToolkitProductVisual";
 import { TrackedAnchor, TrackedLink } from "./_components/TrackedLink";
 import styles from "./page.module.css";
 
@@ -347,6 +348,15 @@ export default function Home() {
           </footer>
         </aside>
       </section>
+
+      {/* ===== PRODUCT VISUAL — bespoke PDF pack ===== */}
+      <ToolkitProductVisual
+        toolkitHref={TOOLKIT_CHECKOUT_URL}
+        primaryCtaLabel={PRIMARY_CTA_LABEL}
+        primaryCtaTarget={PRIMARY_CTA_TARGET}
+        primaryCtaRel={PRIMARY_CTA_REL}
+        location="home_visual"
+      />
 
       {/* ===== DARK SHOWROOM — TOC ===== */}
       <section className={styles.showroom} aria-labelledby="showroom-title">

@@ -4,6 +4,7 @@ import { getToolkitCheckoutUrl, isStripeCheckoutEnabled } from "@/lib/checkout";
 import { samplePreviewPdf } from "@/lib/marketing";
 import { SiteFooter } from "../_components/SiteFooter";
 import { SiteHeader } from "../_components/SiteHeader";
+import { ToolkitProductVisual } from "../_components/ToolkitProductVisual";
 import { TrackedAnchor, TrackedLink } from "../_components/TrackedLink";
 import styles from "./page.module.css";
 
@@ -279,6 +280,15 @@ export default function ToolkitPreviewPage() {
           </aside>
         </div>
       </section>
+
+      <ToolkitProductVisual
+        toolkitHref={TOOLKIT_CHECKOUT_URL}
+        primaryCtaLabel={PRIMARY_CTA_LABEL}
+        primaryCtaTarget={PRIMARY_CTA_TARGET}
+        primaryCtaRel={PRIMARY_CTA_REL}
+        location="toolkit_preview_visual"
+        variant="compact"
+      />
 
       <section className={styles.section} aria-labelledby="sample">
         <div className={styles.eyebrow}>Sample preview · free</div>
