@@ -539,39 +539,36 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.askForm input,
-.askForm textarea {
-  width: 100%;
-  border: 1px solid var(--paper-dark-line);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--on-dark);
-  padding: 12px 14px;
+.askForm p {
+  color: var(--on-dark-muted);
   font-size: 14px;
-  outline: none;
-  transition: border-color 140ms ease, background 140ms ease;
+  line-height: 1.6;
+  margin: 0;
 }
-.askForm input::placeholder,
-.askForm textarea::placeholder { color: var(--on-dark-muted); }
-.askForm input:focus,
-.askForm textarea:focus {
-  border-color: var(--gold);
-  background: rgba(255, 255, 255, 0.06);
+.askForm p a {
+  color: var(--on-dark);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
 }
-.askForm textarea { min-height: 80px; resize: vertical; }
-.askForm button {
+.askFormButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   border-radius: 999px;
   background: var(--gold);
   color: var(--paper-darker);
   cursor: pointer;
   height: 46px;
-  padding: 0 18px;
+  padding: 0 22px;
   font-weight: 500;
   font-size: 14px;
+  text-decoration: none;
   transition: background 140ms ease;
+  width: fit-content;
 }
-.askForm button:hover { background: var(--gold-soft); }
+.askFormButton:hover { background: var(--gold-soft); }
 .askForm small {
   color: var(--on-dark-muted);
   font-size: 12px;

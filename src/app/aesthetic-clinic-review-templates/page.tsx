@@ -247,7 +247,7 @@ export default function AestheticClinicReviewTemplatesPage() {
         <div className={styles.callout}>
           <strong>Want every template?</strong>
           <p>
-            The $49 toolkit ships 120+ paste-ready replies across services, ratings, and tones —
+            The $49 toolkit ships 20 paste-ready replies across services, ratings, and tones —
             plus the negative-review playbook, GBP prompts, and the front-desk SOP. Preview it
             first with the{" "}
             <TrackedAnchor

@@ -23,7 +23,7 @@ const PRIMARY_CTA_REL = STRIPE_ENABLED ? "noopener noreferrer" : undefined;
 const PRIMARY_CTA_TARGET = STRIPE_ENABLED ? "_blank" : undefined;
 const CHECKOUT_ASSURANCE = STRIPE_ENABLED
   ? "Secure Stripe checkout. The 31-page PDF, six focused PDFs, and editable source files download the moment payment clears."
-  : "Pilot checkout opens your email so we can confirm and send your access link within one business day.";
+  : "Pilot checkout opens your email so we can confirm and send direct download links within one business day.";
 
 const trustStrip = [
   { label: "Private", value: "Generator runs in browser" },

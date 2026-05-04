@@ -537,7 +537,7 @@ class PdfRenderer {
       .fontSize(9.5)
       .text(
         panelLeftBody ||
-          "$49 one-time · 7-day refund · Google Drive folder of editable assets.",
+          "$49 one-time · 7-day refund · instant download of branded PDFs and editable Markdown / CSV sources.",
         left + cellPadX,
         panelY + cellPadY + 50,
         { width: width / 2 - cellPadX * 2, lineGap: 2 },

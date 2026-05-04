@@ -19,7 +19,7 @@
 A single, concrete paid offer plus a free lead-gen tool:
 
 - **Free tool:** browser-based med-spa review reply generator (`src/app/FreeGenerator.tsx` + `src/lib/replyGenerator.ts`). Runs locally in the browser. No login, no API calls, no review text leaving the device. Do not change this without explicit approval — it is the trust anchor.
-- **Paid offer:** **$49 one-time** Med Spa Review + Local SEO Toolkit. Delivered as a Google Drive folder of editable assets (templates, scripts, HIPAA-aware checklist, GBP prompts, SOP, content calendar). Source of truth for what's in the toolkit: `src/lib/marketing.ts` (`toolkitDeliverables`).
+- **Paid offer:** **$49 one-time** Med Spa Review + Local SEO Toolkit. Delivered as instant buyer-page downloads: polished PDFs plus editable Markdown/CSV assets (20 paste-ready templates, HIPAA-aware checklist, GBP prompts, SOP, 4-week content calendar). Source of truth for what's in the toolkit: `src/lib/marketing.ts` (`toolkitDeliverables`).
 - **Checkout:** Stripe Payment Link only. URL is read at build time from `NEXT_PUBLIC_STRIPE_PAYMENT_LINK` via `src/lib/checkout.ts`. When that env var is empty, the helper falls back to a `mailto:` link so the page is never broken in dev. Never hardcode the live payment link in source.
 - **Refund:** 7-day no-friction refund, surfaced on hero, FAQ, and post-purchase copy.
 
@@ -39,7 +39,7 @@ Write to that buyer. Not to "businesses," not to "users," not to "customers."
 **Conversion-first. Concrete deliverables. Original voice.** Not generic AI SaaS fluff.
 
 Always do:
-- Name specific deliverables, services (Hydrafacial, injectables, laser, peels, memberships), and outcomes (e.g., "120 templates," "20-minute weekly SOP," "7-day refund").
+- Name specific deliverables, services (Hydrafacial, injectables, laser, peels, memberships), and outcomes (e.g., "20 paste-ready templates," "20-minute weekly SOP," "7-day refund").
 - Lead with the buyer's actual Monday-morning problem.
 - Treat the free generator → $49 toolkit → future platform as a clear ladder.
 - Match copy and design to the existing tone in `src/lib/marketing.ts` and `src/app/page.tsx`.
@@ -97,7 +97,7 @@ This repo is on **Next.js 16** with React 19 (see `package.json`). APIs, convent
 
 - **Preserve the checkout path.** `getToolkitCheckoutUrl()` and `isStripeCheckoutEnabled()` in `src/lib/checkout.ts` are the only sanctioned ways to render the CTA URL. Do not bypass them, do not hardcode a Stripe URL inline, and do not add a second checkout path.
 - **Public email is `hello@spareply.com`.** Use it in refund copy, FAQs, support mentions, and structured data. Update it in one place if it ever changes; do not scatter copies.
-- **Refund and copy clarity.** State the price ($49, one-time), what is delivered (Google Drive folder of editable assets), how it is delivered (instant link after Stripe checkout), and the 7-day refund — every time these are referenced. Do not soften, hide, or marketing-ify these facts.
+- **Refund and copy clarity.** State the price ($49, one-time), what is delivered (polished PDFs plus editable Markdown/CSV assets), how it is delivered (instant buyer-page downloads after Stripe checkout), and the 7-day refund — every time these are referenced. Do not soften, hide, or marketing-ify these facts.
 - **No subscription, no "free trial," no MVP/pilot language** unless the operational reality matches. The current offer is a one-time $49 purchase — write it that way.
 
 ## 10. Specialist agents

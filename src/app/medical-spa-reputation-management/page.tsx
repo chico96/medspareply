@@ -454,13 +454,13 @@ export default function MedicalSpaReputationManagementPage() {
           A reputation agency for a single-location med spa runs $800–$1,500 a month, and the
           deliverable is usually a generic monthly reply summary plus a Google post or two. The
           $49 SpaReply toolkit hands the team the same operational artifacts — front-desk SOP,
-          120+ paste-ready replies, the negative-review playbook, the safety checklist, the GBP
-          prompt pack, and a 90-day calendar — as editable Markdown, CSV, and a printable PDF.
+          20 paste-ready replies, the negative-review playbook, the safety checklist, the GBP
+          prompt pack, and a 4-week calendar — as editable Markdown, CSV, and a printable PDF.
           One purchase. The team owns the system.
         </p>
         <ul>
           <li>
-            <strong>120+ paste-ready replies</strong> across Hydrafacial, injectables, laser,
+            <strong>20 paste-ready replies</strong> across Hydrafacial, injectables, laser,
             peels, body contouring, and memberships — 5★ to 1★ in warm, polished, and clinical
             tones.
           </li>
@@ -479,11 +479,11 @@ export default function MedicalSpaReputationManagementPage() {
             a printable run sheet with the safety check inline.
           </li>
           <li>
-            <strong>Google Business Profile prompt pack</strong> with 25 post angles and headline
+            <strong>Google Business Profile prompt pack</strong> with 13 post angles and headline
             patterns so review momentum compounds into local-pack visibility.
           </li>
           <li>
-            <strong>90-day content calendar</strong> with paired GBP / review-reply / social /
+            <strong>4-week content calendar</strong> with paired GBP / review-reply / social /
             email rows so a single front-desk lead can run the cadence without an agency.
           </li>
         </ul>
@@ -539,7 +539,7 @@ export default function MedicalSpaReputationManagementPage() {
         <p>
           No. SpaReply is a free in-browser review reply generator plus a one-time $49 toolkit of
           editable assets — templates, a printable SOP, a safety checklist, a GBP prompt pack, and
-          a 90-day calendar. There is no login, no monthly fee, and no integration to maintain.
+          a 4-week calendar. There is no login, no monthly fee, and no integration to maintain.
         </p>
         <h3>Do you respond to reviews on our behalf?</h3>
         <p>

@@ -263,7 +263,7 @@ export default function LaserHairRemovalReviewResponsePage() {
         <div className={styles.callout}>
           <strong>Want every laser template?</strong>
           <p>
-            The $49 toolkit includes 120+ paste-ready replies — including the full laser bank
+            The $49 toolkit includes 20 paste-ready replies — including the full laser bank
             (warm, polished, and clinical tones across 5★ → 1★) plus the negative-review
             playbook and the front-desk SOP. See it before you buy with the{" "}
             <TrackedAnchor

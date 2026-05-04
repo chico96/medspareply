@@ -172,10 +172,10 @@ export default function MedSpaReviewReplyGeneratorPage() {
             in the next two minutes.&rdquo;
           </li>
           <li>
-            <strong>The $49 toolkit</strong> is the repeatable system around it: 120+ paste-ready
+            <strong>The $49 toolkit</strong> is the repeatable system around it: 20 paste-ready
             templates across services and ratings, the negative-review playbook with six public
             scripts, the HIPAA-aware safety checklist, the front-desk weekly SOP, GBP prompts,
-            and the 90-day content calendar — so the entire team replies the same way without
+            and the 4-week content calendar — so the entire team replies the same way without
             relying on a single owner.
           </li>
         </ul>
@@ -194,7 +194,7 @@ export default function MedSpaReviewReplyGeneratorPage() {
         <h2>What the toolkit adds for the team</h2>
         <ul className={styles.checklist}>
           <li>
-            <strong>120+ paste-ready public reply templates</strong> across Hydrafacial,
+            <strong>20 paste-ready public reply templates</strong> across Hydrafacial,
             injectables, laser, peels, body contouring, and memberships — 5★ to 1★, warm,
             polished, and clinical tones.
           </li>
@@ -213,11 +213,11 @@ export default function MedSpaReviewReplyGeneratorPage() {
             drafts, safety-checks, posts, and logs the week&rsquo;s reviews.
           </li>
           <li>
-            <strong>Google Business Profile prompt pack</strong> with 25 post angles and
+            <strong>Google Business Profile prompt pack</strong> with 13 post angles and
             headline patterns so review momentum compounds into local-pack visibility.
           </li>
           <li>
-            <strong>90-day content calendar</strong> with paired GBP / review-reply / social /
+            <strong>4-week content calendar</strong> with paired GBP / review-reply / social /
             email rows so a single front-desk lead can run the cadence without an agency.
           </li>
         </ul>

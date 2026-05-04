@@ -289,7 +289,7 @@ export default function CoolSculptingReviewResponsePage() {
         <div className={styles.callout}>
           <strong>Want every body contouring template?</strong>
           <p>
-            The $49 toolkit ships 120+ paste-ready replies — including the full body contouring
+            The $49 toolkit ships 20 paste-ready replies — including the full body contouring
             bank across the slow-burn timeline plus the negative-review playbook with the refund
             and re-treatment scripts. See it before you buy with the{" "}
             <TrackedAnchor

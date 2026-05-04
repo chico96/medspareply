@@ -224,7 +224,7 @@ export default function MedSpaGoogleReviewReplyPage() {
           <strong>What the toolkit adds for Google review workflow.</strong>
           <p>
             The $49 toolkit ships the front-desk SOP that wires this weekly cadence into the
-            schedule, plus 120+ paste-ready replies across services, ratings, and tones. Preview
+            schedule, plus 20 paste-ready replies across services, ratings, and tones. Preview
             it first with the{" "}
             <TrackedAnchor
               href={samplePreviewPdf.href}

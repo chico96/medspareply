@@ -14,10 +14,10 @@ export type ToolkitDeliverable = {
 export const toolkitDeliverables: ToolkitDeliverable[] = [
   {
     category: "Reply templates",
-    title: "120 service-specific public reply templates",
+    title: "20 paste-ready public reply templates",
     detail:
       "5★ to 1★ wording for Hydrafacial, injectables, laser, peels, body contouring, and membership visits — copy, customize, post.",
-    format: "Google Doc + plain text",
+    format: "Markdown + printable PDF",
   },
   {
     category: "Negative reviews",
@@ -38,7 +38,7 @@ export const toolkitDeliverables: ToolkitDeliverable[] = [
     title: "Google Business Profile + local SEO prompt pack",
     detail:
       "GBP post prompts, treatment-page outlines, city-page angles, and FAQ ideas tuned to the questions guests already ask in reviews.",
-    format: "Notion-ready prompts",
+    format: "Markdown + printable PDF",
   },
   {
     category: "Operations",
@@ -49,10 +49,10 @@ export const toolkitDeliverables: ToolkitDeliverable[] = [
   },
   {
     category: "Content",
-    title: "90-day local content calendar",
+    title: "4-week local content calendar",
     detail:
       "Seasonal angles, membership pushes, and review-driven content slots already paired to GBP posts and short-form captions.",
-    format: "CSV + Google Sheet",
+    format: "CSV + printable PDF",
   },
 ];
 

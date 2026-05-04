@@ -12,21 +12,21 @@ const REFUND_MAILTO =
 export const metadata: Metadata = {
   title: "Purchase confirmed · MedSpa Review + Local SEO Toolkit | SpaReply",
   description:
-    "Your $49 SpaReply Med Spa Review + Local SEO Toolkit purchase is confirmed. Check your email for the Google Drive access link, then start with the negative-review scripts and the 20-minute weekly SOP.",
+    "Your $49 SpaReply Med Spa Review + Local SEO Toolkit purchase is confirmed. Download the polished 31-page PDF, six focused PDFs, and editable Markdown / CSV source files directly on this page, then start with the negative-review scripts and the 20-minute weekly SOP.",
   alternates: { canonical: "/success" },
   robots: { index: false, follow: false },
 };
 
 const deliverySteps = [
   {
-    label: "Step 1 · Inbox",
-    title: "Check your email for the Google Drive link",
-    body: "Stripe sends a payment receipt and a separate access email with your Google Drive folder link. Both usually arrive within a few minutes. Search your inbox for SpaReply or hello@spareply.com — and check the promotions / spam folder if it isn't visible.",
+    label: "Step 1 · Download the PDFs",
+    title: "Grab the toolkit PDFs from this page",
+    body: "Use the download list above. Start with the 31-page complete pack if you want one printable file, or grab the six focused PDFs for the front-desk SOP, template bank, negative-review triage, GBP + 4-week content calendar, local SEO prompts, and the operating cadence.",
   },
   {
-    label: "Step 2 · Open the folder",
-    title: "Open the toolkit in Google Drive",
-    body: "Everything inside is editable. Make a copy into your clinic's own Drive so the front desk can edit templates, fill in the tracker, and adapt the SOP to your providers and services.",
+    label: "Step 2 · Save the editable sources",
+    title: "Open /toolkit for the Markdown + CSV sources",
+    body: "The buyer page at /toolkit lists the editable Markdown and CSV originals next to each PDF. Download them once and copy the wording into your clinic's own shared drive so the front desk can edit templates, fill in the tracker, and adapt the SOP to your providers and services.",
   },
 ];
 
@@ -44,8 +44,8 @@ const nextSteps = [
     body: "Block a recurring Tuesday calendar slot for the front-desk lead. The SOP covers triage, drafting, the safety check, posting, and logging — built so review work fits inside one cup of coffee, not the whole weekend.",
   },
   {
-    title: "Then move to GBP and the 90-day calendar",
-    body: "Once replies are flowing, pull the Google Business Profile prompt pack and the 13-week content calendar. Pair one GBP post per week with the seasonal angle — the local SEO compounding starts there.",
+    title: "Then move to GBP and the 4-week calendar",
+    body: "Once replies are flowing, pull the Google Business Profile prompt pack and the 4-week content calendar. Pair one GBP post per week with the seasonal angle — the local SEO compounding starts there.",
   },
 ];
 
@@ -72,11 +72,11 @@ export default function SuccessPage() {
       <section className={styles.page}>
         <div className={styles.hero}>
           <div className={styles.eyebrow}>Purchase confirmed</div>
-          <h1>You&rsquo;re in. The toolkit is on its way to your inbox.</h1>
+          <h1>You&rsquo;re in. Download the toolkit below.</h1>
           <p>
             Thank you for buying the <strong>SpaReply Med Spa Review + Local SEO Toolkit</strong>.
-            Your $49 one-time purchase is confirmed. Below: where to find your access link,
-            what to open first, and how to reach a human if anything looks off.
+            Your $49 one-time purchase is confirmed. The PDFs are ready below — grab them now,
+            then open the buyer toolkit page for the editable Markdown and CSV source files.
           </p>
 
           <div className={styles.summary}>
@@ -84,8 +84,8 @@ export default function SuccessPage() {
               <span className={styles.summaryEyebrow}>Order</span>
               <strong>SpaReply MedSpa Review + Local SEO Toolkit</strong>
               <p>
-                Google Drive folder · 120 reply templates, negative-review playbook,
-                HIPAA-aware safety checklist, GBP prompts, weekly SOP, 90-day content calendar.
+                Direct download · 20 paste-ready reply templates, negative-review playbook,
+                HIPAA-aware safety checklist, GBP prompts, weekly SOP, 4-week content calendar.
               </p>
             </div>
             <div className={styles.summaryPrice}>
@@ -97,13 +97,13 @@ export default function SuccessPage() {
 
           <Link href="/toolkit" className={styles.toolkitCard}>
             <div className={styles.toolkitCardBody}>
-              <span className={styles.toolkitCardTag}>Start now · while the Drive email arrives</span>
+              <span className={styles.toolkitCardTag}>Open next · editable sources live here</span>
               <strong>Open the buyer toolkit</strong>
               <p>
-                The 20-minute setup SOP, HIPAA-aware reply rules, 20+ paste-ready review
+                The 20-minute setup SOP, HIPAA-aware reply rules, 20 paste-ready review
                 replies, the negative-review triage checklist, 13 GBP prompts, and the
-                4-week content calendar — already live on this site, no Drive access
-                needed.
+                4-week content calendar — plus every editable Markdown and CSV source
+                file ready to download.
               </p>
             </div>
             <span className={styles.toolkitCardArrow} aria-hidden="true">→</span>
@@ -112,7 +112,7 @@ export default function SuccessPage() {
           <div className={styles.downloadsCard}>
             <div className={styles.downloadsCardBody}>
               <span className={styles.downloadsCardTag}>PDF toolkit · download now</span>
-              <strong>Grab the polished PDF pack while the Drive link arrives.</strong>
+              <strong>Grab the polished PDF pack — direct download, no email wait.</strong>
               <p>
                 Start with the complete PDF if you want one printable file. The individual
                 PDFs split the SOP, template bank, negative-review checklist, GBP calendar,
@@ -187,11 +187,11 @@ export default function SuccessPage() {
 
       <section className={styles.section} aria-labelledby="delivery">
         <div className={styles.sectionEyebrow}>Delivery</div>
-        <h2 id="delivery">How to find your toolkit access link.</h2>
+        <h2 id="delivery">How to download and save your toolkit.</h2>
         <p>
-          Two emails are on their way: a Stripe payment receipt and a separate access email
-          from <a href="mailto:hello@spareply.com">hello@spareply.com</a> with your
-          Google Drive link.
+          Stripe sends a payment receipt for your records. The toolkit itself
+          downloads directly from this page — instant, no waiting on a follow-up
+          email.
         </p>
 
         <div className={styles.deliveryGrid}>
@@ -203,22 +203,24 @@ export default function SuccessPage() {
             </article>
           ))}
           <article className={styles.deliveryCard}>
-            <span>If it&rsquo;s missing</span>
-            <strong>Don&rsquo;t see it after a few minutes?</strong>
+            <span>If a download fails</span>
+            <strong>Can&rsquo;t open a file or get back to this page?</strong>
             <p>
               Email{" "}
               <a href={SUPPORT_MAILTO}>hello@spareply.com</a>{" "}
-              with the email address you used at checkout. We&rsquo;ll resend the access
-              link manually — usually within one business day, often much sooner.
+              with the email address you used at checkout. We&rsquo;ll resend the
+              download links manually — usually within one business day, often much sooner.
             </p>
           </article>
           <article className={styles.deliveryCard}>
             <span>Keep it</span>
-            <strong>Save the Drive link somewhere your team can find it</strong>
+            <strong>Save the PDFs and sources in your shared drive</strong>
             <p>
-              Pin the Google Drive folder in your front-desk shared drive or your clinic&rsquo;s
-              SOP wiki. Free updates ship into the same folder during the launch window — no
-              new links to chase.
+              Drop the PDFs into the front-desk shared drive or your clinic&rsquo;s SOP
+              wiki, and copy the editable Markdown and CSV originals from <Link href="/toolkit">/toolkit</Link>{" "}
+              into your team&rsquo;s working folder. Free updates ship to the same buyer
+              page during the launch window — bookmark <Link href="/success">/success</Link>{" "}
+              and <Link href="/toolkit">/toolkit</Link>.
             </p>
           </article>
         </div>
@@ -274,11 +276,11 @@ export default function SuccessPage() {
         <div className={styles.support}>
           <article className={styles.supportCard}>
             <span>Support</span>
-            <strong>Access link, files, or anything missing</strong>
+            <strong>Download issues or anything missing</strong>
             <p>
               Email <a href={SUPPORT_MAILTO}>hello@spareply.com</a> with the email
-              address you used at checkout. We&rsquo;ll resend the Drive link or sort the
-              issue out — usually same day.
+              address you used at checkout. We&rsquo;ll resend the download links or
+              sort the issue out — usually same day.
             </p>
           </article>
           <article className={styles.supportCard}>
@@ -299,11 +301,11 @@ export default function SuccessPage() {
 
       <section className={styles.cta} aria-labelledby="cta">
         <div className={styles.ctaEyebrow}>What now</div>
-        <h2 id="cta">Open the access email, then come back here if you need us.</h2>
+        <h2 id="cta">Bookmark this page, then open the buyer toolkit.</h2>
         <p>
-          Bookmark this page or the homepage for the free generator. The Drive folder is
-          where the day-to-day work lives; the rest of the site is here when you want a
-          refresher or a new resource.
+          Bookmark this page and <Link href="/toolkit">/toolkit</Link> for the live
+          buyer playbook and the editable Markdown / CSV sources. The homepage keeps
+          the free generator if your team wants a one-off reply between guests.
         </p>
         <div className={styles.ctaActions}>
           <Link className={styles.ctaPrimary} href="/toolkit">

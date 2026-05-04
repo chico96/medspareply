@@ -39,7 +39,7 @@ npm start      # Start the production server after building
 - `NEXT_PUBLIC_STRIPE_PAYMENT_LINK` — public Stripe Payment Link URL for the
   $49 MedSpa Review + Local SEO Toolkit. When set, every "Get / Buy the $49
   toolkit" CTA on the site links to this checkout and the copy switches to
-  reflect that customers can buy now (instant Drive link after payment). When
+  reflect that customers can buy now (instant buyer-page downloads after payment). When
   unset, CTAs fall back to a `mailto:` pilot inquiry so the site still builds
   and deploys.
 

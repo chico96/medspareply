@@ -474,7 +474,7 @@ const operatingCadence = [
   {
     when: "Monthly · 30 min",
     who: "Practice manager",
-    do: "Roll up the tracker: count by star rating, category, provider. One page, plain language. Share with owner and providers — keep the file in the toolkit Drive folder.",
+    do: "Roll up the tracker: count by star rating, category, provider. One page, plain language. Share with owner and providers — keep the file in your clinic's shared workspace.",
   },
   {
     when: "Quarterly · 60 min",
@@ -493,10 +493,10 @@ export default function ToolkitPage() {
           <div className={styles.eyebrow}>Buyer toolkit · for purchasers only</div>
           <h1>Your med spa review &amp; local SEO playbook — start here.</h1>
           <p>
-            Welcome to the buyer toolkit. The full editable Drive folder is on its way to
-            your inbox. In the meantime, this page is the live, working version of the
+            Welcome to the buyer toolkit. This is the live, working version of the
             playbook — designed so a front-desk lead can read it Monday morning and run
-            with it the same day.
+            with it the same day. The PDFs and editable source files download directly
+            from the section below.
           </p>
           <p>
             Everything below is paste-ready. Copy what you need into your clinic&rsquo;s own
@@ -509,14 +509,14 @@ export default function ToolkitPage() {
               <span className={styles.summaryEyebrow}>Order</span>
               <strong>SpaReply MedSpa Review + Local SEO Toolkit</strong>
               <p>
-                $49 one-time · Google Drive folder · 7-day satisfaction refund.
+                $49 one-time · instant download · 7-day satisfaction refund.
                 Support: <a href={SUPPORT_MAILTO}>hello@spareply.com</a>
               </p>
             </div>
             <div className={styles.summaryPrice}>
               <span>What this page covers</span>
               <em>9</em>
-              <small>Setup SOP · HIPAA-aware rules · 20+ templates · triage checklist · GBP prompts · 4-week calendar · operating cadence · refund · contact</small>
+              <small>Setup SOP · HIPAA-aware rules · 20 templates · triage checklist · GBP prompts · 4-week calendar · operating cadence · refund · contact</small>
             </div>
           </div>
         </div>
@@ -847,9 +847,10 @@ export default function ToolkitPage() {
         <div className={styles.ctaEyebrow}>Save this page</div>
         <h2 id="cta">Bookmark /toolkit on the front-desk browser.</h2>
         <p>
-          The Drive folder is the editable, printable version of everything here. This
-          page is the always-on web copy your team can pull up between guests when they
-          need a template fast.
+          The branded PDFs and Markdown / CSV source files above are the editable,
+          printable version of everything on this page. The page itself is the
+          always-on web copy your team can pull up between guests when they need a
+          template fast.
         </p>
         <div className={styles.ctaActions}>
           <a className={styles.ctaPrimary} href={SUPPORT_MAILTO}>

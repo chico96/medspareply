@@ -244,9 +244,9 @@ export default function HydrafacialReviewResponsePage() {
         <div className={styles.callout}>
           <strong>Want every Hydrafacial template?</strong>
           <p>
-            The $49 toolkit ships 120+ paste-ready replies — including the full Hydrafacial bank
+            The $49 toolkit ships 20 paste-ready replies — including the full Hydrafacial bank
             (first-time, event-prep, membership, service recovery) plus the negative-review
-            playbook and the 90-day content calendar with paired GBP membership angles. See it
+            playbook and the 4-week content calendar with paired GBP membership angles. See it
             before you buy with the{" "}
             <TrackedAnchor
               href={samplePreviewPdf.href}

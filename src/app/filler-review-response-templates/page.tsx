@@ -260,7 +260,7 @@ export default function FillerReviewResponseTemplatesPage() {
         <div className={styles.callout}>
           <strong>Want every filler template?</strong>
           <p>
-            The $49 toolkit ships 120+ paste-ready replies, including the full filler bank
+            The $49 toolkit ships 20 paste-ready replies, including the full filler bank
             across 5★ → 1★ and warm/polished/clinical tones, plus the negative-review playbook
             and the front-desk SOP. See it before you buy with the{" "}
             <TrackedAnchor

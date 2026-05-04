@@ -1,12 +1,12 @@
 # Google Business Profile Prompt Pack
 
-Twenty-five GBP post prompts and angles built from the questions med-spa
-guests actually ask in reviews. Each prompt is a starting line — your team
-adds the local detail (city, neighborhood, provider, season, slot count).
+GBP post prompts and angles built from the questions med-spa guests actually
+ask in reviews. Each prompt is a starting line — your team adds the local
+detail (city, neighborhood, provider, season, slot count).
 
 > **Posting cadence:** 1–2 GBP posts per week is the sustainable target.
 > More than that and the post fades into the feed; less and the listing
-> looks dormant. Pair posts with the 90-day content calendar so you never
+> looks dormant. Pair posts with the 4-week content calendar so you never
 > sit down to a blank page.
 
 > **Reminder:** Treat GBP posts as public guest-visible surfaces. Apply the

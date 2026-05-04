@@ -67,7 +67,7 @@ Roll up the tracker into a one-page summary:
 - Status of any open private follow-ups.
 
 Share the one-pager with [Owner Name] and the providers. Keep the file in
-the toolkit Drive folder for [Practice Name].
+the clinic's shared workspace for [Practice Name].
 
 ---
 
@@ -79,8 +79,8 @@ the toolkit Drive folder for [Practice Name].
 - Review the GBP profile: services list, attributes, hours, photos.
 - Pick the next quarter's headline metric (calls, direction requests,
   searches, conversion to booked consult) and write the target down.
-- Confirm the toolkit Drive folder still has the latest version of every
-  doc — the front desk shouldn't be working from a stale copy.
+- Confirm the clinic's shared workspace still has the latest version of
+  every doc — the front desk shouldn't be working from a stale copy.
 
 ---
 
@@ -102,6 +102,6 @@ the toolkit Drive folder for [Practice Name].
 If the toolkit isn't useful for [Practice Name], email hello@spareply.com
 within 7 days of purchase for a full refund of the $49. No forms.
 
-For access issues — missing files, broken Drive link, can't open a
+For access issues — missing files, broken download links, or trouble opening a
 template — email hello@spareply.com with the email address used at
 checkout. Most issues are resolved the same business day.

@@ -1,9 +1,10 @@
 # MedSpa Review + Local SEO Toolkit
 
 A practical, HIPAA-aware system your front desk can use the same day they receive it.
-This repo folder is the **seed library** that ships inside the $49 launch toolkit.
-The full purchase version is delivered as an editable Google Drive folder
-(Docs / Sheets / Notion-ready) with the same content plus expansion packs.
+This repo folder is the **editable source library** that ships inside the $49 launch
+toolkit. After Stripe checkout, buyers download the polished branded PDFs and these
+same Markdown / CSV originals directly from the buyer page immediately, with no
+follow-up onboarding call required.
 
 > **Important:** SpaReply is informational. It does not provide medical, legal,
 > or compliance advice. HIPAA-aware wording is a starting point — final compliance
@@ -15,12 +16,12 @@ The full purchase version is delivered as an editable Google Drive folder
 
 | File | What it is | Best for |
 | --- | --- | --- |
-| `review-reply-templates.md` | 30+ public reply templates across ratings, services, and tones | Front desk daily replies |
+| `review-reply-templates.md` | 20 paste-ready public reply templates across ratings, services, and tones | Front desk daily replies |
 | `negative-review-playbook.md` | Public scripts + private follow-up SOP for 1–2★ reviews | Owner / practice manager escalations |
 | `hipaa-aware-safety-checklist.md` | Practical do/don't reminders before posting any public reply | Anyone who posts on the clinic's behalf |
-| `google-business-profile-prompts.md` | 20+ GBP post prompts paired with seasonal hooks | Weekly content ops |
+| `google-business-profile-prompts.md` | 13 GBP post prompts paired with seasonal hooks | Weekly content ops |
 | `front-desk-weekly-sop.md` | A 20-minute weekly cadence for review work | Practice manager / lead front desk |
-| `90-day-content-calendar.csv` | Weekly content slots — GBP, reviews, social, email | Content / marketing planner |
+| `4-week-content-calendar.csv` | 4-week content slots — GBP, reviews, email, SEO focus | Content / marketing planner |
 
 ---
 
@@ -34,9 +35,9 @@ The full purchase version is delivered as an editable Google Drive folder
    sections that match your services into your own brand voice doc. Keep the
    placeholders (`[guest first name]`, `[provider]`, `[service]`) explicit so
    the front desk can scan-fill them in under 60 seconds.
-4. **Plan four weeks at a time.** Pull from `90-day-content-calendar.csv` and
-   `google-business-profile-prompts.md` for GBP posts, social snippets, and
-   review-driven content angles.
+4. **Plan four weeks at a time.** Pull from `4-week-content-calendar.csv`
+   and `google-business-profile-prompts.md`
+   for GBP posts, social snippets, and review-driven content angles.
 5. **Use `negative-review-playbook.md` when stakes go up.** 1- and 2-star
    reviews need a different cadence and escalation path — never freelance them.
 
@@ -60,15 +61,14 @@ These appear throughout the templates. Replace globally before posting:
 
 ## Update cadence
 
-This seed library is meant to grow. The Google Drive purchase version adds:
+This source library is the canonical wording. The launch-window roadmap adds:
 
-- A 120-template expansion pack (the in-repo file ships ~30 to keep the seed lean)
-- Seasonal updates: spring glow, wedding season, summer SPF, fall peels, holiday
-  membership pushes, January reset
-- A printable one-pager of the safety checklist for the back-office wall
-- Notion-ready import of the GBP prompt pack
-- Editable Google Sheet version of the 90-day content calendar with formulas
-  for weekly review counts and average response time
+- Seasonal angle drops: spring glow, wedding season, summer SPF, fall peels,
+  holiday membership pushes, January reset
+- Printable one-pager of the safety checklist for the back-office wall
+- Expanded GBP prompt pack as new clinic patterns surface
+- Tracker spreadsheet templates for the monthly roll-up
 
-Buyers receive free updates during the launch window. To buy or ask a question,
-email **hello@spareply.com** or visit `/toolkit-preview` on spareply.com.
+Buyers receive free updates during the launch window — the same buyer page is
+republished, no new links to chase. To buy or ask a question, email
+**hello@spareply.com** or visit `/toolkit-preview` on spareply.com.

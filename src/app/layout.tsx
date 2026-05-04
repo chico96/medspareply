@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SpaReply | Review Replies + Local SEO Toolkit for Med Spas",
   description:
-    "Med-spa review replies your front desk can copy, customize, and post safely. Free browser generator plus a $49 launch toolkit with 120 templates, negative-review scripts, and local SEO prompts.",
+    "Med-spa review replies your front desk can copy, customize, and post safely. Free browser generator plus a $49 launch toolkit with 20 paste-ready templates, negative-review scripts, and local SEO prompts.",
   keywords: [
     "med spa review replies",
     "aesthetic clinic reputation management",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SpaReply | Review Replies + Local SEO Toolkit for Med Spas",
     description:
-      "Free browser-based review reply generator and a $49 launch toolkit: 120 templates, negative-review scripts, HIPAA-aware safety checklist, and Google Business Profile prompts.",
+      "Free browser-based review reply generator and a $49 launch toolkit: 20 paste-ready templates, negative-review scripts, HIPAA-aware safety checklist, and Google Business Profile prompts.",
     type: "website",
   },
 };

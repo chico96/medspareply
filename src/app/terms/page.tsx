@@ -67,8 +67,9 @@ export default function TermsPage() {
           </li>
           <li>
             Copying the editable Markdown and CSV source files into your clinic&rsquo;s
-            own shared drive (Google Drive, Notion, SharePoint, etc.) and adapting
-            the wording to your providers, services, and tone.
+            own shared workspace (Notion, SharePoint, Dropbox, or another
+            shared drive of your choice) and adapting the wording to your
+            providers, services, and tone.
           </li>
           <li>
             Pasting and customizing review-reply templates into your own public

@@ -1,8 +1,7 @@
-# Review Reply Templates — Seed Library
+# Review Reply Templates — Source Library
 
-Thirty public reply templates across ratings, services, and tones.
+Twenty paste-ready public reply templates across ratings, services, and tones.
 Designed for med spas. HIPAA-aware. No outcome promises.
-The full purchase version expands this to 120+ templates with brand-voice variants.
 
 **Placeholders:** `[guest first name]`, `[provider]`, `[service]`, `[clinic name]`,
 `[practice manager email]`. Replace before posting. If the guest did not name
@@ -240,6 +239,6 @@ match your brand, and the closing line to match your CTA.
 - Emoji-stuffed corporate enthusiasm — it reads as inauthentic on aesthetic
   reviews and undermines the premium tone
 
-The full toolkit ships these templates plus 90+ more covering specialty
-services, membership churn saves, follow-ups to silent guests, and brand-voice
-variants for warm / polished / clinical / boutique tones.
+The full toolkit ships this 20-template bank with safety rules, negative-review
+scripts, GBP prompts, the 4-week content calendar, and operating cadence files
+so the front desk can turn the examples into a repeatable weekly system.

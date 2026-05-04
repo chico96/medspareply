@@ -241,7 +241,7 @@ export default function BotoxReviewResponseTemplatesPage() {
         <div className={styles.callout}>
           <strong>Want every injectables template?</strong>
           <p>
-            The $49 toolkit includes 120+ paste-ready replies — including the full Botox, filler,
+            The $49 toolkit includes 20 paste-ready replies — including the full Botox, filler,
             and laser banks plus the negative-review playbook. See it before you buy with the{" "}
             <TrackedAnchor
               href={samplePreviewPdf.href}

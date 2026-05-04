@@ -106,7 +106,7 @@ const receiveItems = [
   {
     no: "C",
     title: "Editable Markdown + CSV",
-    body: "Five Markdown originals and the 4-week calendar CSV — fork into your own shared drive.",
+    body: "Five Markdown originals and the 4-week calendar CSV — fork into your own shared workspace.",
     chip: "MD + CSV",
   },
   {
@@ -270,8 +270,9 @@ export function ToolkitProductVisual({
             </TrackedAnchor>
           </div>
           <p className={styles.actionFoot}>
-            <strong>Instant download</strong> after Stripe checkout — no Drive wait,
-            no onboarding call. Refund window opens the moment you receive the files.
+            <strong>Instant download</strong> the moment Stripe checkout clears —
+            direct to your buyer page, no onboarding call. Refund window opens the
+            moment you receive the files.
           </p>
         </aside>
       </div>

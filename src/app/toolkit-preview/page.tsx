@@ -17,7 +17,7 @@ const PRIMARY_CTA_TARGET = STRIPE_ENABLED ? "_blank" : undefined;
 const PRIMARY_CTA_REL = STRIPE_ENABLED ? "noopener noreferrer" : undefined;
 const PRICE_CARD_NOTE = STRIPE_ENABLED
   ? "Secure Stripe checkout. The polished 31-page PDF pack, six focused PDFs, and editable source files download immediately after payment. 7-day satisfaction refund."
-  : "Pilot checkout opens your email so we can confirm and send your access link within one business day. Payment links via Gumroad / LemonSqueezy / Stripe ship next.";
+  : "Pilot checkout opens your email so we can confirm the order and send the direct download links manually within one business day. Stripe Payment Link ships next.";
 
 const ASK_MAILTO =
   "mailto:hello@spareply.com?subject=Question%20about%20the%20SpaReply%20toolkit";
@@ -25,7 +25,7 @@ const ASK_MAILTO =
 export const metadata: Metadata = {
   title: "Toolkit Preview · MedSpa Review + Local SEO Toolkit | SpaReply",
   description:
-    "Preview the $49 MedSpa Review + Local SEO Toolkit — sample reply templates, the negative-review playbook, the HIPAA-aware safety checklist, GBP prompts, the front-desk SOP, and the 90-day content calendar.",
+    "Preview the $49 MedSpa Review + Local SEO Toolkit — sample reply templates, the negative-review playbook, the HIPAA-aware safety checklist, GBP prompts, the front-desk SOP, and the 4-week content calendar.",
   alternates: { canonical: "/toolkit-preview" },
   openGraph: {
     title: "MedSpa Review + Local SEO Toolkit — Preview",
@@ -50,14 +50,14 @@ const deliverables: Deliverable[] = [
     category: "Reply templates",
     title: "Service-specific public reply templates",
     blurb:
-      "30+ seed templates in the repo today — Hydrafacial, injectables, laser, peels, body contouring, and membership — across 5★ to 1★ and warm/polished/clinical tones. The full Drive version expands to 120+ with brand-voice variants.",
-    format: "Google Doc + plain text",
+      "20 paste-ready templates — Hydrafacial, injectables, laser, peels, body contouring, and membership — across 5★ to 1★ and warm/polished/clinical tones, written to acknowledge without confirming care.",
+    format: "Markdown + printable PDF",
     snippetLabel: "Sample · 5★ Hydrafacial · warm",
     snippet:
       "Thank you for the kind note, [guest first name]. We're glad the visit felt calm and that you left feeling refreshed. The team will pass your words along to [provider] — we look forward to welcoming you back.",
     meta: [
-      { label: "In repo", value: "30+ templates" },
-      { label: "Full version", value: "120+ templates" },
+      { label: "Paste-ready", value: "20 templates" },
+      { label: "Tones", value: "Warm · polished · clinical" },
       { label: "Avg time to copy", value: "< 60 sec" },
     ],
   },
@@ -95,13 +95,13 @@ const deliverables: Deliverable[] = [
     category: "Local SEO",
     title: "Google Business Profile prompt pack",
     blurb:
-      "25 GBP post prompts grouped by service spotlights, membership/offers, local + seasonal hooks, trust + expertise, review-driven angles, and re-engagement. Includes headline patterns and image guidelines.",
+      "13 GBP post prompts grouped by service spotlights, membership/offers, local + seasonal hooks, trust + expertise, review-driven angles, and re-engagement. Includes headline patterns and image guidelines.",
     format: "Notion-ready prompts",
     snippetLabel: "Sample · spring glow plan",
     snippet:
       "Spring glow plan in [city]: Hydrafacial + LED finishing — three weekly slots open this week. Members save 15%. (Pair with one real, non-stock image of your treatment area.)",
     meta: [
-      { label: "Prompts", value: "25 angles" },
+      { label: "Prompts", value: "13 angles" },
       { label: "Cadence", value: "1–2 / week" },
       { label: "Headline patterns", value: "5 included" },
     ],
@@ -123,17 +123,17 @@ const deliverables: Deliverable[] = [
   },
   {
     category: "Content",
-    title: "90-day content calendar",
+    title: "4-week content calendar",
     blurb:
-      "Thirteen weeks of paired GBP / review-reply / social / email angles with internal notes. Built so a single front-desk lead can run a content cadence without a marketing agency.",
-    format: "CSV + Google Sheet",
+      "Four weeks of paired GBP / review-reply / email / SEO focus rows with internal notes. Built so a single front-desk lead can run a content cadence without a marketing agency.",
+    format: "CSV + printable PDF",
     snippetLabel: "Sample · week 1 row",
     snippet:
-      "Week 1 · Spring glow plan kickoff · GBP: \"Spring glow plan in [city]: Hydrafacial + LED finishing — three weekly slots open this week.\" · Reply focus: 5★ + 4★ warm tone · Email: 4-week cadence for a refreshed look without overpromising.",
+      "Week 1 · Reset · GBP: \"Spring glow plan in [city]: Hydrafacial + LED finishing — three weekly slots open this week.\" · Reviews: clear the queue, escalate every 1–2★ to the practice manager · Email: re-engagement note to guests not seen in 90+ days · SEO: refresh GBP services, attributes, hours.",
     meta: [
-      { label: "Weeks", value: "13" },
-      { label: "Columns", value: "8" },
-      { label: "Format", value: "CSV + Sheet" },
+      { label: "Weeks", value: "4" },
+      { label: "Tracks", value: "GBP · reviews · email · SEO" },
+      { label: "Format", value: "CSV + printable PDF" },
     ],
   },
 ];
@@ -178,8 +178,8 @@ export default function ToolkitPreviewPage() {
               Each section below shows a real sample pulled from the toolkit. After
               checkout, buyers download the polished{" "}
               <strong>31-page SpaReply PDF complete pack</strong>, six focused individual
-              PDFs, and the editable Markdown / CSV source files — instantly, no Drive
-              wait, no onboarding call.{" "}
+              PDFs, and the editable Markdown / CSV source files — direct download
+              the moment Stripe confirms, no onboarding call.{" "}
               {STRIPE_ENABLED
                 ? "Buy the $49 bundle now via secure Stripe checkout."
                 : null}
@@ -337,7 +337,7 @@ export default function ToolkitPreviewPage() {
           <code>toolkit/medspa-review-local-seo-toolkit/</code>. After purchase, the same
           six pieces ship as the polished 31-page PDF complete pack and as six focused
           individual PDFs — plus the editable Markdown and CSV originals so your team can
-          fork the wording into a shared drive.
+          fork the wording into a shared workspace.
         </p>
 
         <div className={styles.deliverables}>
@@ -414,28 +414,22 @@ export default function ToolkitPreviewPage() {
             </TrackedLink>
           </div>
         </div>
-        <form
-          className={styles.askForm}
-          action={ASK_MAILTO}
-          method="post"
-          encType="text/plain"
-          aria-label="Ask a question before you buy"
-        >
+        <div className={styles.askForm}>
           <strong>Have a question first?</strong>
-          <input aria-label="Name" name="name" placeholder="Your name" />
-          <input aria-label="Clinic email" name="email" placeholder="Clinic email" type="email" />
-          <input aria-label="Med spa city" name="city" placeholder="City / market" />
-          <textarea
-            aria-label="Question"
-            name="question"
-            placeholder="What would make this a no-brainer for your team?"
-          />
-          <button type="submit">Send a question</button>
+          <p>
+            One inbox, no CRM. Email{" "}
+            <a href={ASK_MAILTO}>hello@spareply.com</a> with a quick note about your
+            clinic, your city, and what would make the toolkit a no-brainer for your
+            front desk. A human reads every email — usually same business day.
+          </p>
+          <a className={styles.askFormButton} href={ASK_MAILTO}>
+            Email hello@spareply.com
+          </a>
           <small>
             Opens your email client so you stay in control of what you send. No CRM,
             no marketing automation.
           </small>
-        </form>
+        </div>
       </section>
 
       <p className={styles.disclaimer}>
