@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://spareply.com"),
   title: "SpaReply | Review Replies + Local SEO Toolkit for Med Spas",
   description:
     "Med-spa review replies your front desk can copy, customize, and post safely. Free browser generator plus a $49 launch toolkit with 20 paste-ready templates, negative-review scripts, and local SEO prompts.",
@@ -25,11 +26,23 @@ export const metadata: Metadata = {
     "HIPAA aware review replies",
     "negative review response med spa",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "SpaReply | Review Replies + Local SEO Toolkit for Med Spas",
     description:
       "Free browser-based review reply generator and a $49 launch toolkit: 20 paste-ready templates, negative-review scripts, HIPAA-aware safety checklist, and Google Business Profile prompts.",
     type: "website",
+    url: "/",
+    siteName: "SpaReply",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SpaReply | Review Replies + Local SEO Toolkit for Med Spas",
+    description:
+      "Free in-browser review reply generator and a $49 launch toolkit. 20 paste-ready templates, HIPAA-aware checklist, GBP + 4-week content calendar.",
   },
 };
 
